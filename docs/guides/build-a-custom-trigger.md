@@ -1,3 +1,7 @@
+---
+title: Build a Custom Agent Trigger
+parent: Guides
+---
 ## Build a Custom Trigger
 
 {% embed url="https://www.youtube.com/embed/UqaSRtoaOh4?si=MnQ2JWxj63IuPMzZ" %}

@@ -1,5 +1,6 @@
 ---
-title: Concepts
+title: Core Concepts
+nav_order: 3
 ---
 # Overview
 

@@ -1,8 +1,13 @@
+---
+title: Actions
+parent: Core Concepts
+nav_order: 2
+---
 Actions are responsible for performing specific operations to get inputs for a Generator or based on the generated output from a Generator. They encapsulate a single action and do not involve complex decision-making. Actions are the executable units that bring the generated inputs and output to life.
 
 ## Try making your own Action:
 
-{% @iframe/iframe url="https://blueprints.sublayer.com/interactive-code-generator/sublayer-actions" %}
+<iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-actions" width="100%" height="800px"></iframe>
 
 ## Examples:
 

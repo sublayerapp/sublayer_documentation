@@ -1,3 +1,7 @@
+---
+title: Advanced Config
+nav_order: 6
+---
 # Advanced Config
 
 After installing Sublayer, you can choose between any of the available LLM providers we support.

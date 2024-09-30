@@ -1,3 +1,8 @@
+---
+title: Generator Output Adapters
+parent: Custom Components
+nav_order: 1
+---
 ## Introduction to Output Adapters
 
 Output adapters in Sublayer are powerful components that define the structure and format of the AI-generated output. They serve as a bridge between the raw AI responses and the structured data your application expects.

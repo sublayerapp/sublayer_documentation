@@ -1,6 +1,7 @@
 ---
 title: Generators
-parent: Concepts
+parent: Core Concepts
+nav_order: 1
 ---
 # Generators
 

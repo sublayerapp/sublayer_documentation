@@ -1,3 +1,7 @@
+---
+title: Run Llama3.1 with Ollama
+parent: Guides
+---
 ## Run Llama3.1 locally with Ollama
 
 1. [Install Ollama](#install-ollama)

@@ -1,3 +1,7 @@
+---
+title: Command Line Command Generator
+parent: Guides
+---
 ## Command Line Command Generator
 
 Browse the code on GitHub: [Command Line Command Generator](https://github.com/sublayerapp/clag)

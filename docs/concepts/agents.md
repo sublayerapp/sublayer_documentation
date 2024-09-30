@@ -1,3 +1,8 @@
+---
+title: Agents
+parent: Core Concepts
+nav_order: 3
+---
 ## Understanding Sublayer Agents
 
 Think of Sublayer Agents as your personal assistants, always ready to help with repetitive tasks or respond to changes in your environment. These agents can assist with a wide range of activities, from coding to data processing to system monitoring and beyond. You create an agent by defining four key aspects: what should wake it up (triggers), what it's trying to achieve (goal condition), how it checks its progress (check status), and what it actually does (step).
@@ -19,7 +24,7 @@ These methods work in concert to create a flexible, event-driven system for auto
 
 ## Try generating your own agent:
 
-{% @iframe/iframe url="https://blueprints.sublayer.com/interactive-code-generator/sublayer-agents" %}
+<iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-agents" width="100%" height="500px"></iframe>
 
 ## Examples:
 

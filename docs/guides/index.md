@@ -1,3 +1,8 @@
+---
+title: Guides
+nav_order: 5
+---
+
 We're always looking for more ideas for guides. If you have an idea for a guide, let us know by sending us a message in [our Discord](https://discord.gg/pWZ689GW7U).
 
 ## List of Guides
