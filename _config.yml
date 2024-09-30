@@ -1,8 +1,32 @@
-title: Just the Docs Template
-description: A starter template for a Jeykll site using the Just the Docs theme!
+title: Sublayer Docs
+description: A model agnostic AI agent framework in Ruby
 theme: just-the-docs
 
-url: https://just-the-docs.github.io
+permalink: pretty
+
+defaults:
+  - scope:
+      path: "docs"
+      type: "pages"
+    values:
+      layout: "default"
+
+enable_copy_code_button: true
+url: "https://docs.sublayer.com"
+logo: "/assets/images/sublayer-logo-transparent@2x.png"
+favicon_ico: "/assets/images/favicon.png"
 
 aux_links:
-  Template Repository: https://github.com/just-the-docs/just-the-docs-template
+  Sublayer Gem: https://github.com/sublayerapp/sublayer
+aux_links_new_tab: true
+
+gh_edit_link: true
+gh_edit_link_text: "Edit this page on GitHub."
+gh_edit_repository: "https://github.com/sublayerapp/sublayer_documentation"
+gh_edit_branch: "main"
+gh_edit_source: "docs"
+gh_edit_view_mode: "tree"
+
+ga_tracking: "G-05P9NYF7YV"
+
+footer_content: "Copyright &copy; 2024 Sublayer, Inc. All rights reserved."
