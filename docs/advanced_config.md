@@ -27,7 +27,7 @@ Usage:
 
 ```ruby
 Sublayer.configuration.ai_provider = Sublayer::Providers::Claude
-Sublayer.configuration.ai_model = "claude-3-opus-20240229"
+Sublayer.configuration.ai_model = "claude-3-haiku-20240307"
 ```
 
 ## Google
@@ -40,3 +40,12 @@ Usage:
 Sublayer.configuration.ai_provider = Sublayer::Providers::Gemini
 Sublayer.configuration.ai_model = "gemini-1.5-flash-latest"
 ```
+
+## Additional AI Model Options for Projects
+
+Recent updates allow for the inclusion of more AI model options across different project types in the Sublayer framework. This enhancement supports:
+
+- CLI Projects using models like `gpt-4o`, `claude-3-haiku-20240307`, or `gemini-1.5-flash-latest`.
+- GithubAction and QuickScript projects leveraging these AI models in their workflows.
+
+Users should configure their environment with the appropriate model and provider settings to maximize the flexibility and power of their Sublayer-enabled applications.
