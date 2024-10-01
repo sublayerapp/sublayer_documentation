@@ -65,11 +65,11 @@ module Sublayer
 
       def prompt
         <<-PROMPT
-          You are an expert programmer in \#{@technologies.join(", ")}.
+          You are an expert programmer in \\#{@technologies.join(", ")}.
 
-          You are tasked with writing code using the following technologies: \#{@technologies.join(", ")}.
+          You are tasked with writing code using the following technologies: \\#{@technologies.join(", ")}.
 
-          The description of the task is \#{@description}
+          The description of the task is \\#{@description}
 
           Take a deep breath and think step by step before you start coding.
         PROMPT
@@ -91,7 +91,7 @@ Try generating your own generator with our interactive code generator below:
 
 Require the Sublayer gem and your generator and call `generate`!
 
-Here's an example of how you might use the \`CodeFromDescriptionGenerator\` above:
+Here's an example of how you might use the `CodeFromDescriptionGenerator` above:
 
 ```ruby
 # ./example.rb
@@ -111,3 +111,9 @@ Now that you've created your first generator, you can:
 * Create some [Actions]({% link docs/concepts/actions.md %}) to do something with whatever you've generated.
 * Browse some [Examples]({% link docs/guides/index.md %}) to learn how to use the Sublayer gem in different types of projects.
 * [Join our Discord](https://discord.gg/TvgHDNEGWa) to chat with us, for support, and to keep up with the latest updates.
+
+### Important Update
+
+In the latest version of Sublayer (0.2), the default AI model has been updated from 'gpt-4 turbo' to 'gpt-4o'. This change aims to improve the efficiency and output quality of your AI integrations. If you have set a specific model in your configuration, ensure it aligns with the latest available models.
+
+For more details, refer to the 'Notes on 0.2' section of the documentation or consult the [Installation Guide]({% link docs/guides/index.md %}) to adjust your setup accordingly.
