@@ -10,7 +10,7 @@ parent: Guides
 4. [Use with Sublayer](#use-with-sublayer-skip-to-basic-demo-if-you-dont-have-a-project)
 5. [Basic Demo](#basic-demo)
 
-{% embed url="https://www.youtube.com/embed/L0kTksoFaVM?si=Ltk41LtlNflobV8R" %}
+<iframe width="560" height="315" src="https://www.youtube.com/embed/L0kTksoFaVM?si=bhl85yRHF9pR2Ist" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Install [Llamafile](https://github.com/Mozilla-Ocho/llamafile)
 1. ```bash
@@ -58,7 +58,7 @@ llamafile -ngl 9999 -m path/to/model.gguf --host 0.0.0.0 -c 2048
     Sublayer.configuration.ai_model = "LLaMA_CPP"
     ```
 4. Build a sublayer generator:
-    {% @iframe/iframe url="https://blueprints.sublayer.com/interactive-code-generator/sublayer-generators" %}
+    <iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-generators" width="100%" height="500px"></iframe>
 
 5. Use in your code:
     ```ruby
@@ -89,7 +89,7 @@ bundle install
 
 * Build a sublayer generator with the following description:
     * "generator that uses Time.now and finds a fun historical event from the past that occurred on the same month/day as a value"
-    {% @iframe/iframe url="https://blueprints.sublayer.com/interactive-code-generator/sublayer-generators?example=false" %}
+    <iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-generators?example=false" width="100%" height="500px"></iframe>
 
 * Paste the result from above into `historical_event_generator.rb` (rename if needed)
 

@@ -10,7 +10,7 @@ parent: Guides
 4. [Basic Demo](#full-demo)
 5. [Building a custom Provider](#building-a-custom-provider)
 
-{% embed url="https://www.youtube.com/embed/TPSWeFrN67w" %}
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TPSWeFrN67w?si=V1e3epL1NNrfTGzB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Install [Ollama](https://ollama.com/)
 * Visit [https://ollama.com/](https://ollama.com/) and download ollama
@@ -80,7 +80,7 @@ To add a provider to an existing project:
     Sublayer.configuration.ai_provider = Sublayer::Providers::OllamaLlama31
     ```
 5. Build a sublayer generator:
-    {% @iframe/iframe url="https://blueprints.sublayer.com/interactive-code-generator/sublayer-generators" %}
+<iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-generators" width="100%" height="500px"></iframe>
 6. Use in your code:
     ```ruby
     MyGenerator.new(attributes).generate
@@ -112,7 +112,7 @@ bundle install
 
 * Build a sublayer generator with the following description:
     * "generator that writes poems in the style of Dr. Seuss"
-    {% @iframe/iframe url="https://blueprints.sublayer.com/interactive-code-generator/sublayer-generators?example=false" %}
+<iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-generators?example=false" width="100%" height="500px"></iframe>
 
 * Paste the result from above into `dr_seuss_poem_generator.rb` (rename if desired)
 
@@ -178,7 +178,7 @@ bundle install
   ```
 
 ## Building a Custom Provider
-{% embed url="https://www.youtube.com/embed/4Trn-I6Ew1I" %}
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4Trn-I6Ew1I?si=z-lBwGc617vPgdDc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 * Sublayer Gem comes with httparty
 * Add a class method `.call` with two named parameters: `prompt:` and `output_adapter:`

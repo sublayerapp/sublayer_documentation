@@ -12,7 +12,7 @@ If you'd like to follow along on the guide and with the video you can grab the c
 
 The final code for this guide is available on the "main" branch: [TDD Bot](https://github.com/sublayerapp/tddbot)
 
-{% embed url="https://www.loom.com/embed/c9a41f43e18c4d40ae23034620149a1a?sid=bcc8bc66-c639-4081-a51a-b83c8fb8d81a" %}
+<div style="position: relative; padding-bottom: 64.99999999999999%; height: 0;"><iframe src="https://www.loom.com/embed/c9a41f43e18c4d40ae23034620149a1a?sid=50fd12e5-0500-4dfa-9011-dc21bbf77bd0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
 ## Step 0 - The MakeTestsPass Command and includes
 
@@ -32,8 +32,8 @@ module Tddbot
 
       def self.help
         "Have an LLM continually modify the implementation file until the test command passes successfully.\n
-        Usage: {{command:\#{Tddbot::TOOL_NAME} make_tests_pass <implementation_file_path> \"<test_command>\"}}\n
-        Example: {{command:\#{Tddbot::TOOL_NAME} make_tests_pass lib/my_class.rb \"rspec spec/my_class_spec.rb\"}}"
+        Usage: \{\{command:\#{Tddbot::TOOL_NAME} make_tests_pass <implementation_file_path> \"<test_command>\"}}\n
+        Example: \{\{command:\#{Tddbot::TOOL_NAME} make_tests_pass lib/my_class.rb \"rspec spec/my_class_spec.rb\"}}"
       end
     end
   end
