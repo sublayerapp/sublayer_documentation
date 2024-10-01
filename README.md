@@ -2,7 +2,7 @@
 
 To browse the documentation visit the [https://docs.sublayer.com](https://docs.sublayer.com).
 
-[!NOTE]
+> [!NOTE]
 > This repository is augmented by AI agents to help keep the documentation up to
 > date and constantly improving. If this is something you'd be interested in for
 > your team, reach out to [founders@sublayer.com](mailto:founders@sublayer.com) or
