@@ -1,6 +1,7 @@
 title: Sublayer Docs
 description: A model agnostic AI agent framework in Ruby
 theme: just-the-docs
+color_scheme: sublayer
 
 permalink: pretty
 
@@ -17,7 +18,10 @@ logo: "/assets/images/sublayer-logo-transparent@2x.png"
 favicon_ico: "/assets/images/favicon.png"
 
 aux_links:
-  Sublayer Gem: https://github.com/sublayerapp/sublayer
+  Sublayer.com: https://sublayer.com
+  Github: https://github.com/sublayerapp/sublayer
+  Rubygems: https://rubygems.org/gems/sublayer
+
 aux_links_new_tab: true
 
 gh_edit_link: true
