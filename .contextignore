@@ -1,0 +1,7 @@
+.git
+.github/**/*
+_includes/
+_sass/
+assets/
+LICENSE
+README.md
