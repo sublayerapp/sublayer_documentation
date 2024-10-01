@@ -23,7 +23,7 @@ $ gem install sublayer
 Or add it to your Gemfile:
 
 ```ruby
-gem "sublayer"
+gem "sublayer", "~> 0.2.7"
 ```
 
 ### Step 2 - Environment Setup
@@ -65,11 +65,14 @@ module Sublayer
 
       def prompt
         <<-PROMPT
-          You are an expert programmer in \#{@technologies.join(", ")}.
+          You are an expert programmer in \
+\#{@technologies.join(", ")}.
 
-          You are tasked with writing code using the following technologies: \#{@technologies.join(", ")}.
+          You are tasked with writing code using the following technologies: \
+\#{@technologies.join(", ")}.
 
-          The description of the task is \#{@description}
+          The description of the task is \
+\#{@description}
 
           Take a deep breath and think step by step before you start coding.
         PROMPT
@@ -91,7 +94,7 @@ Try generating your own generator with our interactive code generator below:
 
 Require the Sublayer gem and your generator and call `generate`!
 
-Here's an example of how you might use the \`CodeFromDescriptionGenerator\` above:
+Here's an example of how you might use the `CodeFromDescriptionGenerator` above:
 
 ```ruby
 # ./example.rb
@@ -103,6 +106,14 @@ generator = Sublayer::Generators::CodeFromDescriptionGenerator.new(description: 
 
 puts generator.generate
 ```
+
+### New Project Types
+
+Sublayer supports multiple project templates including `CLI`, `GithubAction`, and `QuickScript`. These templates can be used to set up new projects with specific use cases in mind:
+
+- **CLI:** Use this template to create a command-line interface project.
+- **GithubAction:** This template helps set up projects as Github Actions, suitable for CI/CD workflows.
+- **QuickScript:** Ideal for quickly setting up simple script-based projects.
 
 ### Next Steps
 

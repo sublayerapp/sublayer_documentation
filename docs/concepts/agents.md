@@ -5,28 +5,32 @@ nav_order: 3
 ---
 # Agents
 
-Think of Sublayer Agents as your personal assistants, always ready to help with repetitive tasks or respond to changes in your environment. These agents can assist with a wide range of activities, from coding to data processing to system monitoring and beyond. You create an agent by defining four key aspects: what should wake it up (triggers), what it's trying to achieve (goal condition), how it checks its progress (check status), and what it actually does (step).
+Sublayer Agents serve as autonomous assistants designed to help with a variety of tasks, whether it's coding, data processing, or monitoring complex systems. They are built to react to changes in the environment through triggers and aim to fulfill a defined goal condition. Agents follow a continuous loop of checking their progress and executing steps until they achieve their goal.
 
-Triggers could be things like file changes, incoming data, time-based events, or even manual calls while the goal might be completing a data analysis or updating a system. The agent will keep checking its status and taking steps until it reaches its goal. It's like having a tireless helper that knows exactly when to jump in and what to do, making a variety of processes more efficient and responsive to change. Whether you're automating workflows, monitoring systems, or processing data, Sublayer Agents provide a flexible, event-driven approach to tackling complex and repetitive tasks.
+Triggers for agents can be based on events like file changes, incoming data, time-based triggers, or manual activation. These agents work tirelessly, enhancing efficiency and responsiveness by automatically handling repetitive and complex tasks. They are particularly useful for automating workflows, monitoring, and processing within a flexible, event-driven architecture.
 
 ## Writing an Agent
 
-Sublayer Agents are autonomous units of execution designed to perform specific tasks or monitor systems. They are built on top of the `Sublayer::Agents::Base` class and utilize a Domain Specific Language (DSL) for defining their behavior.
+To create an agent, you define four main components using the Domain Specific Language (DSL) provided by Sublayer:
 
-The DSL consists of four primary methods:
+- `trigger`: Defines what activates the agent, such as file modifications, time schedules, or specific webhook calls.
+- `goal_condition`: Sets the criteria that determine when the task is complete.
+- `check_status`: Continually evaluates the current state against the goal.
+- `step`: Executes the logic required to move towards achieving the goal.
 
-- `trigger`: Specifies events that activate the agent (e.g., file changes, time-based events, webhooks, etc.)
-- `goal_condition`: Defines the criteria for task completion
-- `check_status`: Evaluates the current state of the task
-- `step`: Implements the actual logic to be executed
-
-These methods work in concert to create a flexible, event-driven system for automating complex workflows and responding to changes in various environments.
-
-## Try generating your own agent:
-
-<iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-agents" width="100%" height="500px"></iframe>
+These components offer a structured yet flexible approach to define the functionality of agents, allowing them to perform a wide array of automated operations.
 
 ## Examples:
 
 - [RSpecAgent](https://github.com/sublayerapp/sublayer/blob/main/spec/agents/examples/rspec_agent.rb)
-  - A Sublayer agent that is triggered any time a test file or an implementation file changes with a goal of making the tests pass. When one of the files changes, the status is checked by running the tests. If the tests are failing, the agent sends the tests and the implementation to an LLM (using a [Sublayer::Generator](/concepts/generators)) to generate a new implementation that should pass the tests.
+  - This agent triggers when test or implementation files change, aiming to pass all tests. It checks the status by running tests, and if they fail, it collects test data and the implementation to suggest improvements through an LLM.
+
+## Enhancements
+
+With recent updates in the `lib/sublayer/cli/commands/agent.rb`, agents now support more sophisticated trigger setups and goal conditions, extending their applicability in complex scenarios. This expansion improves capabilities and scenarios where agents can be an effective tool.
+
+## Developing Custom Agents
+
+The flexibility of agents makes them suitable for a variety of scenarios in automation and monitoring. While standard functionalities cover common use cases, the ability to develop custom agents tailor-fit to specific requirements remains a core strength of the Sublayer framework.
+
+For advanced use cases, developers can extend and customize agents by leveraging the comprehensive DSL and integrating them into larger Sublayer-based systems. This facilitates robust, scalable solutions tailored to unique operational needs.

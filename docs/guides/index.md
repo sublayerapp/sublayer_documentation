@@ -29,5 +29,18 @@ A command line program that uses an LLM to generate code to pass your failing te
 A guide on the recommended way to set up and run LLMs locally to interface with Sublayer.
 
 * Learn how to set up [llamafile](https://github.com/Mozilla-Ocho/llamafile)
-* Learn which models we recommend for local use
+* Learn which models are recommended for local use
 * Learn how to point Sublayer to your locally running server
+
+### [Testing and Debugging]({% link docs/guides/testing-and-debugging.md %})
+
+Explore comprehensive testing strategies and debugging tips to maintain and extend your implementations with confidence. (Planned section)
+
+### [Run Llama3.1 with Ollama]({% link docs/guides/running-local-llama31-with-ollama.md %})
+
+Instructions on running Llama3.1 locally using Ollama.
+
+* Steps to install and configure Ollama
+* Guidelines on adding custom providers for Llama3.1
+
+Explore these guides to expand your knowledge and enhance your applications with the power of Sublayer.
