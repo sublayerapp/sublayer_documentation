@@ -40,3 +40,25 @@ Usage:
 Sublayer.configuration.ai_provider = Sublayer::Providers::Gemini
 Sublayer.configuration.ai_model = "gemini-1.5-flash-latest"
 ```
+
+## Creating CLI Projects
+
+Sublayer now supports creating CLI projects leveraging different AI providers and models. Use the `CLIProject` to set up these projects with ease. Choose from AI providers such as OpenAI, Anthropic, or Gemini.
+
+Usage:
+
+```shell
+sublayer new my_cli_project --template CLI --provider OpenAI --model gpt-4o
+```
+
+## Creating Github Action Projects
+
+Apart from CLI projects, Sublayer also allows you to create Github Action projects, streamlining continuous integration workflows using AI. The `GithubActionProject` command makes it simple to start.
+
+Usage:
+
+```shell
+sublayer new my_github_action --template GithubAction --provider OpenAI --model gpt-4o
+```
+
+By expanding the supported project types, you can integrate AI more closely with development pipelines, enhancing automation and efficiency.

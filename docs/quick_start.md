@@ -91,7 +91,7 @@ Try generating your own generator with our interactive code generator below:
 
 Require the Sublayer gem and your generator and call `generate`!
 
-Here's an example of how you might use the \`CodeFromDescriptionGenerator\` above:
+Here's an example of how you might use the `CodeFromDescriptionGenerator` above:
 
 ```ruby
 # ./example.rb
@@ -103,6 +103,24 @@ generator = Sublayer::Generators::CodeFromDescriptionGenerator.new(description: 
 
 puts generator.generate
 ```
+
+### CLI and GitHub Action Projects
+
+You can now create user-friendly CLI tools and robust GitHub Action workflows by leveraging the new project templates:
+
+- **Creating a CLI Project:**
+
+  ```shell
+  sublayer new my_cli_project --template CLI --provider OpenAI --model gpt-4o
+  ```
+
+- **Creating a GitHub Action Project:**
+
+  ```shell
+  sublayer new my_github_action --template GithubAction --provider OpenAI --model gpt-4o
+  ```
+
+These templates allow you to utilize AI effectively in different environments, enhancing development and automation processes.
 
 ### Next Steps
 
