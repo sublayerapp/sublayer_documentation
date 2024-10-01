@@ -6,59 +6,83 @@ parent: Guides
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/UqaSRtoaOh4?si=fdcnLXfuSlIgobdL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-Let's make a simple time interval trigger for a hello world sublayer agent
+This guide demonstrates how to build a simple time interval trigger for a Hello World Sublayer agent. This trigger will help illustrate the basics of creating custom triggers within Sublayer's framework.
+
+## Step-by-Step Guide
+
+### Step 1: Setup Project Directory
+
+First, create the necessary files for our project:
 
 ```bash
-# bash
 mkdir hello_world_agent
 cd hello_world_agent
 touch Gemfile
-touch hello_world_agent.rb
-touch time_interval.rb
 ```
+
+### Step 2: Configure Gemfile
+
+Include Sublayer in your Gemfile:
 
 ```ruby
 # Gemfile
 source 'https://rubygems.org'
-gem 'sublayer', '~>0.1.0'
+gem 'sublayer', '~> 0.2.7'
 ```
 
+### Step 3: Install Dependencies
+
+Run bundler to install the dependencies specified in the Gemfile:
+
 ```bash
-# bash
 bundle install
 ```
 
-* Build a sublayer generator with the following description:
-    * "A Time Interval Trigger that takes an integer for seconds to wait"
+### Step 4: Create Trigger Generator
+
+Build a Sublayer generator with the following description:
+"A Time Interval Trigger that takes an integer for seconds to wait."
+
 <iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-triggers?example=false" width="100%" height="500px"></iframe>
 
-* Paste the result from above into `time_interval.rb` (rename and adjust arguments if needed)
-* Write the following code in `hello_world_agent.rb`:
+### Step 5: Implement the Trigger
 
-  ```ruby
-  # hello_world_agent.rb
-  require "sublayer"
-  require "./time_interval.rb"
+Paste the result from above into a new file named `time_interval.rb`. Adjust the class and argument names if necessary.
 
-  class HelloWorldAgent < Sublayer::Agents::Base
-    trigger TimeInterval.new(2)
+### Step 6: Create Hello World Agent
 
-    goal_condition { false }
+Create `hello_world_agent.rb` with the following code to utilize the trigger:
 
-    check_status {}
+```ruby
+# hello_world_agent.rb
+require "sublayer"
+require "./time_interval"
 
-    step do
-      puts "hello world"
-    end
+class HelloWorldAgent < Sublayer::Agents::Base
+  trigger TimeInterval.new(2)
+
+  goal_condition { false }
+
+  check_status {}
+
+  step do
+    puts "hello world"
   end
+end
 
-  HelloWorldAgent.new.run
-  ```
+HelloWorldAgent.new.run
+```
 
-  Adjust the name of the TimeInterval class and the arguments as needed!
+Modify the `TimeInterval` class name and its arguments to suit your requirements as needed.
 
-* Run your code:
+### Step 7: Execute the Agent
 
-  ```bash
-  ruby hello_world_agent.rb
-  ```
+Run your code to see the agent in action:
+
+```bash
+ruby hello_world_agent.rb
+```
+
+---
+
+This guide provides the foundational steps to create a custom trigger, integrating it into an agent workflow. For additional customization options and exploration of triggers, refer to the [Sublayer Trigger Documentation](docs/custom_components/triggers.md). Keep experimenting to create more comprehensive sublayer solutions.

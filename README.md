@@ -1,32 +1,69 @@
-# Sublayer Documentation Repo
+# Sublayer Documentation
 
-To browse the documentation visit the [https://docs.sublayer.com](https://docs.sublayer.com).
+Welcome to the Sublayer documentation! This guide will help you get started with using the Sublayer framework to build AI-driven applications in Ruby.
 
-> [!NOTE]
-> This repository is augmented by AI agents to help keep the documentation up to
-> date and constantly improving. If this is something you'd be interested in for
-> your team, reach out to [founders@sublayer.com](mailto:founders@sublayer.com) or
-> come chat with us in [our Discord](https://discord.gg/TvgHDNEGWa).
->
-> We also offer setting this up for open source projects for free! If you manage
-> an open source project and would like AI help keeping your documentation up to
-> date, come chat with us in [our Discord](https://discord.gg/TvgHDNEGWa).
+## Installation
 
-## AI Generated PRs
+To install Sublayer, add this line to your application's Gemfile:
 
-We have AI agents that are constantly reviewing the documentation and suggesting
-improvements in different ways.
+```ruby
+gem 'sublayer', '~> 0.2.7'
+```
 
-So far they:
+And then execute:
 
-* Review the documentation every morning and generate a PR with a suggestion on
-  a way to improve the documentation
+```shell
+$ bundle install
+```
 
-* Monitor PRs getting merged on [Sublayer](https://github.com/sublayerapp/sublayer) and generates a first-pass PR to update the documentation.
+Or install it yourself as:
+
+```shell
+$ gem install sublayer
+```
+
+### Quick Start
+
+Sublayer consists of three core components:
+
+- **Generators**: Responsible for taking input and generating new data using AI models.
+- **Actions**: Execute specific operations like processing the generated data or using it within your application.
+- **Agents**: Automate workflows by combining Generators and Actions into cohesive units.
+
+For a quick start with Sublayer, please refer to our [Quick Start Guide](docs/quick_start.md).
+
+## CLI Commands
+
+Sublayer includes several CLI commands to facilitate creating and managing different types of projects:
+
+- **CLI Projects**: Create command-line interface projects easily with `cli_project.rb`. This allows for rapid bootstrapping of CLI tools that leverage the power of AI.
+  
+- **GitHub Action Projects**: Use `github_action_project.rb` to integrate AI capabilities into GitHub workflows, automating actions directly from your repositories.
+
+- **Quick Script Projects**: With `quick_script_project.rb`, quickly set up scripts for short and efficient AI tasks.
+
+For more detailed examples and options, consult the [CLI Commands Reference](docs/cli_commands.md).
+
+## Advanced Configuration
+
+Sublayer supports various AI providers and models. Configuration involves setting environment variables for API keys and selecting appropriate models.
+
+### Supported Providers and Models
+
+- **OpenAI**: Models such as `gpt-4o` provide advanced language understanding and generation.
+- **Anthropic Claude**: Models like `claude-3-haiku-20240307` offer powerful performance for specific tasks.
+- **Google Gemini**: Use models like `gemini-1.5-flash-latest` for diverse AI tasks.
+
+For detailed setup instructions, visit our [Advanced Config](docs/advanced_config.md) section.
 
 ## Contributing
 
-All documentation files are written in Markdown and stored in the `docs` directory. To contribute, fork the repository, make your changes, and submit a pull request.
+Bug reports and pull requests are welcome on GitHub at [https://github.com/sublayerapp/sublayer](https://github.com/sublayerapp/sublayer). This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
-Comments, suggestions, and review of AI generated PRs is also greatly appreciated!
+## License
 
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+## Copyright
+
+&copy; 2024 Sublayer, Inc. All rights reserved. Visit our [website](https://sublayer.com) for more information.
