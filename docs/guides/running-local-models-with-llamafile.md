@@ -2,7 +2,7 @@
 title: Run LLM Models Locally with Llamafile
 parent: Guides
 ---
-## Run LLM Models Locally with Llamafile
+# Run LLM Models Locally with Llamafile
 
 1. [Install Llamfile](#install-llamafile)
 2. [Download the model](#download-the-model)

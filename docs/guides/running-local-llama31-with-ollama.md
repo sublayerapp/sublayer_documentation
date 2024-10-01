@@ -2,7 +2,7 @@
 title: Run Llama3.1 with Ollama
 parent: Guides
 ---
-## Run Llama3.1 locally with Ollama
+# Run Llama3.1 locally with Ollama
 
 1. [Install Ollama](#install-ollama)
 2. [Download and run the model](#download-and-run-llama3.1)

@@ -79,7 +79,7 @@ module Sublayer
 end
 ```
 
-To learn more about everything you can do with a generator, check out the [Generators](docs/concepts/generators.md) page.
+To learn more about everything you can do with a generator, check out the [Generators]({% link docs/concepts/generators.md %}) page.
 
 ### Step 3b - Try Generating One!
 
@@ -108,6 +108,6 @@ puts generator.generate
 
 Now that you've created your first generator, you can:
 
-* Create some [Actions](docs/concepts/actions.md) to do something with whatever you've generated.
-* Browse some [Examples](docs/guides/overview.md) to learn how to use the Sublayer gem in different types of projects.
-* Join our Discord to chat with us, for support, and to keep up with the latest as we get ready to release [Tasks](docs/concepts/tasks.md) and [Agents](docs/concepts/agents.md).
+* Create some [Actions]({% link docs/concepts/actions.md %}) to do something with whatever you've generated.
+* Browse some [Examples]({% link docs/guides/index.md %}) to learn how to use the Sublayer gem in different types of projects.
+* [Join our Discord](https://discord.gg/TvgHDNEGWa) to chat with us, for support, and to keep up with the latest updates.

@@ -3,11 +3,11 @@ title: Generator Output Adapters
 parent: Custom Components
 nav_order: 1
 ---
-## Introduction to Output Adapters
+# Custom Output Adapters
 
 Output adapters in Sublayer are powerful components that define the structure and format of the AI-generated output. They serve as a bridge between the raw AI responses and the structured data your application expects.
 
-### The Output Adapter Interface
+## The Output Adapter Interface
 
 To create an output adapter in Sublayer, you need to implement the following interface:
 
@@ -24,7 +24,7 @@ To create an output adapter in Sublayer, you need to implement the following int
 
 - `materialize_result(raw_result)`: A method that receives the raw results from the LLM and returns a transformation of it. This is useful when you want to coerce the results into a specific type, or instantiate an object with the properties you receive from the LLM. Used in the `NamedStrings` output adapter linked below.
 
-### Using Your Custom Output Adapter
+## Using Your Custom Output Adapter
 
 For custom output adapters, you can pass the class directly into the `llm_output_adapter` method in the Generator like so:
 

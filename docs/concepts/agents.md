@@ -3,7 +3,7 @@ title: Agents
 parent: Core Concepts
 nav_order: 3
 ---
-## Understanding Sublayer Agents
+# Agents
 
 Think of Sublayer Agents as your personal assistants, always ready to help with repetitive tasks or respond to changes in your environment. These agents can assist with a wide range of activities, from coding to data processing to system monitoring and beyond. You create an agent by defining four key aspects: what should wake it up (triggers), what it's trying to achieve (goal condition), how it checks its progress (check status), and what it actually does (step).
 

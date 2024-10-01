@@ -3,11 +3,24 @@ title: Actions
 parent: Core Concepts
 nav_order: 2
 ---
-Actions are responsible for performing specific operations to get inputs for a Generator or based on the generated output from a Generator. They encapsulate a single action and do not involve complex decision-making. Actions are the executable units that bring the generated inputs and output to life.
+
+# Actions
+
+Actions are responsible for performing specific operations to get inputs for a Generator or based on the generated output from a Generator.
+
+You can think of actions as similar to tools in other agent frameworks. They encapsulate a single action and do not involve complex decision-making and are the executable units that bring the generated inputs and output to life.
+
+## Action Repository
+
+Curious about what actions are already written and available to use in your
+project? We maintain a repository of community and AI created Actions that can
+drop right in to your project.
+
+Check it out here: [Sublayer Actions Repository](https://github.com/sublayerapp/sublayer_actions)
 
 ## Try making your own Action:
 
-<iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-actions" width="100%" height="800px"></iframe>
+<iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-actions" width="100%" height="500px"></iframe>
 
 ## Examples:
 

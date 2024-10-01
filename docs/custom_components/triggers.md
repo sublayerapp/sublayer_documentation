@@ -4,6 +4,8 @@ parent: Custom Components
 nav_order: 2
 ---
 
+# Custom Agent Triggers
+
 A trigger is an activation mechanism in an agent that determines when an agent performs its tasks. Triggers can respond to various events or conditions (changes in files, time intervals, or any external inputs) providing flexibility in how and when agents operate. By defining custom triggers, developers can create agents that react dynamically or execute tasks on precise schedules.
 
 ## Try making your own trigger:

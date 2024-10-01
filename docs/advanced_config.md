@@ -14,12 +14,12 @@ Usage:
 
 ```ruby
 Sublayer.configuration.ai_provider = Sublayer::Providers::OpenAI
-Sublayer.configuration.ai_model = "gpt-4-turbo-preview"
+Sublayer.configuration.ai_model = "gpt-4o"
 ```
 
 ## Anthropic
 
-Supported Models: Claude 3 Opus, Claude 3 Haiku, Claude 3 Sonnet
+Supported Models: Claude 3+ Opus, Claude 3+ Haiku, Claude 3+ Sonnet
 
 Set your `ANTHROPIC_API_KEY` environment variable. (Visit [Anthropic](https://anthropic.com/) to get an API key.)
 
@@ -38,5 +38,5 @@ Usage:
 
 ```ruby
 Sublayer.configuration.ai_provider = Sublayer::Providers::Gemini
-Sublayer.configuration.ai_model = "gemini-pro"
+Sublayer.configuration.ai_model = "gemini-1.5-flash-latest"
 ```

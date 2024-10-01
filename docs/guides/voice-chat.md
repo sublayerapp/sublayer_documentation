@@ -2,7 +2,7 @@
 title: Build Voice Chat with an LLM on Rails
 parent: Guides
 ---
-## Build Voice Chat with an LLM on Rails
+# Build Voice Chat with an LLM on Rails
 
 ## Introduction
 
