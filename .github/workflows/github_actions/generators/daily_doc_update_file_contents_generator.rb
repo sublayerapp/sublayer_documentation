@@ -17,22 +17,23 @@ class DailyDocUpdateFileContentsGenerator < Sublayer::Generators::Base
 
   def prompt
     <<~PROMPT
-      As an expert in technical documentation, you are tasked with updating the contents of a specific file in the documentation repository. Use the following information to guide your update:
+      As an expert in technical documentation, you are tasked with updating the contents of a specific file in the documentation repository.
+      Use the following information to guide your update:
 
       1. File to update: #{@file_to_change}
-      2. Existing documentation context: #{@doc_context}
-      3. Current Code context: #{@code_context}
-      4. Documentation update suggestion: #{@doc_update_suggestion}
-      5. Changes made to other files so far: #{@changes_so_far}
+      2. Documentation update suggestion: #{@doc_update_suggestion}
+      3. Existing documentation context: #{@doc_context}
+      4. Current Code context: #{@code_context}
+      5. Pending changes made to other documentation so far: #{@changes_so_far}
+      6. The documentation is written through github pages.
 
       Update the file contents according to these guidelines:
-      1. Maintain the existing structure and style of the document
-      2. Focus on the specific update suggestion
+      1. Maintain the existing structure and style of the document, keep patterns that are present throughout the docs.
+      2. Focus on the update suggestion
       3. Prefer minimal changes that effectively communicate the updates
       4. Use clear, concise language appropriate for technical documentation
       5. Avoid temporal references (e.g., "now", "recent", "new", "just updated", "latest")
-      6. Ensure that all links and references remain valid after your changes
-      7. If adding new sections, place them logically within the existing document structure
+      6. Ensure all links and references remain valid
 
       Provide the entire updated file content, including unchanged parts.
     PROMPT
