@@ -5,7 +5,8 @@ class DailyDocUpdateSuggestionGenerator < Sublayer::Generators::Base
     item_name: "suggestion",
     attributes: [
       { name: "suggestion", description: "doc update suggestion" },
-      { name: "usefulness_score", description: "A score from 1-10 indicating the usefulness of the suggestion" }
+      { name: "usefulness_score", description: "A score from 1-10 indicating the usefulness of the suggestion" },
+      { name: "title", description: "doc update suggestion title" }
     ]
 
   def initialize(code_context:, doc_context:)
@@ -35,6 +36,7 @@ class DailyDocUpdateSuggestionGenerator < Sublayer::Generators::Base
       For each suggestion
       - Describe the suggestion and the reasoning for its need
       - Indicate its usefulness, 10 being most useful and 1 being least, as a way of prioritizing which suggestion should be done first
+      - Give the suggestion a succinct title that encapsulates the spirit of the suggestion
     PROMPT
   end
 end
