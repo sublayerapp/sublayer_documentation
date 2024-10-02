@@ -39,6 +39,7 @@ class MyGenerator < Sublayer::Generators::Base
 end
 ```
 
+
 ### Examples
 
 Below are links to the built-in output adapters in Sublayer and are fully tested against example generators. You can use these as a reference when building your own output adapters.
@@ -47,3 +48,48 @@ Below are links to the built-in output adapters in Sublayer and are fully tested
 - [List of Strings](https://github.com/sublayerapp/sublayer/blob/e57d4e44117cec6e6c0f750d53b499df7bc66ca1/lib/sublayer/components/output_adapters/list_of_strings.rb)
 - [String Selection from List](https://github.com/sublayerapp/sublayer/blob/e57d4e44117cec6e6c0f750d53b499df7bc66ca1/lib/sublayer/components/output_adapters/string_selection_from_list.rb)
 - [Named Strings](https://github.com/sublayerapp/sublayer/blob/e57d4e44117cec6e6c0f750d53b499df7bc66ca1/lib/sublayer/components/output_adapters/named_strings.rb)
+
+## Creating a Custom Output Adapter: An Example
+
+To provide a clearer understanding, here's a step-by-step example of creating a custom Output Adapter:
+
+### Step 1: Define the Adapter Class
+
+Start by defining a new class for your output adapter, inheriting from the base:
+
+```ruby
+class MyCustomAdapter < Sublayer::Components::OutputAdapters::Base
+  def initialize(name, description)
+    @name = name
+    @description = description
+  end
+```
+
+### Step 2: Define Properties
+
+Next, define the required `properties` method:
+
+```ruby
+  def properties
+    [OpenStruct.new(name: @name, type: 'string', description: @description, required: true)]
+  end
+end
+```
+
+### Step 3: Integrate with a Generator
+
+Use your custom adapter within a generator:
+
+```ruby
+class ExampleGenerator < Sublayer::Generators::Base
+  llm_output_adapter class: MyCustomAdapter,
+    name: "example",
+    description: "An example of a custom output adapter"
+
+  def prompt
+    "Generate a response based on specific criteria."
+  end
+end
+```
+
+By following these steps, you can create and integrate custom output adapters tailored to your specific use case.

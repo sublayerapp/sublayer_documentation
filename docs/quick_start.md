@@ -65,11 +65,11 @@ module Sublayer
 
       def prompt
         <<-PROMPT
-          You are an expert programmer in \#{@technologies.join(", ")}.
+          You are an expert programmer in \\#{@technologies.join(", ")}.
 
-          You are tasked with writing code using the following technologies: \#{@technologies.join(", ")}.
+          You are tasked with writing code using the following technologies: \\#{@technologies.join(", ")}.
 
-          The description of the task is \#{@description}
+          The description of the task is \\#{@description}
 
           Take a deep breath and think step by step before you start coding.
         PROMPT
@@ -103,6 +103,12 @@ generator = Sublayer::Generators::CodeFromDescriptionGenerator.new(description: 
 
 puts generator.generate
 ```
+
+### Step 5 - Explore Advanced Customization
+
+For deeper integration, you might consider creating custom Output Adapters. These adapters define how the generator output is structured and formatted to fit your specific application needs.
+
+Explore this in-depth [example of creating custom Output Adapters]({% link docs/custom_components/output-adapters.md %}).
 
 ### Next Steps
 
