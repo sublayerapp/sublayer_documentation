@@ -34,11 +34,23 @@ Set your OpenAI API key as an environment variable:
 export OPENAI_API_KEY="your-api-key"
 ```
 
-Don't have a key? Visit [OpenAI](https://openai.com/product) to get one.
+For Gemini add:
+
+```shell
+export GEMINI_API_KEY="your-api-key"
+```
+
+For Claude add:
+
+```shell
+export ANTHROPIC_API_KEY="your-api-key"
+```
+
+Don't have a key? Visit [OpenAI](https://openai.com/product), [Google AI Studio](https://ai.google.dev/), or [Anthropic](https://anthropic.com/) to get one.
 
 ### Step 3a - Create a Generator
 
-Create a Sublayer Generator. Generators are responsible for taking input from your application and generating output using an LLM like GPT-4.
+Create a Sublayer Generator. Generators are responsible for taking input from your application and generating output using an LLM.
 
 Here's an example of a generator that takes a description of code to generate and the technologies to use and generates code with an LLM:
 
@@ -65,11 +77,11 @@ module Sublayer
 
       def prompt
         <<-PROMPT
-          You are an expert programmer in \#{@technologies.join(", ")}.
+          You are an expert programmer in \\#{@technologies.join(", ")}.
 
-          You are tasked with writing code using the following technologies: \#{@technologies.join(", ")}.
+          You are tasked with writing code using the following technologies: \\#{@technologies.join(", ")}.
 
-          The description of the task is \#{@description}
+          The description of the task is \\#{@description}
 
           Take a deep breath and think step by step before you start coding.
         PROMPT
@@ -91,7 +103,7 @@ Try generating your own generator with our interactive code generator below:
 
 Require the Sublayer gem and your generator and call `generate`!
 
-Here's an example of how you might use the \`CodeFromDescriptionGenerator\` above:
+Here's an example of how you might use the `CodeFromDescriptionGenerator` above:
 
 ```ruby
 # ./example.rb
