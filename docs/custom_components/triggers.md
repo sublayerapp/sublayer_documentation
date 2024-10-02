@@ -14,4 +14,4 @@ A trigger is an activation mechanism in an agent that determines when an agent p
 
 ## Examples:
 
-- [FileChange](https://github.com/sublayerapp/sublayer/blob/main/lib/sublayer/triggers/file_change.rb): Activate agent when a file has changed.
+- [FileChange](https://github.com/sublayerapp/sublayer/blob/main/lib/sublayer/triggers/file_change.rb): Activate agent when a file has changed. 
