@@ -186,3 +186,4 @@ bundle install
 * Find the request format for function calling
 * If no function calling exists [click here to find an example provider of custom response formatting](https://github.com/sublayerapp/sublayer/blob/0.0/lib/sublayer/providers/local.rb)
 * Take the response and parse for the desired value
+

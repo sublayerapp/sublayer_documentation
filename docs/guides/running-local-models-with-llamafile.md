@@ -55,7 +55,7 @@ llamafile -ngl 9999 -m path/to/model.gguf --host 0.0.0.0 -c 2048
 3. Add to your configuration file:
     ```ruby
     Sublayer.configuration.ai_provider = Sublayer::Providers::Local
-    Sublayer.configuration.ai_model = "LLaMA_CPP"
+    Sublayer.configuration.ai_model = "gpt-4o"
     ```
 4. Build a sublayer generator:
     <iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-generators" width="100%" height="500px"></iframe>
@@ -101,7 +101,7 @@ bundle install
   require_relative 'historical_event_generator'
 
   Sublayer.configuration.ai_provider = Sublayer::Providers::Local
-  Sublayer.configuration.ai_model = "LLaMA_CPP"
+  Sublayer.configuration.ai_model = "gpt-4o"
 
   puts HistoricalEventGenerator.new.generate
   ```
