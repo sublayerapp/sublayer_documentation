@@ -1,24 +1,14 @@
----
-title: Build an LLM TDD Bot with Sublayer
-parent: Guides
----
 # Build an LLM TDD Bot with Sublayer
 
 ## Introduction
 
-In this guide, we'll walk through step by step on how to create a bot with the Sublayer gem that takes your tests, any failures of those tests, and gets an LLM to write code to pass those tests.
+In this guide, we'll walk through the process of creating a Test-Driven Development (TDD) bot using the Sublayer gem. This bot will utilize a large language model (LLM) to take your test cases, interpret any failures, and generate code to resolve those failures.
 
-If you'd like to follow along on the guide and with the video you can grab the code here on the "starting_point" branch: [TDD Bot](https://github.com/sublayerapp/tddbot/tree/starting_point)
+You can follow this guide along with the [TDD Bot repository](https://github.com/sublayerapp/tddbot) for additional context. The repository contains both a starting point and the completed project.
 
-The final code for this guide is available on the "main" branch: [TDD Bot](https://github.com/sublayerapp/tddbot)
+## Initial Setup
 
-<div style="position: relative; padding-bottom: 64.99999999999999%; height: 0;"><iframe src="https://www.loom.com/embed/c9a41f43e18c4d40ae23034620149a1a?sid=50fd12e5-0500-4dfa-9011-dc21bbf77bd0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
-
-## Step 0 - The MakeTestsPass Command and includes
-
-We're using Shopify's `cli-kit` for this tutorial, and the main entry point for this program is the MakeTestsPass command.
-
-The file is located at [lib/tddbot/commands/make_tests_pass.rb](https://github.com/sublayerapp/tddbot/blob/43297c5da9445bd6c8882d5e3876cff5fc6b2650/lib/tddbot/commands/make_tests_pass.rb)
+The main entry point for this program is the `MakeTestsPass` command, found in [lib/tddbot/commands/make_tests_pass.rb](https://github.com/sublayerapp/tddbot/blob/main/lib/tddbot/commands/make_tests_pass.rb). This command integrates with Shopify’s `cli-kit` and initiates the process of analyzing and modifying the code until the test cases pass.
 
 ```ruby
 require 'tddbot'
@@ -31,44 +21,25 @@ module Tddbot
       end
 
       def self.help
-        "Have an LLM continually modify the implementation file until the test command passes successfully.\n
-        Usage: \{\{command:\#{Tddbot::TOOL_NAME} make_tests_pass <implementation_file_path> \"<test_command>\"}}\n
-        Example: \{\{command:\#{Tddbot::TOOL_NAME} make_tests_pass lib/my_class.rb \"rspec spec/my_class_spec.rb\"}}"
+        "Use an LLM to modify the implementation file until tests pass.\n
+        Usage: {{command:#{Tddbot::TOOL_NAME} make_tests_pass <implementation_file_path> \"<test_command>\"}}\n
+        Example: {{command:#{Tddbot::TOOL_NAME} make_tests_pass lib/my_class.rb \"rspec spec/my_class_spec.rb\"}}"
       end
     end
   end
 end
 ```
 
-We've also included the folders and libraries needed in [/lib/tddbot.rb](https://github.com/sublayerapp/tddbot/blob/43297c5da9445bd6c8882d5e3876cff5fc6b2650/lib/tddbot.rb)
+Additional requires and folder setup are managed in [/lib/tddbot.rb](https://github.com/sublayerapp/tddbot/blob/main/lib/tddbot.rb).
 
-Most importantly in lines 3 and 4:
-```ruby
-require 'sublayer'
-require 'open3'
-```
+## Step 1: Creating the MakeRspecTestsPassTask
 
-and lines 16-20:
-```ruby
- ['generators', 'tasks', 'actions'].each do |subfolder|
-    Dir[File.join(ROOT, 'lib', 'tddbot', 'sublayer', subfolder, '*.rb')].each do |file|
-      require file
-    end
-  end
-```
+This task drives the main logic of the TDD bot. It loops through the cycle of:
 
-## Step 1 - MakeRspecTestsPassTask
-
-The first step is to create the Sublayer Task that's used in the MakeTestsPass command. It takes the `implementation_file_path` and the `test_command` which correspond to the first and second arguments to the command line command.
-
-What we do is perform a loop of:
-1. check if the tests pass
-2. if they do, we're done
-3. If they aren't, generate a new implementation to try to pass the tests
-4. Save that new implementation to the file
-5. Go back to step 1
-
-This code is located at [/lib/tddbot/sublayer/tasks/make_rspec_tests_pass_task.rb](https://github.com/sublayerapp/tddbot/blob/main/lib/tddbot/sublayer/tasks/make_rspec_tests_pass_task.rb)
+1. Executing the tests.
+2. Checking if the tests pass. If they do, the task is complete.
+3. If the tests fail, the task invokes a generator to adjust the implementation based on the failure output.
+4. Updates the implementation file with new code.
 
 ```ruby
 module Sublayer
@@ -108,57 +79,53 @@ module Sublayer
 end
 ```
 
-## Step 2 - The Actions
+## Step 2: Implementing Key Sublayer Actions
 
-The task uses two different Sublayer actions that we need to create: `RunTestCommandAction` and `WriteFileAction`.
+The `MakeRspecTestsPassTask` utilizes Sublayer actions:
 
-[lib/tddbot/sublayer/actions/run_test_command_action.rb](https://github.com/sublayerapp/tddbot/blob/main/lib/tddbot/sublayer/actions/run_test_command_action.rb)
+- **RunTestCommandAction**: Executes the test command and captures the output.
 
-```ruby
-module Sublayer
-  module Actions
-    class RunTestCommandAction < Base
-      def initialize(test_command:)
-        @test_command = test_command
-      end
+  ```ruby
+  module Sublayer
+    module Actions
+      class RunTestCommandAction < Base
+        def initialize(test_command:)
+          @test_command = test_command
+        end
 
-      def call
-        stdout, stderr, status = Open3.capture3(@test_command)
-        [stdout, stderr, status]
-      end
-    end
-  end
-end
-```
-
-[lib/tddbot/sublayer/actions/write_file_action.rb](https://github.com/sublayerapp/tddbot/blob/main/lib/tddbot/sublayer/actions/write_file_action.rb)
-
-```ruby
-module Sublayer
-  module Actions
-    class WriteFileAction < Base
-      def initialize(file_contents:, file_path:)
-        @file_contents = file_contents
-        @file_path = file_path
-      end
-
-      def call
-        File.open(@file_path, 'wb') do |file|
-          file.write(@file_contents)
+        def call
+          stdout, stderr, status = Open3.capture3(@test_command)
+          [stdout, stderr, status]
         end
       end
     end
   end
-end
-```
+  ```
 
-## Step 3 - The Generator
+- **WriteFileAction**: Writes new content to the specified file.
 
-Finally, we need to take the output of the test run, the test code, and the implementation file and generate the new code to try to pass the tests.
+  ```ruby
+  module Sublayer
+    module Actions
+      class WriteFileAction < Base
+        def initialize(file_contents:, file_path:)
+          @file_contents = file_contents
+          @file_path = file_path
+        end
 
-That's accomplished with this generator below:
+        def call
+          File.open(@file_path, 'wb') do |file|
+            file.write(@file_contents)
+          end
+        end
+      end
+    end
+  end
+  ```
 
-[lib/tddbot/sublayer/generators/modified_implementation_to_pass_tests_generator.rb](https://github.com/sublayerapp/tddbot/blob/main/lib/tddbot/sublayer/generators/modified_implementation_to_pass_tests_generator.rb)
+## Step 3: Crafting the Generator
+
+The generator `ModifiedImplementationToPassTestsGenerator` feeds the LLM with the necessary context to generate the desired code modifications.
 
 ```ruby
 module Sublayer
@@ -182,14 +149,10 @@ module Sublayer
         <<-PROMPT
         You are an expert in debugging and test resolution.
 
-        You have the current implementation, the tests, and the latest failure information at your disposal.
-
-        Your task is to modify the existing implementation using the implementation file content: \#{@implementation_file_contents},
-        the test file content: \#{@test_file_contents},
-        and the latest test output: \#{@test_output},
-        to ensure that the tests will pass.
-
-        Approach this task with careful analysis and methodical thinking.
+        Adjust the existing implementation based on the provided implementation file content: #{@implementation_file_contents},
+        the test file content: #{@test_file_contents},
+        and the latest test output: #{@test_output}
+        to ensure the tests pass.
         PROMPT
       end
     end
@@ -197,15 +160,15 @@ module Sublayer
 end
 ```
 
-## Step 4 - Run the bot!
+## Run the TDD Bot
 
-After all this you should be where we are in the video when we run the bot.
-
-The only thing to do now is to install the gem you've created and try to run the bot:
+After setting up the components, install the built gem and run the bot:
 
 ```shell
 $ bundle install
 $ gem build tddbot.gemspec
 $ gem install ./tddbot-0.0.1.gem
-$ tddbot make_tests_pass {YOUR IMPLEMENTATION FILE} {YOUR TEST COMMAND}
+$ tddbot make_tests_pass {YOUR_IMPLEMENTATION_FILE} {YOUR_TEST_COMMAND}
 ```
+
+This guide ensures that the TDD Bot is structured to interact with test cases and use a generative approach to solve failures, making it a valuable tool for developers practicing Test-Driven Development with LLM assistance.

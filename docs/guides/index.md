@@ -5,29 +5,46 @@ nav_order: 5
 
 # Guides
 
-We're always looking for more ideas for guides. If you have an idea for a guide, let us know by sending us a message in [our Discord](https://discord.gg/pWZ689GW7U).
+We welcome suggestions for additional guides. Share your ideas by sending a message to [our Discord](https://discord.gg/pWZ689GW7U).
 
-## List of Guides
+## Available Guides
 
 ### [Rails Voice Chat with LLM]({% link docs/guides/voice-chat.md %})
 
-A Ruby on Rails app that uses OpenAI's Speech to Text and Text to Speech APIs to enable voice chatting with an LLM.
+Explore a Ruby on Rails app leveraging OpenAI's Speech to Text and Text to Speech APIs for voice interaction with an LLM.
 
-* Learn how to use Actions and Generators
-* Learn how to use a simple conversational context with a Generator
+- Understand the integration of Actions and Generators
+- Implement a simple conversational context using a Generator
 
 ### [TDD Bot]({% link docs/guides/tdd_bot.md %})
 
-A command line program that uses an LLM to generate code to pass your failing tests, enabling a workflow where you practice Test-Driven Development with an LLM.
+Develop a command line tool that uses an LLM to iteratively enhance code to pass failing tests, embodying a Test-Driven Development workflow with AI assistance.
 
-* Learn how Tasks are used to combine Actions and Generators
-* Learn how to build different types of Actions
-* Learn how a Generator can take multiple inputs to generate the output you want
+- Discover how Tasks combine Actions and Generators
+- Develop diverse Actions to interface with test frameworks
+- Utilize multiple inputs in Generators for targeted output creation
 
 ### [Run LLM Models Locally with Llamafile]({% link docs/guides/running-local-models-with-llamafile.md %})
 
-A guide on the recommended way to set up and run LLMs locally to interface with Sublayer.
+Follow this guide to configure and execute LLMs locally for integration with Sublayer.
 
-* Learn how to set up [llamafile](https://github.com/Mozilla-Ocho/llamafile)
-* Learn which models we recommend for local use
-* Learn how to point Sublayer to your locally running server
+- Set up [llamafile](https://github.com/Mozilla-Ocho/llamafile) for local use
+- Review recommended models for local deployment
+- Direct local servers to interact with Sublayer
+
+### [Building a Custom Agent Trigger]({% link docs/guides/build-a-custom-trigger.md %})
+
+Learn to develop a custom time interval trigger for a Sublayer agent.
+
+- Set up a project environment for agent creation
+- Implement a time interval trigger in a Ruby script
+
+### [Run Llama3.1 with Ollama]({% link docs/guides/running-local-llama31-with-ollama.md %})
+
+Step-by-step instructions for running Llama3.1 locally using Ollama.
+
+- Install Ollama and download the model
+- Implement and configure a custom provider
+- Use the provider within a simple demo to generate AI-driven content
+
+These guides serve as a foundation for expanding your knowledge and skills in implementing Sublayer in various contexts. For further inquiries and community assistance, join our Discord to connect with other developers and experts.
