@@ -7,8 +7,9 @@ parent: Guides
 1. [Install Ollama](#install-ollama)
 2. [Download and run the model](#download-and-run-llama3.1)
 3. [Adding a custom Provider](#adding-a-ollama-llama3.1-provider)
-4. [Basic Demo](#full-demo)
-5. [Building a custom Provider](#building-a-custom-provider)
+4. [Writing an Agent](#writing-an-agent)
+5. [Basic Demo](#full-demo)
+6. [Building a custom Provider](#building-a-custom-provider)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TPSWeFrN67w?si=V1e3epL1NNrfTGzB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -79,12 +80,27 @@ To add a provider to an existing project:
     ```ruby
     Sublayer.configuration.ai_provider = Sublayer::Providers::OllamaLlama31
     ```
-5. Build a sublayer generator:
-<iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-generators" width="100%" height="500px"></iframe>
-6. Use in your code:
-    ```ruby
-    MyGenerator.new(attributes).generate
-    ```
+
+## Writing an Agent
+
+The "Writing an Agent" section outlines creating an agent but would benefit from a step-by-step code example. Here’s how to define a complete agent, including trigger definitions and method implementations, for those new to Sublayer.
+
+```ruby
+class CustomAgent < Sublayer::Agents::Base
+  trigger { /* trigger condition here */ }
+  goal_condition { /* code for goal condition */ }
+  check_status { /* code for status check */ }
+  step { /* step implementation code */ }
+end
+
+ExampleAgent.new.run
+```
+
+In this example:
+- **trigger**: Specify conditions to activate the agent.
+- **goal_condition**: Define criteria for task completion.
+- **check_status**: Evaluate current task status.
+- **step**: Execute the logic for the task.
 
 ## Full Demo
 Let's make a ruby project to generate Dr. Seuss styled short poems

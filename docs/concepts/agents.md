@@ -22,6 +22,21 @@ The DSL consists of four primary methods:
 
 These methods work in concert to create a flexible, event-driven system for automating complex workflows and responding to changes in various environments.
 
+Below is a simple example to illustrate the creation of an agent using the DSL:
+
+```ruby
+class ExampleAgent < Sublayer::Agents::Base
+  trigger { true }
+  goal_condition { /* logic to determine if the goal is met */ }
+  check_status { /* logic to assess current status */ }
+  step { /* logic for each step the agent takes */ }
+end
+
+ExampleAgent.run
+```
+
+This example demonstrates the basic structure of an agent. Replace the placeholder comments with your logic for triggers, goal conditions, status checks, and steps.
+
 ## Try generating your own agent:
 
 <iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-agents" width="100%" height="500px"></iframe>

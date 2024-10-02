@@ -111,3 +111,28 @@ bundle install
   ```bash
   ruby historical_event_finder.rb
   ```
+
+## Writing an Agent
+
+The 'Writing an Agent' section explains the agent's components but lacks step-by-step code examples for creating an agent from scratch. Adding a complete example, including trigger definitions and method implementations, will illustrate the process better for developers unfamiliar with Sublayer.
+
+Here's a straightforward example to create an agent:
+
+```ruby
+class SimpleAgent < Sublayer::Agents::Base
+  trigger { /* condition to activate agent */ }
+  goal_condition { /* logic to define completion */ }
+  check_status { /* logic to monitor progress */ }
+  step { /* logic to perform a step towards the goal */ }
+end
+
+SimpleAgent.new.run
+```
+
+In this example:
+- `trigger` specifies events that start the agent's operation.
+- `goal_condition` defines when the agent's task is complete.
+- `check_status` monitors progress towards the goal.
+- `step` outlines each action the agent takes in pursuit of the goal.
+
+This setup allows developers to create agents that respond to specific triggers and progressively work towards a defined objective. For more guidance, explore the [interactive agent generator](https://blueprints.sublayer.com/interactive-code-generator/sublayer-agents).
