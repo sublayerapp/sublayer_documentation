@@ -1,0 +1,42 @@
+name: Daily Doc Update Suggestion
+
+on:
+  workflow_dispatch:
+  schedule:
+  - cron: '0 10 * * *'
+
+jobs:
+  daily_doc_update_suggestion:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout Code Repository
+        uses: actions/checkout@v3
+        with:
+          repository: sublayerapp/sublayer
+          path: sublayer
+          fetch-depth: 0
+          token: ${{ secrets.ACCESS_TOKEN }}
+      - name: Checkout Documentation Repository
+        uses: actions/checkout@v3
+        with:
+          repository: sublayerapp/sublayer_documentation
+          path: sublayer_documentation
+          ref: main
+          fetch-depth: 0
+          token: ${{ secrets.ACCESS_TOKEN }}
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2
+      - name: Install dependencies
+        run: |
+          gem install sublayer octokit
+      - name: Update the docs
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: ruby sublayer_documentation/.github/workflows/github_actions/daily_update_docs.rb
+
