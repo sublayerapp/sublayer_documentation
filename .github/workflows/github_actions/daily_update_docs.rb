@@ -20,10 +20,15 @@ doc_context = GetContextAction.new(path: doc_repo_path).call
 puts "code context is #{code_context.size} long"
 puts "doc context is #{doc_context.size} long"
 
+context_ignore_list = File.read("#{doc_repo_path}/.contextignore").split("\n")
+                                                                  .map(&:strip)
+                                                                  .reject { |line| line.empty? || line.start_with?("#") }
+                                                                  .join(", ")
 puts "generating suggestions"
 doc_update_suggestions = DailyDocUpdateSuggestionGenerator.new(
   code_context: code_context,
-  doc_context: doc_context
+  doc_context: doc_context,
+  context_ignore_list: context_ignore_list
 ).generate
 suggestion = doc_update_suggestions.sort_by { |suggestion| suggestion.usefulness_score.to_i }.last
 best_suggestion = suggestion.suggestion
@@ -66,11 +71,6 @@ puts "here is the suggestion: #{best_suggestion}"
 # files_and_contents.each do |file_path, file_contents|
 #   WriteFileAction.new(file_path: "#{doc_repo_path}/#{file_path}", file_contents: file_contents).call
 # end
-
-context_ignore_list = File.read("#{doc_repo_path}/.contextignore").split("\n")
-                                                                  .map(&:strip)
-                                                                  .reject { |line| line.empty? || line.start_with?("#") }
-                                                                  .join(", ")
 
 # Generate the list of file updates
 file_updates = DailyDocUpdateGenerator.new(
