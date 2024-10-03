@@ -2,17 +2,14 @@
 title: "Quick Start"
 nav_order: 2
 ---
+
 # Quick Start
 
-Sublayer is made up of three main concepts: Generators, Actions, and Agents. These concepts combine to create powerful AI-powered applications in a simple and easy-to-use interface.
+Sublayer is a versatile framework that revolves around three core components: Generators, Actions, and Agents. Each contributes to developing AI-powered applications with ease and clarity.
 
-You can think of a Sublayer Generator as an object that takes some string inputs and runs them through an LLM to generate some new string output.
+In the following guide, you will find a streamlined flow to get started with Sublayer, exploring setup processes and how to effectively utilize its components.
 
-In this example, we'll create a simple generator that takes a description of code and the technologies to use and generates code using an LLM like GPT-4.
-
-***
-
-### Step 1 - Installation
+## Installation
 
 Install the Sublayer gem:
 
@@ -20,94 +17,89 @@ Install the Sublayer gem:
 $ gem install sublayer
 ```
 
-Or add it to your Gemfile:
+Or add it to your application's Gemfile:
 
 ```ruby
 gem "sublayer"
 ```
 
-### Step 2 - Environment Setup
+## Environment Setup
 
-Set your OpenAI API key as an environment variable:
+Ensure you have your OpenAI API key ready by setting it as an environment variable:
 
 ```shell
 export OPENAI_API_KEY="your-api-key"
 ```
 
-Don't have a key? Visit [OpenAI](https://openai.com/product) to get one.
+## Sublayer CLI Usage
 
-### Step 3a - Create a Generator
+Introducing the Sublayer CLI, a command-line interface to interact with the framework efficiently:
 
-Create a Sublayer Generator. Generators are responsible for taking input from your application and generating output using an LLM like GPT-4.
+- Display the version:
 
-Here's an example of a generator that takes a description of code to generate and the technologies to use and generates code with an LLM:
+```shell
+$ sublayer version
+```
+
+- Initialize a new Sublayer project:
+
+```shell
+$ sublayer new my_project
+```
+
+- Generate a new Generator class:
+
+```shell
+$ sublayer generate:generator -d "A description for your generator"
+```
+
+These commands are designed to simplify creating and managing components within your Sublayer projects.
+
+## Using Generators
+
+Develop a simple generator. Generators require some input string and utilize an LLM to produce new outputs. For illustration:
 
 ```ruby
-# ./code_from_description_generator.rb
-
+# Creating a generator
 require "sublayer"
 
-module Sublayer
-  module Generators
-    class CodeFromDescriptionGenerator < Base
-      llm_output_adapter type: :single_string,
-                         name: "generated_code",
-                         description: "The generated code in the requested language"
+class CodeFromDescriptionGenerator < Sublayer::Generators::Base
+  llm_output_adapter type: :single_string,
+    name: "generated_code",
+    description: "The generated code in the requested language"
 
-      def initialize(description:, technologies:)
-        @description = description
-        @technologies = technologies
-      end
+  def initialize(description:, technologies:)
+    @description = description
+    @technologies = technologies
+  end
 
-      def generate
-        super
-      end
+  def generate
+    super
+  end
 
-      def prompt
-        <<-PROMPT
-          You are an expert programmer in \#{@technologies.join(", ")}.
-
-          You are tasked with writing code using the following technologies: \#{@technologies.join(", ")}.
-
-          The description of the task is \#{@description}
-
-          Take a deep breath and think step by step before you start coding.
-        PROMPT
-      end
-    end
+  def prompt
+    <<-PROMPT
+      You are an expert programmer in \\#{@technologies.join(", ")}. Your task...  
+    PROMPT
   end
 end
 ```
 
-To learn more about everything you can do with a generator, check out the [Generators]({% link docs/concepts/generators.md %}) page.
+### Running the Generator
 
-### Step 3b - Try Generating One!
-
-Try generating your own generator with our interactive code generator below:
-
-<iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-generators" width="100%" height="500px"></iframe>
-
-### Step 4 - Use Your Generator
-
-Require the Sublayer gem and your generator and call `generate`!
-
-Here's an example of how you might use the \`CodeFromDescriptionGenerator\` above:
+With the generator defined above, you can generate code snippets as follows:
 
 ```ruby
-# ./example.rb
-
-require 'sublayer'
+# Example use
 require './code_from_description_generator'
 
-generator = Sublayer::Generators::CodeFromDescriptionGenerator.new(description: 'a function that returns the first 10 happy numbers', technologies: ['ruby'])
-
+config = { description: 'A hello world app', technologies: ['Ruby'] }
+generator = CodeFromDescriptionGenerator.new(config)
 puts generator.generate
 ```
 
-### Next Steps
+For more on actions and agents, please visit:
+- [Actions Guide](/docs/concepts/actions)
+- [Agents Guide](/docs/concepts/agents)
 
-Now that you've created your first generator, you can:
-
-* Create some [Actions]({% link docs/concepts/actions.md %}) to do something with whatever you've generated.
-* Browse some [Examples]({% link docs/guides/index.md %}) to learn how to use the Sublayer gem in different types of projects.
-* [Join our Discord](https://discord.gg/TvgHDNEGWa) to chat with us, for support, and to keep up with the latest updates.
+Start building today and grow with Sublayer's robust framework.
