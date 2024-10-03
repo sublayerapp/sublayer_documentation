@@ -10,7 +10,8 @@ You can think of a Sublayer Generator as an object that takes some string inputs
 
 In this example, we'll create a simple generator that takes a description of code and the technologies to use and generates code using an LLM like GPT-4.
 
-***
+## AI Model Selection
+By default, Sublayer uses `gpt-4o`. For scenarios requiring faster response times, consider using `gpt-4-turbo`. Both models are supported and can be configured based on your application's needs by following the guide in [Advanced Configuration]({% link docs/advanced_config.md %}).
 
 ### Step 1 - Installation
 
@@ -65,11 +66,11 @@ module Sublayer
 
       def prompt
         <<-PROMPT
-          You are an expert programmer in \#{@technologies.join(", ")}.
+          You are an expert programmer in \\#{@technologies.join(", ")}.
 
-          You are tasked with writing code using the following technologies: \#{@technologies.join(", ")}.
+          You are tasked with writing code using the following technologies: \\#{@technologies.join(", ")}.
 
-          The description of the task is \#{@description}
+          The description of the task is \\#{@description}
 
           Take a deep breath and think step by step before you start coding.
         PROMPT

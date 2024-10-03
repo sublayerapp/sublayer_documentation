@@ -17,6 +17,8 @@ Sublayer.configuration.ai_provider = Sublayer::Providers::OpenAI
 Sublayer.configuration.ai_model = "gpt-4o"
 ```
 
+Note: The `gpt-4o` model is the default, but you can choose to use `gpt-4-turbo` for better performance in interactive applications. Depending on your needs, `gpt-4-turbo` might be preferred for scenarios where speed is critical and slight variations in responses are acceptable.
+
 ## Anthropic
 
 Supported Models: Claude 3+ Opus, Claude 3+ Haiku, Claude 3+ Sonnet
