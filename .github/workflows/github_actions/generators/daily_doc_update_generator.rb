@@ -37,7 +37,7 @@ class DailyDocUpdateGenerator < Sublayer::Generators::Base
       #{@doc_update_suggestion}
 
       4. Files excluded from updates (do not modify these files):
-      #{@context_ignore_list.join(", ")}
+      #{@context_ignore_list}
 
       Your tasks:
       1. Identify specific files in the documentation repository that need updates based on the suggestion.
