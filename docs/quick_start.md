@@ -1,7 +1,3 @@
----
-title: "Quick Start"
-nav_order: 2
----
 # Quick Start
 
 Sublayer is made up of three main concepts: Generators, Actions, and Agents. These concepts combine to create powerful AI-powered applications in a simple and easy-to-use interface.
@@ -79,7 +75,7 @@ module Sublayer
 end
 ```
 
-To learn more about everything you can do with a generator, check out the [Generators]({% link docs/concepts/generators.md %}) page.
+To learn more about everything you can do with a generator, check out the [Generators](/docs/concepts/generators.md) page.
 
 ### Step 3b - Try Generating One!
 
@@ -91,7 +87,7 @@ Try generating your own generator with our interactive code generator below:
 
 Require the Sublayer gem and your generator and call `generate`!
 
-Here's an example of how you might use the \`CodeFromDescriptionGenerator\` above:
+Here's an example of how you might use the `CodeFromDescriptionGenerator` above:
 
 ```ruby
 # ./example.rb
@@ -108,6 +104,49 @@ puts generator.generate
 
 Now that you've created your first generator, you can:
 
-* Create some [Actions]({% link docs/concepts/actions.md %}) to do something with whatever you've generated.
-* Browse some [Examples]({% link docs/guides/index.md %}) to learn how to use the Sublayer gem in different types of projects.
+* Create some [Actions](/docs/concepts/actions.md) to do something with whatever you've generated.
+* Browse some [Examples](/docs/guides/index.md) to learn how to use the Sublayer gem in different types of projects.
 * [Join our Discord](https://discord.gg/TvgHDNEGWa) to chat with us, for support, and to keep up with the latest updates.
+
+### CLI Feature Overview
+
+Sublayer provides powerful CLI features for generating projects, agents, actions, and more.
+
+#### Creating a New Project
+
+You can create a new Sublayer project with the CLI:
+
+```shell
+$ sublayer new PROJECT_NAME
+```
+
+This command sets up a new project with the specified name. You'll be prompted to choose project details like the project template (CLI or QuickScript) and AI provider (OpenAI, Claude, or Gemini).
+
+**Example Usage:**
+
+```shell
+$ sublayer new my_ai_project
+Choose a project template (CLI or QuickScript): CLI
+Select an AI provider (OpenAI, Claude, or Gemini): OpenAI
+```
+
+#### Generating Components
+
+The CLI also supports generating new components within your project:
+
+- **Generators**: Create a new generator class.
+  ```shell
+  $ sublayer generate:generator --description 'Generate Ruby methods from plain text descriptions.'
+  ```
+
+- **Agents**: Create a new agent class that responds to triggers.
+  ```shell
+  $ sublayer generate:agent --description 'Monitor a directory and process new files.'
+  ```
+
+- **Actions**: Create a new action for performing specific tasks.
+  ```shell
+  $ sublayer generate:action --description 'Send notifications to a Slack channel.'
+  ```
+
+Explore more about CLI commands and their examples in our expanded [CLI Guide](/docs/guides/cli_guide.md).
