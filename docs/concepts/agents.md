@@ -22,6 +22,30 @@ The DSL consists of four primary methods:
 
 These methods work in concert to create a flexible, event-driven system for automating complex workflows and responding to changes in various environments.
 
+## Trigger Functionality
+
+Triggers are the mechanisms that "wake up" an agent and prompt it to perform its tasks. Triggers can respond to various types of events or conditions, such as file changes, incoming API requests, or scheduled time intervals.
+
+### Examples of Trigger Usage:
+
+1. **File Change Trigger**:
+   - Activates when a specific file or set of files are modified.
+   - Useful for scenarios like running tests when source code changes.
+
+   ```ruby
+   trigger_on_files_changed { ["example_file.txt"] }
+   ```
+
+2. **Time Interval Trigger**:
+   - Calls the agent to act at specified time intervals.
+   - Ideal for tasks that need periodic execution, like data backups.
+
+3. **Custom Triggers**:
+   - Sublayer allows for creating custom triggers tailored to specific needs.
+   - For instance, activating an agent when a particular API endpoint is hit.
+
+Explore the versatility of triggers to automate tasks seamlessly in Sublayer Agents.
+
 ## Try generating your own agent:
 
 <iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-agents" width="100%" height="500px"></iframe>
