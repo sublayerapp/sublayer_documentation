@@ -4,6 +4,7 @@ class DailyDocUpdateGenerator < Sublayer::Generators::Base
     description: "A list of files to update along with their corresponding updated contents",
     item_name: "file_update",
     attributes: [
+      { name: "explanation", description: "Brief explanation for how a change to a specified file makes progress towards the suggested update." },
       { name: "file_path", description: "The path of the file to update" },
       { name: "file_content", description: "The updated content for the file" }
     ]
@@ -21,9 +22,7 @@ class DailyDocUpdateGenerator < Sublayer::Generators::Base
 
   def prompt
     <<~PROMPT
-      You are tasked with two related documentation tasks:
-      1) Identifying specific files in the documentation repository that need updates based on a suggestion, and
-      2) Generating updated content for these files.
+      You are tasked to make files changes in the documentation repository based on a suggestion.
 
       Use the following information to guide both tasks:
 
@@ -222,21 +221,13 @@ Footer content can be customized in the `footer.html` file located in `_includes
 </footer>
 ```
 
-      Your tasks:
-      1. Identify specific files in the documentation repository that need updates based on the suggestion. Add new files only if necessary.
-      2. Generate the full updated content for each identified file.
+      Your task:
+      Generate the full updated content for each file that should be changed according to the suggestion.
 
       Guidelines:
       1. Do not make updates to any files that are in the .contextignore
-      2. Follow the format given in the example as a tempalte for the structure of your file
-      3. If you add a new page make sure to add them to the navigation
+      2. Follow the format given in the example as a template for the structure of your file
+      3. If a new page is added make sure to add them to the navigation as well
     PROMPT
-  end
-
-  def context_ignore_list
-    ignore_file = File.join(@repo_path, ".contextignore")
-    return [] unless File.exist?(ignore_file)
-
-    File.read(ignore_file).split("\n").map(&:strip).reject { |line| line.empty? || line.start_with?("#") }.join(", ")
   end
 end
