@@ -40,3 +40,7 @@ Usage:
 Sublayer.configuration.ai_provider = Sublayer::Providers::Gemini
 Sublayer.configuration.ai_model = "gemini-1.5-flash-latest"
 ```
+
+## Ensure Code Correspondence
+
+It is critical that all example code reflects actual, working code in the repository to prevent discrepancies between documentation and functionality. Always verify examples against the current codebase.
