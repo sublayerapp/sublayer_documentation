@@ -229,6 +229,7 @@ Footer content can be customized in the `footer.html` file located in `_includes
       Guidelines:
       1. Do not make updates to any files that are in the .contextignore
       2. Follow the format given in the example as a tempalte for the structure of your file
+      3. If you add a new page make sure to add them to the navigation
     PROMPT
   end
 
