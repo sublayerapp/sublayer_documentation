@@ -22,7 +22,7 @@ class DailyDocUpdateGenerator < Sublayer::Generators::Base
 
   def prompt
     <<~PROMPT
-      You are tasked to make files changes in the documentation repository based on a suggestion.
+      You are tasked to make changes in the documentation repository based on a suggestion.
 
       Use the following information to guide both tasks:
 
@@ -225,7 +225,7 @@ Footer content can be customized in the `footer.html` file located in `_includes
       Generate the full updated content for each file that should be changed according to the suggestion.
 
       Guidelines:
-      1. Do not make updates to any files that are in the .contextignore
+      1. Do not make updates to any files excluded from updates
       2. Follow the format given in the example as a template for the structure of your file
       3. If a new page is added make sure to add them to the navigation as well
     PROMPT

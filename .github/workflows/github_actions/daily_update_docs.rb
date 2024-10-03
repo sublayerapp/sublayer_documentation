@@ -97,4 +97,4 @@ branch_name = "daily-doc-updates-#{stamp}"
 CreateBranchAction.new(repo_path: doc_repo_path, branch_name: branch_name).call
 PushChangesAction.new(repo_path: doc_repo_path, commit_message: "Daily update to docs", branch_name: branch_name).call
 
-DailyCreatePullRequestAction.new(branch_name: branch_name, suggestion: best_suggestion, title: best_suggestion_title).call
+DailyCreatePullRequestAction.new(branch_name: branch_name, suggestion: "#{best_suggestion}\npotential files to change: #{file_names}", title: best_suggestion_title).call
