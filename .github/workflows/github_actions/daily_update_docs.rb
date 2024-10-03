@@ -70,8 +70,7 @@ puts "here is the suggestion: #{best_suggestion}"
 file_updates = DailyDocUpdateGenerator.new(
   code_context: code_context,
   doc_update_suggestion: best_suggestion,
-  doc_context: doc_context,
-  changes_so_far: changes_so_far
+  doc_context: doc_context
 ).generate
 
 # Now write the file updates to disk

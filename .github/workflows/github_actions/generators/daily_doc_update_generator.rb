@@ -8,11 +8,10 @@ class DailyDocUpdateGenerator < Sublayer::Generators::Base
       { name: "file_content", description: "The updated content for the file" }
     ]
 
-  def initialize(doc_update_suggestion:, doc_context:, code_context:, changes_so_far:)
+  def initialize(doc_update_suggestion:, doc_context:, code_context:)
     @doc_update_suggestion = doc_update_suggestion
     @doc_context = doc_context
     @code_context = code_context
-    @changes_so_far = changes_so_far
   end
 
   def generate
@@ -36,10 +35,7 @@ class DailyDocUpdateGenerator < Sublayer::Generators::Base
       3. Documentation update suggestion:
       #{@doc_update_suggestion}
 
-      4. Pending changes made to other documentation so far:
-      #{@changes_so_far}
-
-      5. Files excluded from context (do not modify these files):
+      4. Files excluded from context (do not modify these files):
       #{context_ignore_list.join(", ")}
 
       Your tasks:
