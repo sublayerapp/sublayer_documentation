@@ -10,7 +10,7 @@ class DailyCreatePullRequestAction < Sublayer::Actions::Base
     repo = 'sublayerapp/sublayer_documentation'
     base_branch = 'main'
     title = @title
-    body = "This PR contains daily documentation updates based on the following suggestion: #{@suggestion}"
+    body = "This PR contains daily documentation updates based on the following suggestion:\n#{@suggestion}"
 
     client.create_pull_request(repo, base_branch, @branch_name, title, body)
   end

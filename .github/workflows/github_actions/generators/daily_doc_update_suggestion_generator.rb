@@ -5,6 +5,7 @@ class DailyDocUpdateSuggestionGenerator < Sublayer::Generators::Base
     item_name: "suggestion",
     attributes: [
       { name: "suggestion", description: "doc update suggestion" },
+      { name: "file_names", description: "comma separated list of file paths that should be updated according to the suggestion" },
       { name: "usefulness_score", description: "A score from 1-10 indicating the usefulness of the suggestion" },
       { name: "title", description: "doc update suggestion title" }
     ]

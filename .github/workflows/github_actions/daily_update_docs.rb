@@ -27,6 +27,7 @@ doc_update_suggestions = DailyDocUpdateSuggestionGenerator.new(
 ).generate
 suggestion = doc_update_suggestions.sort_by { |suggestion| suggestion.usefulness_score.to_i }.last
 best_suggestion = suggestion.suggestion
+file_names = suggestion.file_names
 best_suggestion_title = suggestion.title
 
 puts "here is the suggestion: #{best_suggestion}"
@@ -74,7 +75,7 @@ context_ignore_list = File.read("#{doc_repo_path}/.contextignore").split("\n")
 # Generate the list of file updates
 file_updates = DailyDocUpdateGenerator.new(
   code_context: code_context,
-  doc_update_suggestion: best_suggestion,
+  doc_update_suggestion: "#{best_suggestion}\npotential files to change: #{file_names}",
   doc_context: doc_context,
   context_ignore_list: context_ignore_list
 ).generate
