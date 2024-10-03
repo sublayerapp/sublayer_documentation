@@ -32,6 +32,8 @@ Sublayer.configuration.ai_model = "claude-3-opus-20240229"
 
 ## Google
 
+> **Unstable:** Gemini's function calling API is in beta and not recommended for production use.
+
 Set your `GEMINI_API_KEY` environment variable. (Visit [Google AI Studio](https://ai.google.dev/) to get an API key.)
 
 Usage:
