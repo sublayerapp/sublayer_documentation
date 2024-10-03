@@ -6,7 +6,7 @@ parent: Guides
 
 ## Introduction
 
-In this guide, we'll walk through the code for building a simple voice chat application with speech to text, text to speech, and a large language model using OpenAI's APIs, GPT-4, and the Sublayer Gem.
+In this guide, we'll walk through the code for building a simple voice chat application with speech to text, text to speech, and a large language model using OpenAI's APIs, GPT-4o, and the Sublayer Gem.
 
 You can browse the code for this guide on GitHub: [Rails Voice Chat with LLM](https://github.com/sublayerapp/rails_llm_voice_chat_example)
 
@@ -39,7 +39,7 @@ module Sublayer
         text = HTTParty.post(
           "https://api.openai.com/v1/audio/transcriptions",
           headers: {
-            "Authorization" => "Bearer \#{ENV["OPENAI_API_KEY"]}",
+            "Authorization" => "Bearer \\#{ENV["OPENAI_API_KEY"]}",
             "Content-Type" => "multipart/form-data",
           },
           body: {
@@ -71,7 +71,7 @@ module Sublayer
         speech = HTTParty.post(
           "https://api.openai.com/v1/audio/speech",
           headers: {
-            "Authorization" => "Bearer \#{ENV["OPENAI_API_KEY"]}",
+            "Authorization" => "Bearer \\#{ENV["OPENAI_API_KEY"]}",
             "Content-Type" => "application/json",
           },
           body: {
@@ -111,8 +111,8 @@ module Sublayer
 
       def prompt
         <<-PROMPT
-          \#{@conversational_context}
-          \#{@latest_request}
+          \\#{@conversational_context}
+          \\#{@latest_request}
         PROMPT
       end
     end
@@ -197,7 +197,7 @@ In [/app/controllers/conversation_messages_controller.rb](https://github.com/sub
 
 Then uses the Sublayer SpeechToTextAction to convert the audio to text using OpenAI's Speech to Text API.
 
-After that, we pass the user's new text and the previous conversational context to the Sublayer::Generators::ConversationalResponseGenerator to generate GPT-4's next response in the conversation chain.
+After that, we pass the user's new text and the previous conversational context to the Sublayer::Generators::ConversationalResponseGenerator to generate GPT-4o's next response in the conversation chain.
 
 Finally, we use the Sublayer TextToSpeechAction to convert the text response to audio and send it back to the frontend.
 
