@@ -65,11 +65,11 @@ module Sublayer
 
       def prompt
         <<-PROMPT
-          You are an expert programmer in \#{@technologies.join(", ")}.
+          You are an expert programmer in \\#{@technologies.join(", ")}.
 
-          You are tasked with writing code using the following technologies: \#{@technologies.join(", ")}.
+          You are tasked with writing code using the following technologies: \\#{@technologies.join(", ")}.
 
-          The description of the task is \#{@description}
+          The description of the task is \\#{@description}
 
           Take a deep breath and think step by step before you start coding.
         PROMPT
@@ -111,3 +111,37 @@ Now that you've created your first generator, you can:
 * Create some [Actions]({% link docs/concepts/actions.md %}) to do something with whatever you've generated.
 * Browse some [Examples]({% link docs/guides/index.md %}) to learn how to use the Sublayer gem in different types of projects.
 * [Join our Discord](https://discord.gg/TvgHDNEGWa) to chat with us, for support, and to keep up with the latest updates.
+
+## Choose Your AI Model
+
+Sublayer is designed to be model-agnostic, allowing it to work with different AI models. Below you can find the supported LLM providers and how to set them up.
+
+### OpenAI (Default)
+
+Ensure you have an OpenAI API key set in the `OPENAI_API_KEY` environment variable. You can get an API key from [OpenAI](https://openai.com/product).
+
+Usage example:
+```ruby
+Sublayer.configuration.ai_provider = Sublayer::Providers::OpenAI
+Sublayer.configuration.ai_model = "gpt-4o"
+```
+
+### Claude (Anthropic)
+
+To utilize Claude, make sure your `ANTHROPIC_API_KEY` environment variable is set. Visit [Anthropic](https://anthropic.com/) for more details.
+
+Usage example:
+```ruby
+Sublayer.configuration.ai_provider = Sublayer::Providers::Claude
+Sublayer.configuration.ai_model = "claude-3-5-sonnet-20240620"
+```
+
+### Gemini (Experimental)
+
+The Gemini integration is in beta, not recommended for production. You'll need a `GEMINI_API_KEY`. Visit [Google AI Studio](https://ai.google.dev/) for setup.
+
+Usage example:
+```ruby
+Sublayer.configuration.ai_provider = Sublayer::Providers::Gemini
+Sublayer.configuration.ai_model = "gemini-1.5-pro"
+```
