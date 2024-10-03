@@ -40,11 +40,12 @@ class DailyDocUpdateGenerator < Sublayer::Generators::Base
       #{@context_ignore_list}
 
       Your tasks:
-      1. Identify specific files in the documentation repository that need updates based on the suggestion.
+      1. Identify specific files in the documentation repository that need updates based on the suggestion. Add new files only when necessary.
       2. Generate the full updated content for each identified file.
 
       Guidelines:
       1. Do not make updates to any files that are in the .contextignore
+      2. Ensure all links and references remain valid
     PROMPT
   end
 
