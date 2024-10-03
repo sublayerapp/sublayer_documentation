@@ -91,7 +91,7 @@ Try generating your own generator with our interactive code generator below:
 
 Require the Sublayer gem and your generator and call `generate`!
 
-Here's an example of how you might use the \`CodeFromDescriptionGenerator\` above:
+Here's an example of how you might use the `CodeFromDescriptionGenerator` above:
 
 ```ruby
 # ./example.rb
@@ -111,3 +111,10 @@ Now that you've created your first generator, you can:
 * Create some [Actions]({% link docs/concepts/actions.md %}) to do something with whatever you've generated.
 * Browse some [Examples]({% link docs/guides/index.md %}) to learn how to use the Sublayer gem in different types of projects.
 * [Join our Discord](https://discord.gg/TvgHDNEGWa) to chat with us, for support, and to keep up with the latest updates.
+
+### Troubleshooting
+
+If you encounter any issues during installation or setup, refer to the [Troubleshooting](docs/troubleshooting.md) section for solutions to common problems.
+* Ensure your environment variables are correctly set, especially your API keys.
+* Check your dependencies in your Gemfile if you face any versioning issues.
+* If you receive error messages, try to interpret them using our guide or seek help on our Discord channel.

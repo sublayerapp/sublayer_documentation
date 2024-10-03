@@ -22,3 +22,4 @@ Sublayer is self-assembling, model-agnostic, AI Agent framework in Ruby that all
 * [Examples](docs/guides/overview.md): Browse example code showing how you can use the Sublayer gem.
 * [Framework Guide](docs/concepts/overview.md): Learn about Sublayer concepts and conventions.
 * [Advanced Config](docs/advanced\_config.md): Step-by-step guides to setting up your system and installing the library.
+* [Troubleshooting](docs/troubleshooting.md): Common issues and solutions for configuration errors, environment variable setup, and error message interpretations.
