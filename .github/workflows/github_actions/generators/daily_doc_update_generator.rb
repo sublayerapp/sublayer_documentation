@@ -8,10 +8,11 @@ class DailyDocUpdateGenerator < Sublayer::Generators::Base
       { name: "file_content", description: "The updated content for the file" }
     ]
 
-  def initialize(doc_update_suggestion:, doc_context:, code_context:)
+  def initialize(doc_update_suggestion:, doc_context:, code_context:, context_ignore_list:)
     @doc_update_suggestion = doc_update_suggestion
     @doc_context = doc_context
     @code_context = code_context
+    @context_ignore_list = context_ignore_list
   end
 
   def generate
@@ -35,8 +36,8 @@ class DailyDocUpdateGenerator < Sublayer::Generators::Base
       3. Documentation update suggestion:
       #{@doc_update_suggestion}
 
-      4. Files excluded from context (do not modify these files):
-      #{context_ignore_list.join(", ")}
+      4. Files excluded from updates (do not modify these files):
+      #{@context_ignore_list.join(", ")}
 
       Your tasks:
       1. Identify specific files in the documentation repository that need updates based on the suggestion.
@@ -51,6 +52,6 @@ class DailyDocUpdateGenerator < Sublayer::Generators::Base
     ignore_file = File.join(@repo_path, ".contextignore")
     return [] unless File.exist?(ignore_file)
 
-    File.read(ignore_file).split("\n").map(&:strip).reject { |line| line.empty? || line.start_with?("#") }
+    File.read(ignore_file).split("\n").map(&:strip).reject { |line| line.empty? || line.start_with?("#") }.join(", ")
   end
 end
