@@ -31,3 +31,11 @@ A guide on the recommended way to set up and run LLMs locally to interface with 
 * Learn how to set up [llamafile](https://github.com/Mozilla-Ocho/llamafile)
 * Learn which models we recommend for local use
 * Learn how to point Sublayer to your locally running server
+
+### [Testing Setup with RSpec for Sublayer]({% link docs/guides/testing-setup.md %})
+
+A guide to setting up your environment for testing Sublayer framework components.
+
+* Learn how to configure RSpec for testing
+* Discover best practices in writing tests for custom Generators, Actions, and Agents
+* Identify strategies for interpreting test results effectively.
