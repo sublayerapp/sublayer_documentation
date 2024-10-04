@@ -9,6 +9,11 @@ We're always looking for more ideas for guides. If you have an idea for a guide,
 
 ## List of Guides
 
+### [Choose the Right AI Model for Your Task]({% link docs/guides/choose_ai_model.md %})
+
+Learn how to choose the best AI model for your specific needs, considering the 
+advantages and limitations of each.
+
 ### [Rails Voice Chat with LLM]({% link docs/guides/voice-chat.md %})
 
 A Ruby on Rails app that uses OpenAI's Speech to Text and Text to Speech APIs to enable voice chatting with an LLM.
@@ -23,7 +28,7 @@ A command line program that uses an LLM to generate code to pass your failing te
 * Learn how Tasks are used to combine Actions and Generators
 * Learn how to build different types of Actions
 * Learn how a Generator can take multiple inputs to generate the output you want
-
+        
 ### [Run LLM Models Locally with Llamafile]({% link docs/guides/running-local-models-with-llamafile.md %})
 
 A guide on the recommended way to set up and run LLMs locally to interface with Sublayer.
@@ -31,3 +36,10 @@ A guide on the recommended way to set up and run LLMs locally to interface with 
 * Learn how to set up [llamafile](https://github.com/Mozilla-Ocho/llamafile)
 * Learn which models we recommend for local use
 * Learn how to point Sublayer to your locally running server
+
+### [Run Llama3.1 with Ollama]({% link docs/guides/running-local-llama31-with-ollama.md %})
+
+A guide to install Ollama and run Llama3.1 locally.
+
+* Learn how to add a custom provider
+* Follow a basic demo and build a custom provider
