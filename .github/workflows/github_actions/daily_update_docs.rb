@@ -32,7 +32,7 @@ doc_update_suggestions = DailyDocUpdateSuggestionGenerator.new(
 ).generate
 suggestion = doc_update_suggestions.sort_by { |suggestion| suggestion.usefulness_score.to_i }.last
 best_suggestion = suggestion.suggestion
-file_names = suggestion.file_names
+file_changes = suggestion.file_changes
 best_suggestion_title = suggestion.title
 
 puts "here is the suggestion: #{best_suggestion}"
@@ -75,7 +75,7 @@ puts "here is the suggestion: #{best_suggestion}"
 # Generate the list of file updates
 file_updates = DailyDocUpdateGenerator.new(
   code_context: code_context,
-  doc_update_suggestion: "#{best_suggestion}\npotential files to change: #{file_names}",
+  doc_update_suggestion: "#{best_suggestion}\n  description of file changes: #{file_changes}",
   doc_context: doc_context,
   context_ignore_list: context_ignore_list
 ).generate
@@ -97,4 +97,4 @@ branch_name = "daily-doc-updates-#{stamp}"
 CreateBranchAction.new(repo_path: doc_repo_path, branch_name: branch_name).call
 PushChangesAction.new(repo_path: doc_repo_path, commit_message: "Daily update to docs", branch_name: branch_name).call
 
-DailyCreatePullRequestAction.new(branch_name: branch_name, suggestion: "#{best_suggestion}\npotential files to change: #{file_names}", title: best_suggestion_title).call
+DailyCreatePullRequestAction.new(branch_name: branch_name, suggestion: "#{best_suggestion}\n  description of file changes: #{file_changes}", title: best_suggestion_title).call
