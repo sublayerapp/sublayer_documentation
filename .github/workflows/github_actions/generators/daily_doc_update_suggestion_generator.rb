@@ -22,7 +22,7 @@ class DailyDocUpdateSuggestionGenerator < Sublayer::Generators::Base
 
   def prompt
     <<~PROMPT
-      As an expert in documentation with a focus on concise and hierarchical organization, you are tasked with generating suggestions for updating a documentation repository based on the present state of the code repository. Consider the following:
+      As an expert in documentation with a focus on concise and hierarchical organization, you are tasked with generating detailed and specific suggestions for updating a documentation repository based on the present state of the code repository. Consider the following:
 
       1. Existing documentation context:
       #{@doc_context}
@@ -34,8 +34,8 @@ class DailyDocUpdateSuggestionGenerator < Sublayer::Generators::Base
       #{@context_ignore_list}
 
       For each suggestion
-      - Describe the suggestion and the detailed reasoning behind it
-      - describe the files and the respective changes that should be made in them to acheive the suggestion
+      - Describe the suggestion and the detailed reasoning behind it. Be specific.
+      - describe, meticulously, the files and the respective detailed changes that should be made in them.
       - Indicate its usefulness, 10 being most useful and 1 being least, as a way of prioritizing which suggestion should be done first
       - Give the suggestion a succinct title that encapsulates the spirit of the suggestion
 
