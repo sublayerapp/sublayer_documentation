@@ -4,7 +4,7 @@ class DailyDocUpdateSuggestionGenerator < Sublayer::Generators::Base
     description: "List of doc update suggestions with usefulness scores",
     item_name: "suggestion",
     attributes: [
-      { name: "suggestion", description: "doc update suggestion" },
+      { name: "suggestion", description: "description of the doc update suggestion, its reasoning, and file changes" },
       { name: "file_names", description: "comma separated file paths that should be updated" },
       { name: "usefulness_score", description: "A score from 1-10 indicating the usefulness of the suggestion" },
       { name: "title", description: "doc update suggestion title" }
@@ -39,8 +39,8 @@ class DailyDocUpdateSuggestionGenerator < Sublayer::Generators::Base
       3. The need for examples or clarifications of functionality
 
       For each suggestion
-      - Describe the suggestion and the reasoning for its need
-      - Suggest which files should be updated
+      - Describe the suggestion, the reasoning behind it, and the file changes that would benefit the documentation
+      - list the files that should be updated
       - Indicate its usefulness, 10 being most useful and 1 being least, as a way of prioritizing which suggestion should be done first
       - Give the suggestion a succinct title that encapsulates the spirit of the suggestion
     PROMPT
