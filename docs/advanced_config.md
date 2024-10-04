@@ -40,3 +40,23 @@ Usage:
 Sublayer.configuration.ai_provider = Sublayer::Providers::Gemini
 Sublayer.configuration.ai_model = "gemini-1.5-flash-latest"
 ```
+
+## TDD Bot Agent
+
+The TDD Bot Agent is an advanced feature of the Sublayer framework that automates code testing and generation based on test results. By leveraging the capabilities of agents within the framework, it provides a hands-free test-driven development (TDD) experience.
+
+### How It Works
+
+The TDD Bot listens for changes in your test files and implementation files. Whenever a change is detected, it runs the associated tests. If any test fails, the bot uses those results to automatically generate the needed code to pass the failing tests. This process continues until all tests pass.
+
+### Example Usage
+
+To try the TDD Bot, you might set it up with the following command:
+
+```bash
+$ tddbot make_tests_pass lib/my_class.rb "rspec spec/my_class_spec.rb"
+```
+
+In this example, the TDD Bot is tasked to make tests in `spec/my_class_spec.rb` pass by modifying `lib/my_class.rb` automatically based on the feedback from failing tests.
+
+For more details, see the [guide on building a TDD Bot](https://docs.sublayer.com/docs/guides/tdd_bot).
