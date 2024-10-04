@@ -8,7 +8,7 @@ Sublayer is made up of three main concepts: Generators, Actions, and Agents. The
 
 You can think of a Sublayer Generator as an object that takes some string inputs and runs them through an LLM to generate some new string output.
 
-In this example, we'll create a simple generator that takes a description of code and the technologies to use and generates code using an LLM like GPT-4.
+In this example, we'll create a simple generator that takes a description of code and the technologies to use and generates code using an LLM like GPT-4o.
 
 ***
 
@@ -38,7 +38,7 @@ Don't have a key? Visit [OpenAI](https://openai.com/product) to get one.
 
 ### Step 3a - Create a Generator
 
-Create a Sublayer Generator. Generators are responsible for taking input from your application and generating output using an LLM like GPT-4.
+Create a Sublayer Generator. Generators are responsible for taking input from your application and generating output using an LLM like GPT-4o.
 
 Here's an example of a generator that takes a description of code to generate and the technologies to use and generates code with an LLM:
 
@@ -91,7 +91,7 @@ Try generating your own generator with our interactive code generator below:
 
 Require the Sublayer gem and your generator and call `generate`!
 
-Here's an example of how you might use the \`CodeFromDescriptionGenerator\` above:
+Here's an example of how you might use the `CodeFromDescriptionGenerator` above:
 
 ```ruby
 # ./example.rb
