@@ -8,11 +8,9 @@ Sublayer is made up of three main concepts: Generators, Actions, and Agents. The
 
 You can think of a Sublayer Generator as an object that takes some string inputs and runs them through an LLM to generate some new string output.
 
-In this example, we'll create a simple generator that takes a description of code and the technologies to use and generates code using an LLM like GPT-4.
+In this enhanced guide, you'll learn how to set up a basic project using these concepts.
 
-***
-
-### Step 1 - Installation
+## Step 1 - Installation
 
 Install the Sublayer gem:
 
@@ -26,7 +24,7 @@ Or add it to your Gemfile:
 gem "sublayer"
 ```
 
-### Step 2 - Environment Setup
+## Step 2 - Environment Setup
 
 Set your OpenAI API key as an environment variable:
 
@@ -36,11 +34,20 @@ export OPENAI_API_KEY="your-api-key"
 
 Don't have a key? Visit [OpenAI](https://openai.com/product) to get one.
 
-### Step 3a - Create a Generator
+## Step 3 - Initialize a Project
 
-Create a Sublayer Generator. Generators are responsible for taking input from your application and generating output using an LLM like GPT-4.
+Create a new directory for your project and move into it:
 
-Here's an example of a generator that takes a description of code to generate and the technologies to use and generates code with an LLM:
+```shell
+$ mkdir my_sublayer_project
+$ cd my_sublayer_project
+```
+
+## Step 4 - Create a Generator
+
+Create a Sublayer Generator. Generators take input from your application and generate output using an LLM like GPT-4.
+
+Here's an example of a generator that takes a description of code to generate and the technologies to use:
 
 ```ruby
 # ./code_from_description_generator.rb
@@ -64,50 +71,85 @@ module Sublayer
       end
 
       def prompt
-        <<-PROMPT
-          You are an expert programmer in \#{@technologies.join(", ")}.
+        """
+        You are an expert programmer in \\#{@technologies.join(", ")}.
 
-          You are tasked with writing code using the following technologies: \#{@technologies.join(", ")}.
+        You are tasked with writing code using these technologies: \\#{@technologies.join(", ")}.
 
-          The description of the task is \#{@description}
-
-          Take a deep breath and think step by step before you start coding.
-        PROMPT
+        Task description: \\#{@description}
+        """
       end
     end
   end
 end
 ```
 
-To learn more about everything you can do with a generator, check out the [Generators]({% link docs/concepts/generators.md %}) page.
+## Using Generators, Actions, and Agents
 
-### Step 3b - Try Generating One!
+### Actions
 
-Try generating your own generator with our interactive code generator below:
+Actions perform specific operations, like reading and writing files or making API calls. They provide input for generators or use the generated output.
 
-<iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-generators" width="100%" height="500px"></iframe>
-
-### Step 4 - Use Your Generator
-
-Require the Sublayer gem and your generator and call `generate`!
-
-Here's an example of how you might use the \`CodeFromDescriptionGenerator\` above:
+Example:
 
 ```ruby
-# ./example.rb
+class WriteFileAction < Sublayer::Actions::Base
+  def initialize(file_contents:, file_path:)
+    @file_contents = file_contents
+    @file_path = file_path
+  end
 
-require 'sublayer'
-require './code_from_description_generator'
-
-generator = Sublayer::Generators::CodeFromDescriptionGenerator.new(description: 'a function that returns the first 10 happy numbers', technologies: ['ruby'])
-
-puts generator.generate
+  def call
+    File.open(@file_path, 'wb') do |file|
+      file.write(@file_contents)
+    end
+  end
+end
 ```
 
-### Next Steps
+### Agents
 
-Now that you've created your first generator, you can:
+Agents are autonomous entities that perform tasks or monitor systems. They consist of a trigger, goal condition, status checks, and steps.
 
-* Create some [Actions]({% link docs/concepts/actions.md %}) to do something with whatever you've generated.
-* Browse some [Examples]({% link docs/guides/index.md %}) to learn how to use the Sublayer gem in different types of projects.
-* [Join our Discord](https://discord.gg/TvgHDNEGWa) to chat with us, for support, and to keep up with the latest updates.
+Example:
+
+```ruby
+class RSpecAgent < Sublayer::Agents::Base
+  def initialize(implementation_file_path:, test_file_path:)
+    @implementation_file_path = implementation_file_path
+    @test_file_path = test_file_path
+    @tests_passing = false
+  end
+
+  trigger_on_files_changed { [@implementation_file_path, @test_file_path] }
+  goal_condition { @tests_passing }
+
+  check_status do
+    stdout, stderr, status = Sublayer::Actions::RunTestCommandAction.new(
+      test_command: "rspec \\#{@test_file_path}"
+    ).call
+
+    @tests_passing = status.exitstatus == 0
+  end
+
+  step do
+    modified_implementation = Sublayer::Generators::CodeFromDescriptionGenerator.new(
+      description: "Modify this implementation to pass the tests.",
+      technologies: ["ruby"]
+    ).generate
+
+    Sublayer::Actions::WriteFileAction.new(
+      file_contents: modified_implementation,
+      file_path: @implementation_file_path
+    ).call
+  end
+end
+```
+
+## Next Steps
+
+With a firm grasp of creating Generators, Actions, and Agents, you're ready to dive deeper into developing with Sublayer.
+
+- Create additional [Actions]({% link docs/concepts/actions.md %}) to handle more complex tasks.
+- Explore more [Examples]({% link docs/guides/index.md %}).
+- Join our [Discord community](https://discord.gg/TvgHDNEGWa) for support and updates.
