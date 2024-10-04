@@ -2,6 +2,7 @@
 title: Build Voice Chat with an LLM on Rails
 parent: Guides
 ---
+
 # Build Voice Chat with an LLM on Rails
 
 ## Introduction
@@ -39,7 +40,7 @@ module Sublayer
         text = HTTParty.post(
           "https://api.openai.com/v1/audio/transcriptions",
           headers: {
-            "Authorization" => "Bearer \#{ENV["OPENAI_API_KEY"]}",
+            "Authorization" => "Bearer \\#{ENV["OPENAI_API_KEY"]}",
             "Content-Type" => "multipart/form-data",
           },
           body: {
@@ -71,7 +72,7 @@ module Sublayer
         speech = HTTParty.post(
           "https://api.openai.com/v1/audio/speech",
           headers: {
-            "Authorization" => "Bearer \#{ENV["OPENAI_API_KEY"]}",
+            "Authorization" => "Bearer \\#{ENV["OPENAI_API_KEY"]}",
             "Content-Type" => "application/json",
           },
           body: {
@@ -111,8 +112,8 @@ module Sublayer
 
       def prompt
         <<-PROMPT
-          \#{@conversational_context}
-          \#{@latest_request}
+          \\#{@conversational_context}
+          \\#{@latest_request}
         PROMPT
       end
     end
@@ -122,7 +123,7 @@ end
 
 ### Data Model
 
-There are two primary models, \`Conversation\` and \`Message\`. A \`Conversation\` has many \`messages\`. A \`Message\` has a \`content\` and \`role\` and belongs to a \`conversation\`.
+There are two primary models, `Conversation` and `Message`. A `Conversation` has many `messages`. A `Message` has a `content` and `role` and belongs to a `conversation`.
 
 [Schema](https://github.com/sublayerapp/rails_llm_voice_chat_example/blob/93300f268dde359b58c92a60db4b54d128d9d965/db/schema.rb)
 
@@ -130,7 +131,7 @@ There are two primary models, \`Conversation\` and \`Message\`. A \`Conversation
 
 Since this is a simple demo, all the action happens in [app/views/layouts/application.html.erb](https://github.com/sublayerapp/rails_llm_voice_chat_example/blob/93300f268dde359b58c92a60db4b54d128d9d965/app/views/layouts/application.html.erb) where we have a button that records audio when the button is pressed and uploads it when the button is released.
 
-```erb
+```html
 <body>
     <div data-controller="audio-upload" data-audio-upload-conversation-id-value="<%= @conversation.id %>">
         <button data-action="mousedown->audio-upload#startRecording mouseup->audio-upload#stopRecording touchstart->audio-upload#startRecording touchend->audio-upload#stopRecording">
@@ -145,7 +146,7 @@ Since this is a simple demo, all the action happens in [app/views/layouts/applic
 
 ### Stimulus Controller
 
-In the [app/javascript/controllers/audio_upload_controller.js](https://github.com/sublayerapp/rails_llm_voice_chat_example/blob/93300f268dde359b58c92a60db4b54d128d9d965/app/javascript/controllers/audio_upload_controller.js) file we have the Stimulus controller that handles the audio recording, uploading, and processing the user interactions. The important parts are here in \`connect()\` when we set up the media recorder and \`uploadAudio()\` when we upload the audio in response to the user releasing the button, and play the audio that is returned from the backend.
+In the [app/javascript/controllers/audio_upload_controller.js](https://github.com/sublayerapp/rails_llm_voice_chat_example/blob/93300f268dde359b58c92a60db4b54d128d9d965/app/javascript/controllers/audio_upload_controller.js) file we have the Stimulus controller that handles the audio recording, uploading, and processing the user interactions. The important parts are here in `connect()` when we set up the media recorder and `uploadAudio()` when we upload the audio in response to the user releasing the button, and play the audio that is returned from the backend.
 
 ```javascript
 connect() {

@@ -2,6 +2,7 @@
 title: Run LLM Models Locally with Llamafile
 parent: Guides
 ---
+
 # Run LLM Models Locally with Llamafile
 
 1. [Install Llamfile](#install-llamafile)
@@ -111,3 +112,4 @@ bundle install
   ```bash
   ruby historical_event_finder.rb
   ```
+

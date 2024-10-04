@@ -2,6 +2,7 @@
 title: Build an LLM TDD Bot with Sublayer
 parent: Guides
 ---
+
 # Build an LLM TDD Bot with Sublayer
 
 ## Introduction
@@ -32,8 +33,8 @@ module Tddbot
 
       def self.help
         "Have an LLM continually modify the implementation file until the test command passes successfully.\n
-        Usage: \{\{command:\#{Tddbot::TOOL_NAME} make_tests_pass <implementation_file_path> \"<test_command>\"}}\n
-        Example: \{\{command:\#{Tddbot::TOOL_NAME} make_tests_pass lib/my_class.rb \"rspec spec/my_class_spec.rb\"}}"
+        Usage: \{\{command:\\#{Tddbot::TOOL_NAME} make_tests_pass <implementation_file_path> \"<test_command>\"}}\n
+        Example: \{\{command:\\#{Tddbot::TOOL_NAME} make_tests_pass lib/my_class.rb \"rspec spec/my_class_spec.rb\"}}"
       end
     end
   end
@@ -184,9 +185,9 @@ module Sublayer
 
         You have the current implementation, the tests, and the latest failure information at your disposal.
 
-        Your task is to modify the existing implementation using the implementation file content: \#{@implementation_file_contents},
-        the test file content: \#{@test_file_contents},
-        and the latest test output: \#{@test_output},
+        Your task is to modify the existing implementation using the implementation file content: \\#{@implementation_file_contents},
+        the test file content: \\#{@test_file_contents},
+        and the latest test output: \\#{@test_output},
         to ensure that the tests will pass.
 
         Approach this task with careful analysis and methodical thinking.
