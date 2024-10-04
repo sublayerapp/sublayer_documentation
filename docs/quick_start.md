@@ -2,6 +2,7 @@
 title: "Quick Start"
 nav_order: 2
 ---
+
 # Quick Start
 
 Sublayer is made up of three main concepts: Generators, Actions, and Agents. These concepts combine to create powerful AI-powered applications in a simple and easy-to-use interface.
@@ -10,9 +11,17 @@ You can think of a Sublayer Generator as an object that takes some string inputs
 
 In this example, we'll create a simple generator that takes a description of code and the technologies to use and generates code using an LLM like GPT-4.
 
-***
+---
 
-### Step 1 - Installation
+## Table of Contents
+- [Installation](#installation)
+- [Environment Setup](#environment-setup)
+- [Creating a Generator](#create-a-generator)
+- [Using Your Generator](#using-your-generator)
+- [Model Updates and Experimental Features](#model-updates-and-experimental-features)
+- [Next Steps](#next-steps)
+
+### Installation
 
 Install the Sublayer gem:
 
@@ -26,7 +35,7 @@ Or add it to your Gemfile:
 gem "sublayer"
 ```
 
-### Step 2 - Environment Setup
+### Environment Setup
 
 Set your OpenAI API key as an environment variable:
 
@@ -36,7 +45,7 @@ export OPENAI_API_KEY="your-api-key"
 
 Don't have a key? Visit [OpenAI](https://openai.com/product) to get one.
 
-### Step 3a - Create a Generator
+### Creating a Generator
 
 Create a Sublayer Generator. Generators are responsible for taking input from your application and generating output using an LLM like GPT-4.
 
@@ -65,11 +74,13 @@ module Sublayer
 
       def prompt
         <<-PROMPT
-          You are an expert programmer in \#{@technologies.join(", ")}.
+          You are an expert programmer in \
+          #{@technologies.join(", ")}.
 
-          You are tasked with writing code using the following technologies: \#{@technologies.join(", ")}.
+          You are tasked with writing code using the following technologies: \
+          #{@technologies.join(", ")}.
 
-          The description of the task is \#{@description}
+          The description of the task is #{@description}
 
           Take a deep breath and think step by step before you start coding.
         PROMPT
@@ -81,17 +92,11 @@ end
 
 To learn more about everything you can do with a generator, check out the [Generators]({% link docs/concepts/generators.md %}) page.
 
-### Step 3b - Try Generating One!
-
-Try generating your own generator with our interactive code generator below:
-
-<iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-generators" width="100%" height="500px"></iframe>
-
-### Step 4 - Use Your Generator
+### Using Your Generator
 
 Require the Sublayer gem and your generator and call `generate`!
 
-Here's an example of how you might use the \`CodeFromDescriptionGenerator\` above:
+Here's an example of how you might use the `CodeFromDescriptionGenerator` above:
 
 ```ruby
 # ./example.rb
@@ -103,6 +108,15 @@ generator = Sublayer::Generators::CodeFromDescriptionGenerator.new(description: 
 
 puts generator.generate
 ```
+
+### Model Updates and Experimental Features
+
+With the release of version 0.2, Sublayer has introduced several key updates and features:
+
+- **gpt-4o Model**: This new model is now the default for OpenAI, providing enhanced capabilities and performance over previous versions.
+- **Gemini API**: We have integrated support for the experimental Gemini API from Google, which includes beta feature functionalities that allow more nuanced interactions. Please note that these features are experimental and may undergo changes.
+
+For more detailed information on how to configure and use these new features, please visit our [documentation site](https://docs.sublayer.com).
 
 ### Next Steps
 
