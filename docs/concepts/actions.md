@@ -10,17 +10,53 @@ Actions are responsible for performing specific operations to get inputs for a G
 
 You can think of actions as similar to tools in other agent frameworks. They encapsulate a single action and do not involve complex decision-making and are the executable units that bring the generated inputs and output to life.
 
-## Action Repository
+## Setup Guide
 
-Curious about what actions are already written and available to use in your
-project? We maintain a repository of community and AI created Actions that can
-drop right in to your project.
+Setting up a Sublayer Action involves:
 
-Check it out here: [Sublayer Actions Repository](https://github.com/sublayerapp/sublayer_actions)
+1. **Define the Purpose**: Clearly state what the action should accomplish—e.g., file manipulation, API calls.
+2. **Create an Action Class**: Develop a new class inheriting from `Sublayer::Actions::Base`.
+3. **Initialize with Data**: The action should gather necessary data at initialization.
+4. **Implement the Call Method**: This method executes the action when invoked.
+5. **Testing**: Ensure your action performs as expected through tests.
 
-## Try making your own Action:
+## Real-World Example
 
-<iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-actions" width="100%" height="500px"></iframe>
+Creating an action to write data to a file:
+
+```ruby
+require 'sublayer'
+
+class WriteFileAction < Sublayer::Actions::Base
+  def initialize(file_contents:, file_path:)
+    @file_contents = file_contents
+    @file_path = file_path
+  end
+
+  def call
+    File.open(@file_path, 'w') { |file| file.write(@file_contents) }
+  end
+end
+```
+
+### Usage
+
+To use this action, simply create an instance and call it:
+
+```ruby
+# Example Usage:
+write_action = WriteFileAction.new(file_contents: "Hello, World!", file_path: "./hello.txt")
+write_action.call
+```
+
+## Practical Applications
+
+Actions can be utilized for:
+- Sending HTTP requests
+- File operations
+- Database interactions
+
+---
 
 ## Examples:
 
