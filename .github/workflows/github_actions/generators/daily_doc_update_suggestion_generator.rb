@@ -39,7 +39,7 @@ class DailyDocUpdateSuggestionGenerator < Sublayer::Generators::Base
       3. The need for examples or clarifications of functionality
 
       For each suggestion
-      - Describe the suggestion, the reasoning behind it, and the file changes that would benefit the documentation
+      - Describe the suggestion, the reasoning behind it, and the desired file changes
       - list the files that should be updated
       - Indicate its usefulness, 10 being most useful and 1 being least, as a way of prioritizing which suggestion should be done first
       - Give the suggestion a succinct title that encapsulates the spirit of the suggestion
