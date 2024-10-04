@@ -1,7 +1,3 @@
----
-title: Build an LLM TDD Bot with Sublayer
-parent: Guides
----
 # Build an LLM TDD Bot with Sublayer
 
 ## Introduction
@@ -32,8 +28,8 @@ module Tddbot
 
       def self.help
         "Have an LLM continually modify the implementation file until the test command passes successfully.\n
-        Usage: \{\{command:\#{Tddbot::TOOL_NAME} make_tests_pass <implementation_file_path> \"<test_command>\"}}\n
-        Example: \{\{command:\#{Tddbot::TOOL_NAME} make_tests_pass lib/my_class.rb \"rspec spec/my_class_spec.rb\"}}"
+        Usage: \{\{command:#{Tddbot::TOOL_NAME} make_tests_pass <implementation_file_path> \"<test_command>\"}}\n
+        Example: \{\{command:#{Tddbot::TOOL_NAME} make_tests_pass lib/my_class.rb \"rspec spec/my_class_spec.rb\"}}"
       end
     end
   end
@@ -209,3 +205,21 @@ $ gem build tddbot.gemspec
 $ gem install ./tddbot-0.0.1.gem
 $ tddbot make_tests_pass {YOUR IMPLEMENTATION FILE} {YOUR TEST COMMAND}
 ```
+
+## Extending for Complex Scenarios
+
+The TDD bot can be extended to handle more complex scenarios, such as integration tests or even end-to-end testing.
+
+### Handling Integration Tests
+
+To adapt the TDD Bot for integration tests, you might need to:
+
+1. **Define Multiple Test Commands:** Integration tests often involve multiple components. Modify the `MakeRspecTestsPassTask` to accept a list of test commands that need all to pass.
+
+2. **Aggregate Test Outputs:** Collect outputs from all integration tests and feed them into a more complex or single generator to interpret the failures and suggest modifications.
+
+3. **Complex Modification Logic:** Enhance the `ModifiedImplementationToPassTestsGenerator` to handle the multi-step nature of integration tests. This might involve iterating over several small changes.
+
+4. **Hybrid Testing Strategy::** Combine unit and integration test results to harmonize modifications across different layers of the application.
+
+By implementing these steps, you can increase the robustness and capability of the TDD bot, allowing it to work across broader, more comprehensive test suites.
