@@ -34,3 +34,13 @@ gh_edit_view_mode: "tree"
 ga_tracking: "G-05P9NYF7YV"
 
 footer_content: "Copyright &copy; 2024 Sublayer, Inc. All rights reserved."
+
+## Environment Setup
+
+Set your API keys for the AI models as environment variables:
+
+- **OpenAI**: Set `OPENAI_API_KEY`. Visit [OpenAI](https://openai.com/product) to get an API key.
+- **Claude**: Set `ANTHROPIC_API_KEY`. Visit [Anthropic](https://anthropic.com/) to get an API key.
+- **Gemini**: Set `GEMINI_API_KEY`. Visit [Google AI Studio](https://ai.google.dev/) to get an API key.
+
+This configuration is essential for proper functioning with different AI providers.
