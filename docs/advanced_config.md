@@ -40,3 +40,45 @@ Usage:
 Sublayer.configuration.ai_provider = Sublayer::Providers::Gemini
 Sublayer.configuration.ai_model = "gemini-1.5-flash-latest"
 ```
+
+---
+
+## Example Configurations
+
+This section will provide explicit examples to configure different providers in Sublayer, illustrating how to harness the full potential of the framework.
+
+### Example: Setting up OpenAI
+```ruby
+# Set the API key in your environment
+export OPENAI_API_KEY="your-openai-api-key"
+
+# Configure Sublayer to use OpenAI
+Sublayer.configure do |config|
+  config.ai_provider = Sublayer::Providers::OpenAI
+  config.ai_model = "gpt-4o"
+end
+```
+
+### Example: Setting up Claude
+```ruby
+# Set the API key in your environment
+export ANTHROPIC_API_KEY="your-anthropic-api-key"
+
+# Configure Sublayer to use Claude
+Sublayer.configure do |config|
+  config.ai_provider = Sublayer::Providers::Claude
+  config.ai_model = "claude-3-5-sonnet-20240620"
+end
+```
+
+### Example: Setting up Gemini
+```ruby
+# Set the API key in your environment
+export GEMINI_API_KEY="your-gemini-api-key"
+
+# Configure Sublayer to use Gemini
+Sublayer.configure do |config|
+  config.ai_provider = Sublayer::Providers::Gemini
+  config.ai_model = "gemini-1.5-pro"
+end
+```

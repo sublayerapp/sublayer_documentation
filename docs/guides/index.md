@@ -31,3 +31,9 @@ A guide on the recommended way to set up and run LLMs locally to interface with 
 * Learn how to set up [llamafile](https://github.com/Mozilla-Ocho/llamafile)
 * Learn which models we recommend for local use
 * Learn how to point Sublayer to your locally running server
+
+### [Advanced Configuration with AI Providers]({% link docs/advanced_config.md %})
+
+Detailed guide on configuring different AI providers and models within Sublayer. Explore setups for OpenAI, Claude, and Gemini to leverage the full potential of Sublayer.
+
+---
