@@ -22,6 +22,22 @@ The DSL consists of four primary methods:
 
 These methods work in concert to create a flexible, event-driven system for automating complex workflows and responding to changes in various environments.
 
+## AI Provider Configuration: Claude
+
+When configuring Sublayer to use the Claude provider from Anthropic, you need to set up your environment properly to ensure secure and efficient usage of the API:
+
+### Setting Up
+- **Environment Variable**: Set your `ANTHROPIC_API_KEY` environment variable. Obtain an API key from [Anthropic](https://anthropic.com/).
+- **Sample Configuration**:
+  ```ruby
+  Sublayer.configuration.ai_provider = Sublayer::Providers::Claude
+  Sublayer.configuration.ai_model = "claude-3-5-sonnet-20240620"
+  ```
+- **Best Practices**:
+  - Rotate API keys periodically and manage them securely.
+  - Limit the permissions and scope of API keys to only what's necessary for your application.
+  - Monitor the usage of your API keys to detect any unauthorized access or unusual activities.
+
 ## Try generating your own agent:
 
 <iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-agents" width="100%" height="500px"></iframe>
