@@ -2,6 +2,7 @@
 title: "Quick Start"
 nav_order: 2
 ---
+
 # Quick Start
 
 Sublayer is made up of three main concepts: Generators, Actions, and Agents. These concepts combine to create powerful AI-powered applications in a simple and easy-to-use interface.
@@ -9,6 +10,10 @@ Sublayer is made up of three main concepts: Generators, Actions, and Agents. The
 You can think of a Sublayer Generator as an object that takes some string inputs and runs them through an LLM to generate some new string output.
 
 In this example, we'll create a simple generator that takes a description of code and the technologies to use and generates code using an LLM like GPT-4.
+
+### Automated Test-Driven Development with MakeRspecTestsPassTask
+
+Sublayer includes tasks like the 'MakeRspecTestsPassTask', which is designed to run your tests in a continuous loop, adjusting the implementation until all tests pass. This task is essential for users interested in automating test-driven development (TDD) processes. By integrating this task, developers can ensure their codebase adheres to defined specifications and behaves as expected over time, making the development process smoother and more efficient. To get started with 'MakeRspecTestsPassTask', simply define the implementation file and the test command to use.
 
 ***
 
@@ -65,11 +70,11 @@ module Sublayer
 
       def prompt
         <<-PROMPT
-          You are an expert programmer in \#{@technologies.join(", ")}.
+          You are an expert programmer in \\#{@technologies.join(", ")}.
 
-          You are tasked with writing code using the following technologies: \#{@technologies.join(", ")}.
+          You are tasked with writing code using the following technologies: \\#{@technologies.join(", ")}.
 
-          The description of the task is \#{@description}
+          The description of the task is \\#{@description}
 
           Take a deep breath and think step by step before you start coding.
         PROMPT
@@ -91,7 +96,7 @@ Try generating your own generator with our interactive code generator below:
 
 Require the Sublayer gem and your generator and call `generate`!
 
-Here's an example of how you might use the \`CodeFromDescriptionGenerator\` above:
+Here's an example of how you might use the `CodeFromDescriptionGenerator` above:
 
 ```ruby
 # ./example.rb
