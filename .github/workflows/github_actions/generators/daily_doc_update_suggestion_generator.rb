@@ -33,16 +33,14 @@ class DailyDocUpdateSuggestionGenerator < Sublayer::Generators::Base
       3. Files excluded from updates (do not modify these files):
       #{@context_ignore_list}
 
-      Generate a few critical documentation update suggestions, considering:
-      1. Any missing information between the code repository and the existing documentation
-      2. Any incorrect information between the code repository and the existing documentation
-      3. The need for examples or clarifications of functionality
-
       For each suggestion
       - Describe the suggestion and the detailed reasoning behind it
       - describe the files and the respective changes that should be made in them to acheive the suggestion
       - Indicate its usefulness, 10 being most useful and 1 being least, as a way of prioritizing which suggestion should be done first
       - Give the suggestion a succinct title that encapsulates the spirit of the suggestion
+
+      Guidelines:
+      1. Do not suggest changes to any files excluded from updates
     PROMPT
   end
 end
