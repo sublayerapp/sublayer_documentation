@@ -36,7 +36,43 @@ export OPENAI_API_KEY="your-api-key"
 
 Don't have a key? Visit [OpenAI](https://openai.com/product) to get one.
 
-### Step 3a - Create a Generator
+### Step 3 - Configure Your AI Provider
+
+Sublayer is model-agnostic and can be configured with various AI models from multiple providers. Below are the supported configurations:
+
+#### OpenAI (Default)
+
+Ensure your OpenAI API key is set to the `OPENAI_API_KEY` environment variable.
+
+Usage:
+```ruby
+Sublayer.configuration.ai_provider = Sublayer::Providers::OpenAI
+Sublayer.configuration.ai_model = "gpt-4o"
+```
+
+#### Claude
+
+Ensure you have the Claude API key set to the `ANTHROPIC_API_KEY` environment variable.
+
+Usage:
+```ruby
+Sublayer.configuration.ai_provider = Sublayer::Providers::Claude
+Sublayer.configuration.ai_model = "claude-3-5-sonnet-20240620"
+```
+
+#### Gemini
+
+Note: Gemini's function calling API is in beta and not recommended for production use. Ensure you have set your Gemini API key in `GEMINI_API_KEY`.
+
+Usage:
+```ruby
+Sublayer.configuration.ai_provider = Sublayer::Providers::Gemini
+Sublayer.configuration.ai_model = "gemini-1.5-pro"
+```
+
+For detailed information on setting up custom providers, refer to our [documentation](https://docs.sublayer.com).
+
+### Step 4 - Create a Generator
 
 Create a Sublayer Generator. Generators are responsible for taking input from your application and generating output using an LLM like GPT-4.
 
@@ -81,13 +117,13 @@ end
 
 To learn more about everything you can do with a generator, check out the [Generators]({% link docs/concepts/generators.md %}) page.
 
-### Step 3b - Try Generating One!
+### Step 5 - Try Generating One!
 
 Try generating your own generator with our interactive code generator below:
 
 <iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-generators" width="100%" height="500px"></iframe>
 
-### Step 4 - Use Your Generator
+### Step 6 - Use Your Generator
 
 Require the Sublayer gem and your generator and call `generate`!
 
