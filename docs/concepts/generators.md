@@ -7,6 +7,12 @@ nav_order: 1
 
 Generators are responsible for generating specific outputs based on input data. They focus on a single generation task and do not perform any actions or complex decision-making. Generators are the building blocks of the Sublayer framework.
 
+## Data Flow Diagram
+
+![Generators Diagram](../assets/diagrams/generators.png)
+
+This diagram illustrates how data flows into a generator and is transformed into specific outputs. Generators receive input data, apply specific models or algorithms, and produce output.
+
 ### Try making your own generator:
 
 <iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-generators?example=true" width="100%" height="500px"></iframe>
@@ -19,4 +25,6 @@ Generators are responsible for generating specific outputs based on input data. 
 
 ### Troubleshooting
 
-If you encounter issues while working with Generators, please refer to the [Troubleshooting Guide](../troubleshooting.md) for common error scenarios and solutions.
+If you encounter issues while working with Generators, please refer to the [Troubleshooting Guide](../troubleshooting.md) for common error scenarios and solutions. 
+
+---

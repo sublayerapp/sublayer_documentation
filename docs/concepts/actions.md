@@ -10,6 +10,12 @@ Actions are responsible for performing specific operations to get inputs for a G
 
 You can think of actions as similar to tools in other agent frameworks. They encapsulate a single action and do not involve complex decision-making and are the executable units that bring the generated inputs and output to life.
 
+## Data Flow Diagram
+
+![Actions Diagram](../assets/diagrams/actions.png)
+
+This diagram shows how actions interact with generators and agents, helping to obtain inputs or process outputs. Actions extract, manipulate, or deliver data to and from generators to ensure the required flow of information.
+
 ## Action Repository
 
 Curious about what actions are already written and available to use in your

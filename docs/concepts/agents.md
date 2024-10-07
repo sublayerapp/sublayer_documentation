@@ -5,7 +5,15 @@ nav_order: 3
 ---
 # Agents
 
-Think of Sublayer Agents as your personal assistants, always ready to help with repetitive tasks or respond to changes in your environment. These agents can assist with a wide range of activities, from coding to data processing to system monitoring and beyond. You create an agent by defining four key aspects: what should wake it up (triggers), what it's trying to achieve (goal condition), how it checks its progress (check status), and what it actually does (step).
+Think of Sublayer Agents as your personal assistants, always ready to help with repetitive tasks or respond to changes in your environment. These agents can assist with a wide range of activities, from coding to data processing to system monitoring and beyond.
+
+## Data Flow Diagram
+
+![Agents Diagram](../assets/diagrams/agents.png)
+
+This diagram explains how agents manage and execute actions in coordination with generators. Agents receive goals, check current status, and execute steps, choosing suitable actions to achieve objectives.
+
+You create an agent by defining four key aspects: what should wake it up (triggers), what it's trying to achieve (goal condition), how it checks its progress (check status), and what it actually does (step).
 
 Triggers could be things like file changes, incoming data, time-based events, or even manual calls while the goal might be completing a data analysis or updating a system. The agent will keep checking its status and taking steps until it reaches its goal. It's like having a tireless helper that knows exactly when to jump in and what to do, making a variety of processes more efficient and responsive to change. Whether you're automating workflows, monitoring systems, or processing data, Sublayer Agents provide a flexible, event-driven approach to tackling complex and repetitive tasks.
 
@@ -34,3 +42,5 @@ These methods work in concert to create a flexible, event-driven system for auto
 ## Troubleshooting
 
 For troubleshooting common issues with Agents and more information, please visit our [Troubleshooting Guide](../troubleshooting.md).
+
+---
