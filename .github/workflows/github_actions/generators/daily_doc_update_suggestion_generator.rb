@@ -33,6 +33,12 @@ class DailyDocUpdateSuggestionGenerator < Sublayer::Generators::Base
       3. Files excluded from updates (do not modify these files):
       #{@context_ignore_list}
 
+      Generate documentation update suggestions, considering:
+      1. Any missing information between the code repository and the existing documentation
+      2. Any incorrect information between the code repository and the existing documentation
+      3. The need for examples or clarifications of functionality
+      4. Additional documentation pages that could benefit users
+
       For each suggestion
       - Describe the suggestion and the detailed reasoning behind it. Be specific.
       - describe, meticulously, the files and the respective detailed changes that should be made in them.
