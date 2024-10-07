@@ -228,6 +228,7 @@ Footer content can be customized in the `footer.html` file located in `_includes
       1. Do not make updates to any files excluded from updates
       2. Follow the format given in the example as a template for the structure of your file
       3. If a new page is added make sure to add them to the navigation as well
+      3. If a link is added make sure it leads to an existing page, or create the new page being referenced
     PROMPT
   end
 end
