@@ -31,3 +31,11 @@ A guide on the recommended way to set up and run LLMs locally to interface with 
 * Learn how to set up [llamafile](https://github.com/Mozilla-Ocho/llamafile)
 * Learn which models we recommend for local use
 * Learn how to point Sublayer to your locally running server
+
+### [Advanced Agents and Automation Examples]({% link docs/guides/advanced-agents.md %})
+
+Detailed examples showcasing complex agents that automate tasks using various triggers like time-based events, file monitoring, or external signals.
+
+* Discover how to set up agents with multiple triggers
+* Explore the integration of file monitoring in automation
+* Learn through detailed step-by-step code annotations

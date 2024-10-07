@@ -2,6 +2,7 @@
 title: Build Voice Chat with an LLM on Rails
 parent: Guides
 ---
+
 # Build Voice Chat with an LLM on Rails
 
 ## Introduction
@@ -12,9 +13,16 @@ You can browse the code for this guide on GitHub: [Rails Voice Chat with LLM](ht
 
 A detailed video and step-by-step instructions are coming soon; in the meantime, we've called out the important parts of the repo above to help you get started with it.
 
-## Code Walkthrough
+### Extended Implementations
 
-### Sublayer Generators
+This section explores how you can expand the basic implementation to add more sophisticated features, such as integrating additional AI services or handling multiple concurrent voice streams.
+
+- **Integrate Additional Services**: Use external APIs to enhance voice recognition or text analysis.
+- **Multi-stream Handling**: Refactor the code to handle multiple voice streams simultaneously.
+
+### Code Walkthrough
+
+#### Sublayer Generators
 
 What makes this all work is the use of the Sublayer gem. In particular, the combination of custom Actions and Generators that allow us to easily convert the audio to text, generate a response, and convert that response back to audio.
 
@@ -39,7 +47,7 @@ module Sublayer
         text = HTTParty.post(
           "https://api.openai.com/v1/audio/transcriptions",
           headers: {
-            "Authorization" => "Bearer \#{ENV["OPENAI_API_KEY"]}",
+            "Authorization" => "Bearer \\#{ENV["OPENAI_API_KEY"]}",
             "Content-Type" => "multipart/form-data",
           },
           body: {
@@ -71,7 +79,7 @@ module Sublayer
         speech = HTTParty.post(
           "https://api.openai.com/v1/audio/speech",
           headers: {
-            "Authorization" => "Bearer \#{ENV["OPENAI_API_KEY"]}",
+            "Authorization" => "Bearer \\#{ENV["OPENAI_API_KEY"]}",
             "Content-Type" => "application/json",
           },
           body: {
@@ -111,6 +119,7 @@ module Sublayer
 
       def prompt
         <<-PROMPT
+          \
           \#{@conversational_context}
           \#{@latest_request}
         PROMPT
