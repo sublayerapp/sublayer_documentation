@@ -10,9 +10,17 @@ You can think of a Sublayer Generator as an object that takes some string inputs
 
 In this example, we'll create a simple generator that takes a description of code and the technologies to use and generates code using an LLM like GPT-4.
 
-***
+---
 
-### Step 1 - Installation
+### Step 1 - Prerequisites
+
+1. Ensure you have Ruby (version 2.6.0 or newer) installed.
+2. Install bundler:
+   ```bash
+   gem install bundler
+   ```
+
+### Step 2 - Installation
 
 Install the Sublayer gem:
 
@@ -26,7 +34,7 @@ Or add it to your Gemfile:
 gem "sublayer"
 ```
 
-### Step 2 - Environment Setup
+### Step 3 - Environment Setup
 
 Set your OpenAI API key as an environment variable:
 
@@ -36,7 +44,15 @@ export OPENAI_API_KEY="your-api-key"
 
 Don't have a key? Visit [OpenAI](https://openai.com/product) to get one.
 
-### Step 3a - Create a Generator
+### Step 4 - Validate Installation
+
+Run RSpec tests to ensure everything is configured correctly:
+
+```shell
+rspec
+```
+
+### Step 5 - Create a Generator
 
 Create a Sublayer Generator. Generators are responsible for taking input from your application and generating output using an LLM like GPT-4.
 
@@ -65,11 +81,11 @@ module Sublayer
 
       def prompt
         <<-PROMPT
-          You are an expert programmer in \#{@technologies.join(", ")}.
+          You are an expert programmer in \\#{@technologies.join(", ")}.
 
-          You are tasked with writing code using the following technologies: \#{@technologies.join(", ")}.
+          You are tasked with writing code using the following technologies: \\#{@technologies.join(", ")}.
 
-          The description of the task is \#{@description}
+          The description of the task is \\#{@description}
 
           Take a deep breath and think step by step before you start coding.
         PROMPT
@@ -81,17 +97,17 @@ end
 
 To learn more about everything you can do with a generator, check out the [Generators]({% link docs/concepts/generators.md %}) page.
 
-### Step 3b - Try Generating One!
+### Step 6 - Try Generating One!
 
 Try generating your own generator with our interactive code generator below:
 
 <iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-generators" width="100%" height="500px"></iframe>
 
-### Step 4 - Use Your Generator
+### Step 7 - Use Your Generator
 
 Require the Sublayer gem and your generator and call `generate`!
 
-Here's an example of how you might use the \`CodeFromDescriptionGenerator\` above:
+Here's an example of how you might use the `CodeFromDescriptionGenerator` above:
 
 ```ruby
 # ./example.rb
