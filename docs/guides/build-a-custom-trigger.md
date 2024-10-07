@@ -103,26 +103,33 @@ Create a trigger that starts an agent based on an HTTP request.
 
 ```ruby
 require 'sinatra'
-
 class HTTPEndpointTrigger < Sublayer::Triggers::Base
-  def initialize(port)
+  def initialize(endpoint:, port:)
+    @endpoint = endpoint
     @port = port
   end
 
   def setup(agent)
-    Thread.new do
-      Sinatra::Application.get('/trigger') do
-        activate(agent)
-        "Agent triggered!"
-      end
+    Sinatra::Base.set :port, @port
+    Sinatra::Base.set :bind, '0.0.0.0'
 
-      Sinatra::Application.run!
+    Sinatra::Base.post(@endpoint) do
+      activate(agent)
+      status 204 # No content
+    end
+
+    Thread.new do
+      begin
+        Sinatra::Base.run!
+      rescue StandardError => e
+        puts "Error starting HTTP endpoint: #{e.message}"
+      end
     end
   end
 end
 
 class MyHTTPAgent < Sublayer::Agents::Base
-  trigger HTTPEndpointTrigger.new(4567)
+  trigger HTTPEndpointTrigger.new(endpoint: "/trigger", port: 4567)
 
   goal_condition { false }
 
