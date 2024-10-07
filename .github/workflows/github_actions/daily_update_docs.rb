@@ -30,47 +30,16 @@ doc_update_suggestions = DailyDocUpdateSuggestionGenerator.new(
   doc_context: doc_context,
   context_ignore_list: context_ignore_list
 ).generate
+
+puts "here are all suggestions:"
+puts doc_update_suggestions.map(&:suggestion).join(", ")
+
 suggestion = doc_update_suggestions.sort_by { |suggestion| suggestion.usefulness_score.to_i }.last
 best_suggestion = suggestion.suggestion
 file_changes = suggestion.file_changes
 best_suggestion_title = suggestion.title
 
-puts "here is the suggestion: #{best_suggestion}"
-
-# puts "generating list of files/changes for suggestions"
-# file_names = DailyDocUpdateFileNamesGenerator.new(
-#   doc_update_suggestion: best_suggestion,
-#   code_context: code_context,
-#   doc_context: doc_context
-# ).generate
-
-# file_names = FilterFilesAction.new(
-#   repo_path: doc_repo_path,
-#   file_names: file_names
-# ).call
-
-# puts "here are the files to change: #{file_names}"
-
-# changes_so_far = []
-# files_and_contents = file_names.map do |file_name|
-#   file_content = DailyDocUpdateFileContentsGenerator.new(
-#     code_context: code_context,
-#     doc_update_suggestion: best_suggestion,
-#     doc_context: doc_context,
-#     file_to_change: file_name,
-#     changes_so_far: changes_so_far
-#   ).generate
-
-#   changes_so_far << [file_name, file_content]
-
-#   puts "#{ file_names.index(file_name) + 1 } / #{ file_names.length} complete"
-#   [file_name, file_content]
-# end
-
-# puts "making changes locally"
-# files_and_contents.each do |file_path, file_contents|
-#   WriteFileAction.new(file_path: "#{doc_repo_path}/#{file_path}", file_contents: file_contents).call
-# end
+puts "here is the best suggestion: #{best_suggestion}"
 
 # Generate the list of file updates
 file_updates = DailyDocUpdateGenerator.new(
