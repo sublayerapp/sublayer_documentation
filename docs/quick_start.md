@@ -65,11 +65,11 @@ module Sublayer
 
       def prompt
         <<-PROMPT
-          You are an expert programmer in \#{@technologies.join(", ")}.
+          You are an expert programmer in \\#{@technologies.join(", ")}.
 
-          You are tasked with writing code using the following technologies: \#{@technologies.join(", ")}.
+          You are tasked with writing code using the following technologies: \\#{@technologies.join(", ")}.
 
-          The description of the task is \#{@description}
+          The description of the task is \\#{@description}
 
           Take a deep breath and think step by step before you start coding.
         PROMPT
@@ -91,7 +91,7 @@ Try generating your own generator with our interactive code generator below:
 
 Require the Sublayer gem and your generator and call `generate`!
 
-Here's an example of how you might use the \`CodeFromDescriptionGenerator\` above:
+Here's an example of how you might use the `CodeFromDescriptionGenerator` above:
 
 ```ruby
 # ./example.rb
@@ -103,6 +103,10 @@ generator = Sublayer::Generators::CodeFromDescriptionGenerator.new(description: 
 
 puts generator.generate
 ```
+
+### Extended Guide
+
+For a more detailed step-by-step guide on building projects using the CLI, check out the [Building with CLI Guide]({% link docs/guides/building_with_cli.md %})
 
 ### Next Steps
 
