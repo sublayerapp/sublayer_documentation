@@ -31,3 +31,7 @@ A guide on the recommended way to set up and run LLMs locally to interface with 
 * Learn how to set up [llamafile](https://github.com/Mozilla-Ocho/llamafile)
 * Learn which models we recommend for local use
 * Learn how to point Sublayer to your locally running server
+
+### [Creating Custom Providers]({% link docs/guides/build-a-custom-provider.md %})
+
+Learn how to create custom providers to integrate non-standard or private LLMs into your Sublayer projects.
