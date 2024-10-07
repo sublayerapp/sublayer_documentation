@@ -29,4 +29,3 @@ So far they:
 All documentation files are written in Markdown and stored in the `docs` directory. To contribute, fork the repository, make your changes, and submit a pull request.
 
 Comments, suggestions, and review of AI generated PRs is also greatly appreciated!
-
