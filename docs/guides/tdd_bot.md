@@ -184,9 +184,9 @@ module Sublayer
 
         You have the current implementation, the tests, and the latest failure information at your disposal.
 
-        Your task is to modify the existing implementation using the implementation file content: \#{@implementation_file_contents},
-        the test file content: \#{@test_file_contents},
-        and the latest test output: \#{@test_output},
+        Your task is to modify the existing implementation using the implementation file content: \\#{@implementation_file_contents},
+        the test file content: \\#{@test_file_contents},
+        and the latest test output: \\#{@test_output},
         to ensure that the tests will pass.
 
         Approach this task with careful analysis and methodical thinking.
@@ -209,3 +209,45 @@ $ gem build tddbot.gemspec
 $ gem install ./tddbot-0.0.1.gem
 $ tddbot make_tests_pass {YOUR IMPLEMENTATION FILE} {YOUR TEST COMMAND}
 ```
+
+## Example Usage
+
+### Example Usage of MakeRspecTestsPassTask
+
+To illustrate the integration of `MakeRspecTestsPassTask` within a Ruby project, follow these steps:
+
+1. **Setup your environment:**
+   Ensure that you have `RSpec` and `Sublayer` installed in your Ruby environment.
+
+2. **Create a test and a corresponding implementation file.**
+
+   Example test file: `spec/my_class_spec.rb`
+   ```ruby
+   require 'spec_helper'
+   require 'my_class'
+
+   RSpec.describe MyClass do
+     it 'performs an action' do
+       expect(MyClass.new.perform_action).to eq('desired outcome')
+     end
+   end
+   ```
+
+   Example implementation file: `lib/my_class.rb`
+   ```ruby
+   class MyClass
+     def perform_action
+       # Initial stub
+     end
+   end
+   ```
+
+3. **Run the MakeTestsPassTask**:
+
+   Execute the following command to run the MakeRspecTestsPassTask and let LLM iteratively enhance the implementation until the tests pass.
+
+   ```sh
+   tddbot make_tests_pass lib/my_class.rb "rspec spec/my_class_spec.rb"
+   ```
+
+   This command will utilize the MakeRspecTestsPassTask to refine `perform_action` in `MyClass` until the test expectations in `my_class_spec.rb` are met.
