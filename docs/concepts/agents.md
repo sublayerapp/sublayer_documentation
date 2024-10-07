@@ -31,6 +31,27 @@ These methods work in concert to create a flexible, event-driven system for auto
 - [RSpecAgent](https://github.com/sublayerapp/sublayer/blob/main/spec/agents/examples/rspec_agent.rb)
   - A Sublayer agent that is triggered any time a test file or an implementation file changes with a goal of making the tests pass. When one of the files changes, the status is checked by running the tests. If the tests are failing, the agent sends the tests and the implementation to an LLM (using a [Sublayer::Generator](/concepts/generators)) to generate a new implementation that should pass the tests.
 
+## Usage Examples
+
+To better understand how an agent works in practice, consider the following example using the RSpecAgent.
+
+### RSpecAgent Example
+This agent monitors changes in specified test and implementation files. Upon detecting a change, it evaluates whether the tests pass and modifies the implementation if necessary.
+
+#### Example Usage:
+
+```ruby
+# Initializing the RSpecAgent
+implementation_file_path = "lib/example_class.rb"
+test_file_path = "spec/example_class_spec.rb"
+agent = RSpecAgent.new(implementation_file_path: implementation_file_path, test_file_path: test_file_path)
+
+# Run the agent
+agent.run
+```
+
+In this scenario, the `RSpecAgent` keeps an eye on the specified files and ensures the implementation meets the tests' requirements, exemplifying a reactive and automated development process.
+
 ## Troubleshooting
 
 For troubleshooting common issues with Agents and more information, please visit our [Troubleshooting Guide](../troubleshooting.md).
