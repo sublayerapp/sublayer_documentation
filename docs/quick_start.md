@@ -65,11 +65,11 @@ module Sublayer
 
       def prompt
         <<-PROMPT
-          You are an expert programmer in \#{@technologies.join(", ")}.
+          You are an expert programmer in \\#{@technologies.join(", ")}.
 
-          You are tasked with writing code using the following technologies: \#{@technologies.join(", ")}.
+          You are tasked with writing code using the following technologies: \\#{@technologies.join(", ")}.
 
-          The description of the task is \#{@description}
+          The description of the task is \\#{@description}
 
           Take a deep breath and think step by step before you start coding.
         PROMPT
@@ -104,10 +104,22 @@ generator = Sublayer::Generators::CodeFromDescriptionGenerator.new(description: 
 puts generator.generate
 ```
 
+### Step 5 - Explore Sublayer CLI
+
+The `Sublayer::CLI` module provides a powerful command-line interface for managing generators, actions, agents, and projects. Here is an overview of key commands:
+
+- `sublayer new PROJECT_NAME`: Initializes a new Sublayer project
+- `sublayer generate:generator`: Generates a new Sublayer generator class
+- `sublayer generate:agent`: Generates a new Sublayer agent class
+- `sublayer generate:action`: Generates a new Sublayer action class
+- `sublayer help [COMMAND]`: Provides detailed help for the given command
+
+For more information on how to make the most of the Sublayer CLI, see the [CLI Guide]({% link docs/guides/cli_details.md %}).
+
 ### Next Steps
 
 Now that you've created your first generator, you can:
 
 * Create some [Actions]({% link docs/concepts/actions.md %}) to do something with whatever you've generated.
-* Browse some [Examples]({% link docs/guides/index.md %}) to learn how to use the Sublayer gem in different types of projects.
+* Browse some [Examples]({% link docs/guides/index.md %}) to learn how you can use the Sublayer gem in different types of projects.
 * [Join our Discord](https://discord.gg/TvgHDNEGWa) to chat with us, for support, and to keep up with the latest updates.

@@ -8,13 +8,22 @@ parent: Guides
 
 In this guide, we'll walk through step by step on how to create a bot with the Sublayer gem that takes your tests, any failures of those tests, and gets an LLM to write code to pass those tests.
 
-If you'd like to follow along on the guide and with the video you can grab the code here on the "starting_point" branch: [TDD Bot](https://github.com/sublayerapp/tddbot/tree/starting_point)
+If you'd like to follow along on the guide, you can grab the code here on the "starting_point" branch: [TDD Bot](https://github.com/sublayerapp/tddbot/tree/starting_point)
 
 The final code for this guide is available on the "main" branch: [TDD Bot](https://github.com/sublayerapp/tddbot)
 
 <div style="position: relative; padding-bottom: 64.99999999999999%; height: 0;"><iframe src="https://www.loom.com/embed/c9a41f43e18c4d40ae23034620149a1a?sid=50fd12e5-0500-4dfa-9011-dc21bbf77bd0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
-## Step 0 - The MakeTestsPass Command and includes
+## Prerequisites
+
+Before you get started, ensure you have the following prerequisites:
+
+- A working Ruby environment (version 2.6+).
+- Familiarity with Ruby Test-Driven Development (TDD).
+- The Sublayer gem installed. Install using `gem install sublayer`.
+- [Shopify CLI kit](https://github.com/Shopify/cli-kit) for command-line utilities.
+
+## Step 0 - The MakeTestsPass Command and Includes
 
 We're using Shopify's `cli-kit` for this tutorial, and the main entry point for this program is the MakeTestsPass command.
 
@@ -32,8 +41,8 @@ module Tddbot
 
       def self.help
         "Have an LLM continually modify the implementation file until the test command passes successfully.\n
-        Usage: \{\{command:\#{Tddbot::TOOL_NAME} make_tests_pass <implementation_file_path> \"<test_command>\"}}\n
-        Example: \{\{command:\#{Tddbot::TOOL_NAME} make_tests_pass lib/my_class.rb \"rspec spec/my_class_spec.rb\"}}"
+        Usage: \{\{command:\#\{Tddbot::TOOL_NAME} make_tests_pass <implementation_file_path> \"<test_command>\"}}\n
+        Example: \{\{command:\#\{Tddbot::TOOL_NAME} make_tests_pass lib/my_class.rb \"rspec spec/my_class_spec.rb\"}}"
       end
     end
   end
@@ -62,9 +71,9 @@ and lines 16-20:
 The first step is to create the Sublayer Task that's used in the MakeTestsPass command. It takes the `implementation_file_path` and the `test_command` which correspond to the first and second arguments to the command line command.
 
 What we do is perform a loop of:
-1. check if the tests pass
-2. if they do, we're done
-3. If they aren't, generate a new implementation to try to pass the tests
+1. Check if the tests pass
+2. If they do, we're done
+3. If not, generate a new implementation to try to pass the tests
 4. Save that new implementation to the file
 5. Go back to step 1
 
@@ -199,7 +208,7 @@ end
 
 ## Step 4 - Run the bot!
 
-After all this you should be where we are in the video when we run the bot.
+After all this, you should be where we are in the video when we run the bot.
 
 The only thing to do now is to install the gem you've created and try to run the bot:
 
@@ -209,3 +218,12 @@ $ gem build tddbot.gemspec
 $ gem install ./tddbot-0.0.1.gem
 $ tddbot make_tests_pass {YOUR IMPLEMENTATION FILE} {YOUR TEST COMMAND}
 ```
+
+## Additional Resources
+
+For deeper integration and customization, consider exploring the following resources:
+
+- [Sublayer Official Documentation](https://docs.sublayer.com): Covers comprehensive details on using the Sublayer framework.
+- [Sublayer's Discord Channel](https://discord.gg/pWZ689GW7U): Engage with the community and get support directly from developers and users.
+
+By following the steps laid out in this guide, you will harness the capabilities of LLMs to efficiently manage and resolve test cases, leading to an enhanced TDD experience.
