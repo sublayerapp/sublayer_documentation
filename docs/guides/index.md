@@ -9,15 +9,19 @@ We're always looking for more ideas for guides. If you have an idea for a guide,
 
 ## List of Guides
 
-### [Rails Voice Chat with LLM]({% link docs/guides/voice-chat.md %})
+### [Using Custom Adapters](using-custom-adapters.md)
+Learn about custom adapters to expand the framework's capabilities.
 
+### [Building Comprehensive Projects with Sublayer](building-comprehensive-projects.md)
+Step by step building approaches for extensive projects using the Sublayer framework.
+
+### [Rails Voice Chat with LLM]({% link docs/guides/voice-chat.md %})
 A Ruby on Rails app that uses OpenAI's Speech to Text and Text to Speech APIs to enable voice chatting with an LLM.
 
 * Learn how to use Actions and Generators
 * Learn how to use a simple conversational context with a Generator
 
 ### [TDD Bot]({% link docs/guides/tdd_bot.md %})
-
 A command line program that uses an LLM to generate code to pass your failing tests, enabling a workflow where you practice Test-Driven Development with an LLM.
 
 * Learn how Tasks are used to combine Actions and Generators
@@ -25,7 +29,6 @@ A command line program that uses an LLM to generate code to pass your failing te
 * Learn how a Generator can take multiple inputs to generate the output you want
 
 ### [Run LLM Models Locally with Llamafile]({% link docs/guides/running-local-models-with-llamafile.md %})
-
 A guide on the recommended way to set up and run LLMs locally to interface with Sublayer.
 
 * Learn how to set up [llamafile](https://github.com/Mozilla-Ocho/llamafile)
