@@ -22,4 +22,27 @@ This document provides common error scenarios and troubleshooting tips to assist
 **Problem:** Network-related errors when calling external APIs.  
 **Solution:** Ensure that the API service is not down, verify that your system's firewall settings allow outbound traffic on required ports, and check your internet connection.
 
-[Join our community Discord channel](https://discord.gg/TvgHDNEGWa).
+## LLM-Specific Troubleshooting
+
+### OpenAI
+#### Common Error Messages:
+- **Error 429: Rate limit exceeded**
+  - **Solution:** Reduce the frequency of your API requests or consider upgrading your plan for higher limits.
+- **Error 500: Internal server error**
+  - **Solution:** Retry the request after some time as this might be a temporary issue.
+
+### Claude
+#### Common Error Messages:
+- **Error: Model not found**
+  - **Solution:** Double-check the model ID you're using and ensure that it is correct and available in your account.
+- **Error 403: Forbidden**
+  - **Solution:** Check your API key permission settings on Anthropic’s platform.
+
+### Gemini
+#### Common Error Messages:
+- **Error: Invalid API key**
+  - **Solution:** Ensure your API key is valid and has not expired.
+- **Error 502: Bad Gateway**
+  - **Solution:** This usually indicates a problem with the server request; try again later or report the issue if it persists.
+
+[Join our community Discord channel](https://discord.gg/TvgHDNEGWa) for further support and assistance.
