@@ -3,6 +3,7 @@ title: Agents
 parent: Core Concepts
 nav_order: 3
 ---
+
 # Agents
 
 Think of Sublayer Agents as your personal assistants, always ready to help with repetitive tasks or respond to changes in your environment. These agents can assist with a wide range of activities, from coding to data processing to system monitoring and beyond. You create an agent by defining four key aspects: what should wake it up (triggers), what it's trying to achieve (goal condition), how it checks its progress (check status), and what it actually does (step).
@@ -29,7 +30,13 @@ These methods work in concert to create a flexible, event-driven system for auto
 ## Examples:
 
 - [RSpecAgent](https://github.com/sublayerapp/sublayer/blob/main/spec/agents/examples/rspec_agent.rb)
-  - A Sublayer agent that is triggered any time a test file or an implementation file changes with a goal of making the tests pass. When one of the files changes, the status is checked by running the tests. If the tests are failing, the agent sends the tests and the implementation to an LLM (using a [Sublayer::Generator](/concepts/generators)) to generate a new implementation that should pass the tests.
+  - A Sublayer agent that is triggered any time a test file or an implementation file changes with a goal of making the tests pass. When one of the files changes, the status is checked by running the tests. If the tests are failing, the agent sends the tests and the implementation to an LLM (using a [Sublayer::Generator](/generators)) to generate a new implementation that should pass the tests.
+  
+- **DataMonitorAgent**:
+  - A complex multi-step agent that monitors incoming data streams from multiple sources. It aggregates the data, checks for anomalies using advanced models, and alerts administrators if anomalies are detected.
+  
+- **DeploymentAutomationAgent**:
+  - An agent designed to automate software deployments. It coordinates with various subsystems to pull the latest code, run pre-deployment tests, execute the deployment, and perform post-deployment verification using current AI models for intelligent decision-making.
 
 ## Troubleshooting
 

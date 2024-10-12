@@ -3,6 +3,7 @@ title: Generators
 parent: Core Concepts
 nav_order: 1
 ---
+
 # Generators
 
 Generators are responsible for generating specific outputs based on input data. They focus on a single generation task and do not perform any actions or complex decision-making. Generators are the building blocks of the Sublayer framework.
@@ -16,6 +17,8 @@ Generators are responsible for generating specific outputs based on input data. 
 * [CodeFromDescriptionGenerator](https://github.com/sublayerapp/sublayer/blob/main/examples/code\_from\_description\_generator.rb): Generates code based on a description and the technologies used.
 * [DescriptionFromCodeGenerator](https://github.com/sublayerapp/sublayer/blob/main/examples/description\_from\_code\_generator.rb): Generates a description of the code passed in to it.
 * [CodeFromBlueprintGenerator](https://github.com/sublayerapp/sublayer/blob/main/examples/code\_from\_blueprint\_generator.rb): Generates code based on a blueprint, a blueprint description, and a description of the desired code.
+* **AdvancedModelIntegrationGenerator**: Uses the latest models to integrate with complex APIs, handle authentication, and perform data transformations across various formats.
+* **DebugConfigurationGenerator**: Creates configuration scripts that include detailed debugging, using the newest model functionalities to predict potential failure points and suggest test cases.
 
 ### Troubleshooting
 
