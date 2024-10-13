@@ -67,6 +67,8 @@ bundle install
 
 ## Additional Examples of Custom Triggers
 
+Make sure to set up your API keys correctly as outlined in the [API Configuration](../api-configuration.md) if you are working with any custom functionality requiring external services.
+
 ### File Change Trigger Example
 Create a custom trigger that activates when a specific file is changed.
 
