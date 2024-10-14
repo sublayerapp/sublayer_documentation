@@ -10,7 +10,7 @@ You can think of a Sublayer Generator as an object that takes some string inputs
 
 In this example, we'll create a simple generator that takes a description of code and the technologies to use and generates code using an LLM like GPT-4.
 
-***
+---
 
 ### Step 1 - Installation
 
@@ -34,7 +34,23 @@ Set your OpenAI API key as an environment variable:
 export OPENAI_API_KEY="your-api-key"
 ```
 
-Don't have a key? Visit [OpenAI](https://openai.com/product) to get one.
+Don't have an OpenAI API key? Visit [OpenAI](https://openai.com/product) to get one.
+
+For Gemini users, set your Gemini API key:
+
+```shell
+export GEMINI_API_KEY="your-api-key"
+```
+
+Visit [Google AI Studio](https://ai.google.dev/) to get a Gemini API key.
+
+For Claude users, set your Claude API key:
+
+```shell
+export ANTHROPIC_API_KEY="your-api-key"
+```
+
+Visit [Anthropic](https://anthropic.com/) to get a Claude API key.
 
 ### Step 3a - Create a Generator
 
@@ -65,11 +81,11 @@ module Sublayer
 
       def prompt
         <<-PROMPT
-          You are an expert programmer in \#{@technologies.join(", ")}.
+          You are an expert programmer in \\#{@technologies.join(", ")}.
 
-          You are tasked with writing code using the following technologies: \#{@technologies.join(", ")}.
+          You are tasked with writing code using the following technologies: \\#{@technologies.join(", ")}.
 
-          The description of the task is \#{@description}
+          The description of the task is \\#{@description}
 
           Take a deep breath and think step by step before you start coding.
         PROMPT
@@ -91,7 +107,7 @@ Try generating your own generator with our interactive code generator below:
 
 Require the Sublayer gem and your generator and call `generate`!
 
-Here's an example of how you might use the \`CodeFromDescriptionGenerator\` above:
+Here's an example of how you might use the `CodeFromDescriptionGenerator` above:
 
 ```ruby
 # ./example.rb
@@ -102,6 +118,37 @@ require './code_from_description_generator'
 generator = Sublayer::Generators::CodeFromDescriptionGenerator.new(description: 'a function that returns the first 10 happy numbers', technologies: ['ruby'])
 
 puts generator.generate
+```
+
+### Using Different Providers
+
+You can also configure Sublayer to use different LLM providers:
+
+#### OpenAI
+
+Set it as the AI provider (it's the default):
+
+```ruby
+Sublayer.configuration.ai_provider = Sublayer::Providers::OpenAI
+Sublayer.configuration.ai_model = "gpt-4o"
+```
+
+#### Gemini (Unstable)
+
+Set it as the AI provider:
+
+```ruby
+Sublayer.configuration.ai_provider = Sublayer::Providers::Gemini
+Sublayer.configuration.ai_model = "gemini-1.5-pro"
+```
+
+#### Claude
+
+Set it as the AI provider:
+
+```ruby
+Sublayer.configuration.ai_provider = Sublayer::Providers::Claude
+Sublayer.configuration.ai_model = "claude-3-5-sonnet-20240620"
 ```
 
 ### Next Steps
