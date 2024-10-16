@@ -10,7 +10,27 @@ You can think of a Sublayer Generator as an object that takes some string inputs
 
 In this example, we'll create a simple generator that takes a description of code and the technologies to use and generates code using an LLM like GPT-4.
 
-***
+---
+
+## Available Project Templates
+
+Sublayer provides multiple project templates to quickly bootstrap different types of applications:
+
+### CLI
+- **Best Suited For:** Terminal-based utilities and applications.
+- **How To Start:** Use `sublayer new <project_name> --template=CLI` to generate a project with a command-line interface.
+
+### GithubAction
+- **Best Suited For:** Automation tasks and CI/CD workflows within GitHub repositories.
+- **How To Start:** Use `sublayer new <project_name> --template=GithubAction` to quickly set up a GitHub Action project.
+
+### QuickScript
+- **Best Suited For:** Simple scripts that need quick execution without overhead.
+- **How To Start:** Use `sublayer new <project_name> --template=QuickScript` for generating standalone scripts.
+
+Use the Sublayer CLI to effortlessly get started with any of these templates, tailoring your development process to suit your requirements.
+
+---
 
 ### Step 1 - Installation
 
@@ -65,11 +85,11 @@ module Sublayer
 
       def prompt
         <<-PROMPT
-          You are an expert programmer in \#{@technologies.join(", ")}.
+          You are an expert programmer in \\#{@technologies.join(", ")}.
 
-          You are tasked with writing code using the following technologies: \#{@technologies.join(", ")}.
+          You are tasked with writing code using the following technologies: \\#{@technologies.join(", ")}.
 
-          The description of the task is \#{@description}
+          The description of the task is \\#{@description}
 
           Take a deep breath and think step by step before you start coding.
         PROMPT
@@ -79,7 +99,7 @@ module Sublayer
 end
 ```
 
-To learn more about everything you can do with a generator, check out the [Generators]({% link docs/concepts/generators.md %}) page.
+To learn more about everything you can do with a generator, check out the [Generators](/concepts/generators.md) page.
 
 ### Step 3b - Try Generating One!
 
@@ -91,7 +111,7 @@ Try generating your own generator with our interactive code generator below:
 
 Require the Sublayer gem and your generator and call `generate`!
 
-Here's an example of how you might use the \`CodeFromDescriptionGenerator\` above:
+Here's an example of how you might use the `CodeFromDescriptionGenerator` above:
 
 ```ruby
 # ./example.rb
@@ -108,6 +128,6 @@ puts generator.generate
 
 Now that you've created your first generator, you can:
 
-* Create some [Actions]({% link docs/concepts/actions.md %}) to do something with whatever you've generated.
-* Browse some [Examples]({% link docs/guides/index.md %}) to learn how to use the Sublayer gem in different types of projects.
+* Create some [Actions](/concepts/actions.md) to do something with whatever you've generated.
+* Browse some [Examples](/guides/index.md) to learn how to use the Sublayer gem in different types of projects.
 * [Join our Discord](https://discord.gg/TvgHDNEGWa) to chat with us, for support, and to keep up with the latest updates.
