@@ -4,21 +4,28 @@ nav_order: 2
 ---
 # Quick Start
 
-Sublayer is made up of three main concepts: Generators, Actions, and Agents. These concepts combine to create powerful AI-powered applications in a simple and easy-to-use interface.
+In this guide, we'll walk through creating a complete Sublayer project from scratch. This example-driven approach will help you understand each step involved in setting up, configuring, and running your Sublayer project efficiently.
 
-You can think of a Sublayer Generator as an object that takes some string inputs and runs them through an LLM to generate some new string output.
+## Overview
 
-In this example, we'll create a simple generator that takes a description of code and the technologies to use and generates code using an LLM like GPT-4.
+This walkthrough will cover:
 
-***
+- Setting up your development environment
+- Initializing a new Sublayer project
+- Configuring AI models
+- Creating Generators and Actions
+- Running your project
+- Debugging and optimizing performance
 
-### Step 1 - Installation
+---
 
-Install the Sublayer gem:
+## Step 1: Installation
 
-```shell
-$ gem install sublayer
-```
+Start by installing the Sublayer gem:
+
+ ```shell
+ $ gem install sublayer
+ ```
 
 Or add it to your Gemfile:
 
@@ -26,37 +33,61 @@ Or add it to your Gemfile:
 gem "sublayer"
 ```
 
-### Step 2 - Environment Setup
+## Step 2: Environment Setup
 
 Set your OpenAI API key as an environment variable:
 
-```shell
-export OPENAI_API_KEY="your-api-key"
-```
+ ```shell
+ export OPENAI_API_KEY="your-api-key"
+ ```
 
 Don't have a key? Visit [OpenAI](https://openai.com/product) to get one.
 
-### Step 3a - Create a Generator
+## Step 3: Initialize a New Project
 
-Create a Sublayer Generator. Generators are responsible for taking input from your application and generating output using an LLM like GPT-4.
+Create a new directory for your project and navigate into it:
 
-Here's an example of a generator that takes a description of code to generate and the technologies to use and generates code with an LLM:
+```shell
+$ mkdir my_sublayer_project && cd my_sublayer_project
+```
+
+Initialize a new Sublayer project:
+
+```shell
+$ sublayer new_project MySublayerApp
+```
+
+Navigate into the project directory:
+
+```shell
+$ cd MySublayerApp
+```
+
+## Step 4: Configure Your AI Model
+
+Open the configuration file and specify your AI model:
 
 ```ruby
-# ./code_from_description_generator.rb
+Sublayer.configuration.ai_model = "gpt-4o"
+```
 
+## Step 5: Create a Generator
+
+Create a simple Generator that generates a greeting message:
+
+```ruby
+# ./lib/generators/greeting_generator.rb
 require "sublayer"
 
 module Sublayer
   module Generators
-    class CodeFromDescriptionGenerator < Base
+    class GreetingGenerator < Base
       llm_output_adapter type: :single_string,
-                         name: "generated_code",
-                         description: "The generated code in the requested language"
+                         name: "greeting_message",
+                         description: "A personalized greeting message"
 
-      def initialize(description:, technologies:)
-        @description = description
-        @technologies = technologies
+      def initialize(name:)
+        @name = name
       end
 
       def generate
@@ -64,50 +95,73 @@ module Sublayer
       end
 
       def prompt
-        <<-PROMPT
-          You are an expert programmer in \#{@technologies.join(", ")}.
-
-          You are tasked with writing code using the following technologies: \#{@technologies.join(", ")}.
-
-          The description of the task is \#{@description}
-
-          Take a deep breath and think step by step before you start coding.
-        PROMPT
+        "Create a greeting message for \\#{@name}."
       end
     end
   end
 end
 ```
 
-To learn more about everything you can do with a generator, check out the [Generators]({% link docs/concepts/generators.md %}) page.
+## Step 6: Create an Action
 
-### Step 3b - Try Generating One!
-
-Try generating your own generator with our interactive code generator below:
-
-<iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-generators" width="100%" height="500px"></iframe>
-
-### Step 4 - Use Your Generator
-
-Require the Sublayer gem and your generator and call `generate`!
-
-Here's an example of how you might use the \`CodeFromDescriptionGenerator\` above:
+Define an Action that writes the generated greeting to a file:
 
 ```ruby
-# ./example.rb
+# ./lib/actions/write_greeting_action.rb
+require "fileutils"
 
-require 'sublayer'
-require './code_from_description_generator'
+module Sublayer
+  module Actions
+    class WriteGreetingAction < Base
+      def initialize(message:, file_path: "./greeting.txt")
+        @message = message
+        @file_path = file_path
+      end
 
-generator = Sublayer::Generators::CodeFromDescriptionGenerator.new(description: 'a function that returns the first 10 happy numbers', technologies: ['ruby'])
-
-puts generator.generate
+      def call
+        File.write(@file_path, @message)
+      end
+    end
+  end
+end
 ```
 
-### Next Steps
+## Step 7: Run Your Project
 
-Now that you've created your first generator, you can:
+Invoke the generator and action in a script to automate the tasks:
 
-* Create some [Actions]({% link docs/concepts/actions.md %}) to do something with whatever you've generated.
-* Browse some [Examples]({% link docs/guides/index.md %}) to learn how to use the Sublayer gem in different types of projects.
-* [Join our Discord](https://discord.gg/TvgHDNEGWa) to chat with us, for support, and to keep up with the latest updates.
+```ruby
+# ./run.rb
+require_relative './lib/generators/greeting_generator'
+require_relative './lib/actions/write_greeting_action'
+
+name = "Alice"
+greeting = Sublayer::Generators::GreetingGenerator.new(name: name).generate
+Sublayer::Actions::WriteGreetingAction.new(message: greeting).call
+puts "Greeting written to file."
+```
+
+Run your script:
+
+```shell
+$ ruby run.rb
+```
+
+## Step 8: Debug and Optimize
+
+### Debugging
+
+If you encounter issues, check:
+- Your API key is set correctly
+- Your configuration matches the required format
+- Your generator and action files are being loaded correctly
+
+### Optimizing
+
+To optimize performance, ensure your project dependencies are minimal and only include the necessary libraries.
+
+For more detailed guidance, visit our [Troubleshooting Guide](../troubleshooting.md).
+
+---
+
+This example provides a simple walkthrough for setting up and running a Sublayer project. As you grow more comfortable, you can explore more advanced features like integrating external APIs or implementing custom generators and actions. Feel free to visit our [Documentation Overview](/docs/overview/) for further exploration into Sublayer's capabilities.
