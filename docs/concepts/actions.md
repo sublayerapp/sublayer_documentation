@@ -31,4 +31,4 @@ Check it out here: [Sublayer Actions Repository](https://github.com/sublayerapp/
 
 ## Troubleshooting
 
-For common issues and tips on troubleshooting with Actions, refer to our [Troubleshooting Guide](../troubleshooting.md).
+For common issues and tips on troubleshooting with Actions, refer to our [Troubleshooting Guide]({% link docs/troubleshooting.md %}).

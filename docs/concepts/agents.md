@@ -33,4 +33,4 @@ These methods work in concert to create a flexible, event-driven system for auto
 
 ## Troubleshooting
 
-For troubleshooting common issues with Agents and more information, please visit our [Troubleshooting Guide](../troubleshooting.md).
+For troubleshooting common issues with Agents and more information, please visit our [Troubleshooting Guide]({% link docs/troubleshooting.md %}).

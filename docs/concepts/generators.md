@@ -19,4 +19,4 @@ Generators are responsible for generating specific outputs based on input data. 
 
 ### Troubleshooting
 
-If you encounter issues while working with Generators, please refer to the [Troubleshooting Guide](../troubleshooting.md) for common error scenarios and solutions.
+If you encounter issues while working with Generators, please refer to the [Troubleshooting Guide]({% link docs/troubleshooting.md %}) for common error scenarios and solutions.
