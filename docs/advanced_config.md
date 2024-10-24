@@ -6,6 +6,8 @@ nav_order: 6
 
 After installing Sublayer, you can choose between any of the available LLM providers we support.
 
+For detailed guidance on API key setup, please see our [API Configuration](api-configuration.md) page.
+
 ## OpenAI (Default)
 
 Set your `OPENAI_API_KEY` environment variable. (Visit [OpenAI](https://openai.com/product) to get an API key.)
