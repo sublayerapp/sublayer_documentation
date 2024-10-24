@@ -1,4 +1,3 @@
-
 ---
 title: Actions
 parent: Resources
