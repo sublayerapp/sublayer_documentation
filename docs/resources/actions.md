@@ -6,9 +6,8 @@ parent: Resources
 # Actions
 
 Actions are similar to tools in other agent frameworks. You use them to gather
-information from different sources to put into a prompt in a [Generator]({% link
-docs/concepts/generators %}), or to perform some
-action based on data received back from a [Generator]({% link docs/concepts/generators %}).
+information from different sources to put into a prompt in a [Generator]({% link docs/concepts/generators.md %}), or to perform some
+action based on data received back from a [Generator]({% link docs/concepts/generators.md %}).
 
 This is a list of Actions that have been verified by the Sublayer team and
 community. New Actions are constantly being created by the Sublayer team, the community,
