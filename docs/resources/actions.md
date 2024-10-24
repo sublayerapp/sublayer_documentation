@@ -6,9 +6,9 @@ parent: Resources
 # Actions
 
 Actions are similar to tools in other agent frameworks. You use them to gather
-information from different sources to put into a prompt in a [Generator](% link
+information from different sources to put into a prompt in a [Generator]({% link
 docs/concepts/generators %}), or to perform some
-action based on data received back from a [Generator](% link docs/concepts/generators %}).
+action based on data received back from a [Generator]({% link docs/concepts/generators %}).
 
 This is a list of Actions that have been verified by the Sublayer team and
 community. New Actions are constantly being created by the Sublayer team, the community,
@@ -20,7 +20,7 @@ own custom use cases.
 ## List of Actions
 View the entire repository of Actions on GitHub: [Sublayer Actions](https://github.com/sublayerapp/sublayer_actions)
 
-### AI_UTILITIES
+### AI Utilities
 
 [GetContextAction](https://github.com/sublayerapp/sublayer_actions/blob/bf60fd87242ae7ab13ad544bc2e22a10c4ee2750/AI_Utilities/get_context_action.rb): Generate a concatenated string of all the files in a directory, respecting a `.contextignore` file that lists files to ignore.
 
