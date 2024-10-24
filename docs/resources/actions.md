@@ -46,6 +46,8 @@ View the entire repository of Actions on GitHub: [Sublayer Actions](https://gith
 
 [GithubCreatePRAction](https://github.com/sublayerapp/sublayer_actions/blob/bf60fd87242ae7ab13ad544bc2e22a10c4ee2750/Github/github_create_pr_action.rb): Create a pull request in a Github repository
 
+[GithubGetFileContentsAction](https://github.com/sublayerapp/sublayer_actions/blob/bf60fd87242ae7ab13ad544bc2e22a10c4ee2750/Github/github_get_file_contents_action.rb): A sublayer action to get the contents of a file in a particular repo
+
 [GithubModifyFileAction](https://github.com/sublayerapp/sublayer_actions/blob/bf60fd87242ae7ab13ad544bc2e22a10c4ee2750/Github/github_modify_file_action.rb): Modify a file in a Github repository
 
 ### Notion
