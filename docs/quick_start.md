@@ -2,6 +2,7 @@
 title: "Quick Start"
 nav_order: 2
 ---
+
 # Quick Start
 
 Sublayer is made up of three main concepts: Generators, Actions, and Agents. These concepts combine to create powerful AI-powered applications in a simple and easy-to-use interface.
@@ -10,7 +11,31 @@ You can think of a Sublayer Generator as an object that takes some string inputs
 
 In this example, we'll create a simple generator that takes a description of code and the technologies to use and generates code using an LLM like GPT-4.
 
-***
+---
+
+### Initial Setup - API Keys
+
+Before you begin the installation process, it's crucial to set up your API keys for the AI providers you intend to use. Ensure you have signed up and acquired your API keys from the following providers:
+
+- **OpenAI**: Set up your `OPENAI_API_KEY` environment variable. [Visit OpenAI](https://openai.com/product) to obtain an API key.
+- **Claude**: Set up your `ANTHROPIC_API_KEY`. [Visit Anthropic](https://anthropic.com/) for API key details.
+- **Gemini**: Set your `GEMINI_API_KEY`. Acquire it through [Google AI Studio](https://ai.google.dev/).
+
+**Steps to Add Environment Variables:**
+1. **Check for Existing API Keys:**
+   - Open terminal.
+   - Run `printenv OPENAI_API_KEY`, `printenv ANTHROPIC_API_KEY`, or `printenv GEMINI_API_KEY` to check if these keys already exist.
+
+2. **Set Missing API Keys:**
+   - Run `export OPENAI_API_KEY="your-openai-api-key"` in your terminal for OpenAI.
+   - Similarly, use the export command to set keys for Claude and Gemini.
+
+3. **Error Handling**:
+   - If any environment variable is not set correctly, an error message may indicate "Missing API Key" during execution.
+
+Ensure these steps are completed prior to running any code.
+
+---
 
 ### Step 1 - Installation
 
@@ -65,11 +90,11 @@ module Sublayer
 
       def prompt
         <<-PROMPT
-          You are an expert programmer in \#{@technologies.join(", ")}.
+          You are an expert programmer in \\#{@technologies.join(", ")}.
 
-          You are tasked with writing code using the following technologies: \#{@technologies.join(", ")}.
+          You are tasked with writing code using the following technologies: \\#{@technologies.join(", ")}.
 
-          The description of the task is \#{@description}
+          The description of the task is \\#{@description}
 
           Take a deep breath and think step by step before you start coding.
         PROMPT
@@ -91,7 +116,7 @@ Try generating your own generator with our interactive code generator below:
 
 Require the Sublayer gem and your generator and call `generate`!
 
-Here's an example of how you might use the \`CodeFromDescriptionGenerator\` above:
+Here's an example of how you might use the `CodeFromDescriptionGenerator` above:
 
 ```ruby
 # ./example.rb
