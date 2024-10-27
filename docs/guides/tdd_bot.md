@@ -2,6 +2,7 @@
 title: Build an LLM TDD Bot with Sublayer
 parent: Guides
 ---
+
 # Build an LLM TDD Bot with Sublayer
 
 ## Introduction
@@ -32,8 +33,8 @@ module Tddbot
 
       def self.help
         "Have an LLM continually modify the implementation file until the test command passes successfully.\n
-        Usage: \{\{command:\#{Tddbot::TOOL_NAME} make_tests_pass <implementation_file_path> \"<test_command>\"}}\n
-        Example: \{\{command:\#{Tddbot::TOOL_NAME} make_tests_pass lib/my_class.rb \"rspec spec/my_class_spec.rb\"}}"
+        Usage: \{\{command:#\{Tddbot::TOOL_NAME} make_tests_pass <implementation_file_path> \"<test_command>\"}}\n
+        Example: \{\{command:#\{Tddbot::TOOL_NAME} make_tests_pass lib/my_class.rb \"rspec spec/my_class_spec.rb\"}}"
       end
     end
   end
@@ -61,11 +62,11 @@ and lines 16-20:
 
 The first step is to create the Sublayer Task that's used in the MakeTestsPass command. It takes the `implementation_file_path` and the `test_command` which correspond to the first and second arguments to the command line command.
 
-What we do is perform a loop of:
-1. check if the tests pass
-2. if they do, we're done
-3. If they aren't, generate a new implementation to try to pass the tests
-4. Save that new implementation to the file
+What we do is perform a loop of:  
+1. check if the tests pass  
+2. if they do, we're done  
+3. If they aren't, generate a new implementation to try to pass the tests  
+4. Save that new implementation to the file  
 5. Go back to step 1
 
 This code is located at [/lib/tddbot/sublayer/tasks/make_rspec_tests_pass_task.rb](https://github.com/sublayerapp/tddbot/blob/main/lib/tddbot/sublayer/tasks/make_rspec_tests_pass_task.rb)
@@ -196,6 +197,21 @@ module Sublayer
   end
 end
 ```
+
+### Running CLI Commands
+
+Here's how you can run the command using the Sublayer CLI to test or troubleshoot within the bot framework:
+
+```bash
+# To automatically make tests pass for a specific implementation file and test command
+sublayer generate:command --description "Make tests pass by modifying the code until tests succeed"
+```
+
+To get a detailed step-by-step visualization of the CLI process, use:
+```bash
+sublayer make_tests_pass lib/my_class.rb "rspec spec/my_class_spec.rb"
+```
+This ensures consistent enhancement of code quality through iterative LLM suggestions and generated actions.
 
 ## Step 4 - Run the bot!
 

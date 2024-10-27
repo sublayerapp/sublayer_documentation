@@ -19,7 +19,6 @@ A Ruby on Rails app that uses OpenAI's Speech to Text and Text to Speech APIs to
 ### [TDD Bot]({% link docs/guides/tdd_bot.md %})
 
 A command line program that uses an LLM to generate code to pass your failing tests, enabling a workflow where you practice Test-Driven Development with an LLM.
-
 * Learn how Tasks are used to combine Actions and Generators
 * Learn how to build different types of Actions
 * Learn how a Generator can take multiple inputs to generate the output you want
@@ -27,7 +26,12 @@ A command line program that uses an LLM to generate code to pass your failing te
 ### [Run LLM Models Locally with Llamafile]({% link docs/guides/running-local-models-with-llamafile.md %})
 
 A guide on the recommended way to set up and run LLMs locally to interface with Sublayer.
-
 * Learn how to set up [llamafile](https://github.com/Mozilla-Ocho/llamafile)
 * Learn which models we recommend for local use
 * Learn how to point Sublayer to your locally running server
+
+### [Using Sublayer CLI]({% link docs/guides/cli_examples.md %})
+
+Master the Sublayer CLI commands with examples that generate actions, agents, and generators.
+
+---

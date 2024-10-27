@@ -5,16 +5,27 @@ parent: Resources
 
 # Actions
 
-Actions are similar to tools in other agent frameworks. You use them to gather
-information from different sources to put into a prompt in a [Generator]({% link docs/concepts/generators.md %}), or to perform some
-action based on data received back from a [Generator]({% link docs/concepts/generators.md %}).
+Actions are similar to tools in other agent frameworks. You use them to gather information from different sources to put into a prompt in a [Generator]({% link docs/concepts/generators.md %}), or to perform some action based on data received back from a [Generator]({% link docs/concepts/generators.md %}).
 
-This is a list of Actions that have been verified by the Sublayer team and
-community. New Actions are constantly being created by the Sublayer team, the community,
-and AI agents running in GithubActions and added to this list.
+This is a list of Actions that have been verified by the Sublayer team and community. New Actions are constantly being created by the Sublayer team, the community, and AI agents running in GithubActions and added to this list.
 
-You can use any of the Actions listed here directly or repurpose them for your
-own custom use cases.
+You can use any of the Actions listed here directly or repurpose them for your own custom use cases.
+
+## Example: Generating Actions with Sublayer CLI
+
+### Basic Command:
+To generate a new action using the Sublayer CLI, use the `generate:action` command:
+```bash
+sublayer generate:action --description "A new action that sends a notification to a specific channel"
+```
+
+### Full Workflow:
+1. **Define your action**: Decide what the action will do (e.g., send notifications).
+2. **Run the CLI command**: Use the above command with relevant descriptions.
+3. **Verify generated code**: Check the generated action file for expected functionality.
+4. **Integrate into projects**: Incorporate the action where needed in your application.
+
+Consult the [Sublayer Actions Repository](https://github.com/sublayerapp/sublayer_actions) for additional examples and resources.
 
 ## List of Actions
 View the entire repository of Actions on GitHub: [Sublayer Actions](https://github.com/sublayerapp/sublayer_actions)
@@ -52,3 +63,4 @@ View the entire repository of Actions on GitHub: [Sublayer Actions](https://gith
 [NotionCreateRowAction](https://github.com/sublayerapp/sublayer_actions/blob/bf60fd87242ae7ab13ad544bc2e22a10c4ee2750/Notion/notion_create_row_action.rb): Create a row in a Notion database
 
 [NotionQueryDatabaseAction](https://github.com/sublayerapp/sublayer_actions/blob/bf60fd87242ae7ab13ad544bc2e22a10c4ee2750/Notion/notion_query_database_action.rb): Query a Notion database
+
