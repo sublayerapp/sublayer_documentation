@@ -1,3 +1,4 @@
+
 ---
 title: Generators
 parent: Core Concepts
@@ -13,9 +14,10 @@ Generators are responsible for generating specific outputs based on input data. 
 
 ### [Examples](https://github.com/sublayerapp/sublayer/tree/main/examples):
 
-* [CodeFromDescriptionGenerator](https://github.com/sublayerapp/sublayer/blob/main/examples/code\_from\_description\_generator.rb): Generates code based on a description and the technologies used.
-* [DescriptionFromCodeGenerator](https://github.com/sublayerapp/sublayer/blob/main/examples/description\_from\_code\_generator.rb): Generates a description of the code passed in to it.
-* [CodeFromBlueprintGenerator](https://github.com/sublayerapp/sublayer/blob/main/examples/code\_from\_blueprint\_generator.rb): Generates code based on a blueprint, a blueprint description, and a description of the desired code.
+* [CodeFromDescriptionGenerator](https://github.com/sublayerapp/sublayer/blob/main/examples/code_from_description_generator.rb): Generates code based on a description and the technologies used.
+* [DescriptionFromCodeGenerator](https://github.com/sublayerapp/sublayer/blob/main/examples/description_from_code_generator.rb): Generates a description of the code passed in to it.
+* [CodeFromBlueprintGenerator](https://github.com/sublayerapp/sublayer/blob/main/examples/code_from_blueprint_generator.rb): Generates code based on a blueprint, a blueprint description, and a description of the desired code.
+* [GithubActionGenerator](https://github.com/sublayerapp/sublayer/blob/main/examples/github_action_generator.rb): Generate a Github Action YAML file.
 
 ### Troubleshooting
 
