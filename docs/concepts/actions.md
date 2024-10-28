@@ -1,10 +1,4 @@
----
-title: Actions
-parent: Core Concepts
-nav_order: 2
----
-
-# Actions
+## Actions
 
 Actions are responsible for performing specific operations to get inputs for a Generator or based on the generated output from a Generator.
 
@@ -28,7 +22,9 @@ Check it out here: [Sublayer Actions Repository](https://github.com/sublayerapp/
 - [RunTestCommandAction](https://github.com/sublayerapp/tddbot/blob/43297c5da9445bd6c8882d5e3876cff5fc6b2650/lib/tddbot/sublayer/actions/run_test_command_action.rb): Runs a test command on the command line returning the output.
 - [SpeechToTextAction](https://github.com/sublayerapp/rails_llm_voice_chat_example/blob/93300f268dde359b58c92a60db4b54d128d9d965/lib/sublayer/actions/speech_to_text_action.rb): Makes an API call to OpenAI's SpeechToText endpoint with audio data and returns text.
 - [TextToSpeechAction](https://github.com/sublayerapp/rails_llm_voice_chat_example/blob/93300f268dde359b58c92a60db4b54d128d9d965/lib/sublayer/actions/text_to_speech_action.rb): Makes an API call to OpenAI's Speech Synthesis endpoint with text and returns audio data.
+- [GithubCreateFileAction](https://github.com/sublayerapp/sublayer_actions/blob/bf60fd87242ae7ab13ad544bc2e22a10c4ee2750/Github/github_create_file_action.rb): Create a file in a Github repository
 
 ## Troubleshooting
 
 For common issues and tips on troubleshooting with Actions, refer to our [Troubleshooting Guide]({% link docs/troubleshooting.md %}).
+
