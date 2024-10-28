@@ -8,6 +8,12 @@ nav_order: 1
 
 Generators are responsible for generating specific outputs based on input data. They focus on a single generation task and do not perform any actions or complex decision-making. Generators are the building blocks of the Sublayer framework.
 
+To generate a command for a new generator in your project, you can run the following in your terminal:
+
+%%%bash
+sublayer generate:generator
+%%%
+
 ### Try making your own generator:
 
 <iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-generators?example=true" width="100%" height="500px"></iframe>
