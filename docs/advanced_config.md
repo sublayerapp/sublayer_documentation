@@ -9,13 +9,13 @@ After installing Sublayer, you can choose between any of the available LLM provi
 ## OpenAI (Default)
 
 Set your `OPENAI_API_KEY` environment variable. (Visit [OpenAI](https://openai.com/product) to get an API key.)
+We recommend using the `gpt-4o` model.
 
 Usage:
 
-```ruby
+%%%ruby
 Sublayer.configuration.ai_provider = Sublayer::Providers::OpenAI
-Sublayer.configuration.ai_model = "gpt-4o"
-```
+%%%
 
 ## Anthropic
 
@@ -25,18 +25,18 @@ Set your `ANTHROPIC_API_KEY` environment variable. (Visit [Anthropic](https://an
 
 Usage:
 
-```ruby
+%%%ruby
 Sublayer.configuration.ai_provider = Sublayer::Providers::Claude
 Sublayer.configuration.ai_model = "claude-3-opus-20240229"
-```
+%%%
 
 ## Google
 
 Set your `GEMINI_API_KEY` environment variable. (Visit [Google AI Studio](https://ai.google.dev/) to get an API key.)
+We recommend using the `gemini-1.5-pro` model. 
 
 Usage:
 
-```ruby
+%%%ruby
 Sublayer.configuration.ai_provider = Sublayer::Providers::Gemini
-Sublayer.configuration.ai_model = "gemini-1.5-flash-latest"
-```
+%%%
