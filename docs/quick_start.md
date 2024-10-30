@@ -10,9 +10,9 @@ You can think of a Sublayer Generator as an object that takes some string inputs
 
 In this example, we'll create a simple generator that takes a description of code and the technologies to use and generates code using an LLM like GPT-4.
 
-***
+---
 
-### Step 1 - Installation
+## Step 1 - Installation
 
 Install the Sublayer gem:
 
@@ -26,7 +26,7 @@ Or add it to your Gemfile:
 gem "sublayer"
 ```
 
-### Step 2 - Environment Setup
+## Step 2 - Environment Setup
 
 Set your OpenAI API key as an environment variable:
 
@@ -36,7 +36,7 @@ export OPENAI_API_KEY="your-api-key"
 
 Don't have a key? Visit [OpenAI](https://openai.com/product) to get one.
 
-### Step 3a - Create a Generator
+## Step 3a - Create a Generator
 
 Create a Sublayer Generator. Generators are responsible for taking input from your application and generating output using an LLM like GPT-4.
 
@@ -46,68 +46,56 @@ Here's an example of a generator that takes a description of code to generate an
 # ./code_from_description_generator.rb
 
 require "sublayer"
+...```
 
-module Sublayer
-  module Generators
-    class CodeFromDescriptionGenerator < Base
-      llm_output_adapter type: :single_string,
-                         name: "generated_code",
-                         description: "The generated code in the requested language"
+---
 
-      def initialize(description:, technologies:)
-        @description = description
-        @technologies = technologies
-      end
+## CLI Commands Overview
 
-      def generate
-        super
-      end
+The Sublayer CLI provides several commands to streamline your development process. Below is an overview of the available commands, derived from the `lib/sublayer/cli.rb` and its subcommands:
 
-      def prompt
-        <<-PROMPT
-          You are an expert programmer in \#{@technologies.join(", ")}.
+- **new**: Creates a new Sublayer project.
+  ```shell
+  sublayer new PROJECT_NAME
+  ```
+  This command helps set up a new Sublayer project with a specified name.
 
-          You are tasked with writing code using the following technologies: \#{@technologies.join(", ")}.
+- **generate:generator**: Generates a new Sublayer Generator subclass for your project.
+  ```shell
+  sublayer generate:generator
+  ```
+  Used to scaffold a new generator class in your project.
 
-          The description of the task is \#{@description}
+- **generate:agent**: Generates a new Sublayer Agent subclass for your project.
+  ```shell
+  sublayer generate:agent
+  ```
+  Utility for adding agent automation capabilities to your project.
 
-          Take a deep breath and think step by step before you start coding.
-        PROMPT
-      end
-    end
-  end
-end
-```
+- **generate:action**: Generates a new Sublayer Action subclass for your project.
+  ```shell
+  sublayer generate:action
+  ```
+  Utilize this to create a new action that can perform tasks within your setup.
 
-To learn more about everything you can do with a generator, check out the [Generators]({% link docs/concepts/generators.md %}) page.
+- **version**: Prints the Sublayer version.
+  ```shell
+  sublayer version
+  ```
+  Displays the current installed version of Sublayer.
 
-### Step 3b - Try Generating One!
+- **help**: Provides help information for Sublayer commands.
+  ```shell
+  sublayer help
+  ```
+  Use this to get a summary of available commands or details about a specific command.
+
+For specific flags or parameters and detailed command behavior, please refer to the Sublayer CLI documentation or use the `--help` option with commands.
+
+---
+
+## Step 3b - Try Generating One!
 
 Try generating your own generator with our interactive code generator below:
 
-<iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-generators" width="100%" height="500px"></iframe>
-
-### Step 4 - Use Your Generator
-
-Require the Sublayer gem and your generator and call `generate`!
-
-Here's an example of how you might use the \`CodeFromDescriptionGenerator\` above:
-
-```ruby
-# ./example.rb
-
-require 'sublayer'
-require './code_from_description_generator'
-
-generator = Sublayer::Generators::CodeFromDescriptionGenerator.new(description: 'a function that returns the first 10 happy numbers', technologies: ['ruby'])
-
-puts generator.generate
-```
-
-### Next Steps
-
-Now that you've created your first generator, you can:
-
-* Create some [Actions]({% link docs/concepts/actions.md %}) to do something with whatever you've generated.
-* Browse some [Examples]({% link docs/guides/index.md %}) to learn how to use the Sublayer gem in different types of projects.
-* [Join our Discord](https://discord.gg/TvgHDNEGWa) to chat with us, for support, and to keep up with the latest updates.
+...
