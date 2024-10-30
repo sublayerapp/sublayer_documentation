@@ -13,18 +13,12 @@ parent: Guides
 <iframe width="560" height="315" src="https://www.youtube.com/embed/L0kTksoFaVM?si=bhl85yRHF9pR2Ist" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Install [Llamafile](https://github.com/Mozilla-Ocho/llamafile)
-1. ```bash
-   git clone git@github.com:Mozilla-Ocho/llamafile.git
-   ```
-2. ```bash
-   brew install make
-   ```
-3. ```bash
-   cd llamafile
+1. ```bash\n   git clone git@github.com:Mozilla-Ocho/llamafile.git
+   ```\n2. ```bash\n   brew install make
+   ```\n3. ```bash\n   cd llamafile
    gmake -j8
    sudo gmake install PREFIX=/usr/local
-   ```
-
+   ```\n
 ## Download the [model](https://huggingface.co/models)
 * Click below to download the recommended Model:
     * [Meta Llama3](https://huggingface.co/QuantFactory/Meta-Llama-3-8B-Instruct-GGUF/resolve/main/Meta-Llama-3-8B-Instruct.Q5_K_M.gguf?download=true) [recommended]
@@ -32,62 +26,39 @@ parent: Guides
 * To find your own model: go to [Hugging Face](https://huggingface.co/models)
 
 ## Run the model
-```bash
-llamafile -ngl 9999 -m path/to/model.gguf --host 0.0.0.0 -c 2048
-```
-
-* Recommended settings for Apple M1 users:
-  ```bash
-  llamafile -ngl 9999 -m path/to/model.gguf --host 0.0.0.0 -c 2048 --gpu APPLE -t 12
-  ```
-
-* visit [localhost:8080](http://localhost:8080)
+```bash\nllamafile -ngl 9999 -m path/to/model.gguf --host 0.0.0.0 -c 2048
+```\n* Recommended settings for Apple M1 users:
+  ```bash\n  llamafile -ngl 9999 -m path/to/model.gguf --host 0.0.0.0 -c 2048 --gpu APPLE -t 12
+  ```\n* visit [localhost:8080](http://localhost:8080)
 
 ## Use with Sublayer (skip to [Basic Demo](#basic-demo) if you don't have a project)
 1. Add to Gemfile:
-    ```ruby
-    gem 'sublayer', '~>0.0.7'
-    ```
-2. Run:
-    ```bash
-    bundle install
-    ```
-3. Add to your configuration file:
-    ```ruby
-    Sublayer.configuration.ai_provider = Sublayer::Providers::Local
+    ```ruby\n    gem 'sublayer', '~>0.0.7'
+    ```\n2. Run:
+    ```bash\n    bundle install
+    ```\n3. Add to your configuration file:
+    ```ruby\n    Sublayer.configuration.ai_provider = Sublayer::Providers::Local
     Sublayer.configuration.ai_model = "LLaMA_CPP"
-    ```
-4. Build a sublayer generator:
+    ```\n4. Build a sublayer generator:
     <iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-generators" width="100%" height="500px"></iframe>
 
 5. Use in your code:
-    ```ruby
-    MyGenerator.new(attributes).generate
-    ```
-
+    ```ruby\n    MyGenerator.new(attributes).generate
+    ```\n
 ## Basic Demo
 Let's make a ruby project to find a past historical event on today's date
 
-```bash
-# bash
+```bash\n# bash
 mkdir historical_event_finder
 cd historical_event_finder
 touch Gemfile
 touch historical_event_finder.rb
-```
-
-```ruby
-# Gemfile
+```\n```ruby\n# Gemfile
 source 'https://rubygems.org'
 gem 'sublayer', '~>0.0.7'
-```
-
-```bash
-# bash
+```\n```bash\n# bash
 bundle install
-```
-
-* Build a sublayer generator with the following description:
+```\n* Build a sublayer generator with the following description:
     * "generator that uses Time.now and finds a fun historical event from the past that occurred on the same month/day as a value"
     <iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-generators?example=false" width="100%" height="500px"></iframe>
 
@@ -95,8 +66,7 @@ bundle install
 
 * Write the following code in `historical_event_finder.rb`:
 
-  ```ruby
-  # historical_event_finder.rb
+  ```ruby\n  # historical_event_finder.rb
   require 'sublayer'
   require_relative 'historical_event_generator'
 
@@ -104,10 +74,7 @@ bundle install
   Sublayer.configuration.ai_model = "LLaMA_CPP"
 
   puts HistoricalEventGenerator.new.generate
-  ```
+  ```\n* run your code:
 
-* run your code:
-
-  ```bash
-  ruby historical_event_finder.rb
-  ```
+  ```bash\n  ruby historical_event_finder.rb
+  ```\n

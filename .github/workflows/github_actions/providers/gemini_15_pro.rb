@@ -7,7 +7,7 @@ module Sublayer
 
     class Gemini15Pro
       def self.call(prompt:, output_adapter:)
-        prompt.gsub!(/```(\w+)?\n/, '%%%\1\n').gsub!(/\n```/, "\n%%%")
+        prompt = prompt.gsub(/```(\w+)?\n/, '%%%\1\n').gsub(/\n```/, "\n%%%")
         response = HTTParty.post(
           "https://generativelanguage.googleapis.com/v1beta/models/#{Sublayer.configuration.ai_model}:generateContent?key=#{ENV['GEMINI_API_KEY']}",
           body: {
@@ -34,7 +34,7 @@ module Sublayer
           timeout: 600
         )
 
-        raise GeminiInternalServiceError, "Error generating with Gemini, error: #{response.body}" if response.code == 500
+        raise GeminiInternalServiceError, "Error generating with Gemini, error: #{response.body}" if response.code >= 500
 
         raise "Error generating with Gemini, error: #{response.body}" unless response.success?
 

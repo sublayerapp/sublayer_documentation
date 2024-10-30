@@ -29,7 +29,7 @@ View the entire repository of Actions on GitHub: [Sublayer Actions](https://gith
 
 [AsanaGetLatestCommentAction](https://github.com/sublayerapp/sublayer_actions/blob/bf60fd87242ae7ab13ad544bc2e22a10c4ee2750/Asana/asana_get_latest_comment_action.rb): Get the latest comment on a particular Asana task
 
-[AsanaGetTaskDescriptionAction](https://github.com/sublayerapp/sublayer_actions/blob/bf60fd87242ae7ab13ad544bc2e22a10c4ee2750/Asana/asana_get_task_description_action.rb): Get the description of a particular Asana task
+[AsanaGetTaskDescriptionAction](https://github.com/sublayerapp/sublayer_actions/blob/bf60fd872ae7ab13ad544bc2e22a10c4ee2750/Asana/asana_get_task_description_action.rb): Get the description of a particular Asana task
 
 [AsanaGetTaskNameAction](https://github.com/sublayerapp/sublayer_actions/blob/bf60fd87242ae7ab13ad544bc2e22a10c4ee2750/Asana/asana_get_task_name_action.rb): Get the name of a particular Asana task
 

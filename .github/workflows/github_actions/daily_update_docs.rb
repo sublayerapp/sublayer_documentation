@@ -78,7 +78,7 @@ file_updates.each do |file_update|
   p "COCONUT"
   p file_update
   file_path = file_update["file_path"]
-  file_content = file_update["file_content"].gsub!(/%%%(\w+)?\n/, '```\1\n').gsub!(/\n%%%/, "\n```")
+  file_content = file_update["file_content"].gsub(/%%%(\w+)?\n/, '```\1\n').gsub(/\n%%%/, "\n```")
 
   puts "Updating file: #{file_path}"
 

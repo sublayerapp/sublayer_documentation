@@ -16,25 +16,16 @@ In this example, we'll create a simple generator that takes a description of cod
 
 Install the Sublayer gem:
 
-```shell
-$ gem install sublayer
-```
+```shell\n$ gem install sublayer
+```\nOr add it to your Gemfile:
 
-Or add it to your Gemfile:
-
-```ruby
-gem "sublayer"
-```
-
-### Step 2 - Environment Setup
+```ruby\ngem "sublayer", "~> 0.2.8"
+```\n### Step 2 - Environment Setup
 
 Set your OpenAI API key as an environment variable:
 
-```shell
-export OPENAI_API_KEY="your-api-key"
-```
-
-Don't have a key? Visit [OpenAI](https://openai.com/product) to get one.
+```shell\nexport OPENAI_API_KEY="your-api-key"
+```\nDon't have a key? Visit [OpenAI](https://openai.com/product) to get one.
 
 ### Step 3a - Create a Generator
 
@@ -42,8 +33,7 @@ Create a Sublayer Generator. Generators are responsible for taking input from yo
 
 Here's an example of a generator that takes a description of code to generate and the technologies to use and generates code with an LLM:
 
-```ruby
-# ./code_from_description_generator.rb
+```ruby\n# ./code_from_description_generator.rb
 
 require "sublayer"
 
@@ -65,11 +55,11 @@ module Sublayer
 
       def prompt
         <<-PROMPT
-          You are an expert programmer in \#{@technologies.join(", ")}.
+          You are an expert programmer in #{@technologies.join(", ")}.
 
-          You are tasked with writing code using the following technologies: \#{@technologies.join(", ")}.
+          You are tasked with writing code using the following technologies: #{@technologies.join(", ")}.
 
-          The description of the task is \#{@description}
+          The description of the task is #{@description}
 
           Take a deep breath and think step by step before you start coding.
         PROMPT
@@ -77,9 +67,7 @@ module Sublayer
     end
   end
 end
-```
-
-To learn more about everything you can do with a generator, check out the [Generators]({% link docs/concepts/generators.md %}) page.
+```\nTo learn more about everything you can do with a generator, check out the [Generators]({% link docs/concepts/generators.md %}) page.
 
 ### Step 3b - Try Generating One!
 
@@ -91,10 +79,9 @@ Try generating your own generator with our interactive code generator below:
 
 Require the Sublayer gem and your generator and call `generate`!
 
-Here's an example of how you might use the \`CodeFromDescriptionGenerator\` above:
+Here's an example of how you might use the `CodeFromDescriptionGenerator` above:
 
-```ruby
-# ./example.rb
+```ruby\n# ./example.rb
 
 require 'sublayer'
 require './code_from_description_generator'
@@ -102,9 +89,7 @@ require './code_from_description_generator'
 generator = Sublayer::Generators::CodeFromDescriptionGenerator.new(description: 'a function that returns the first 10 happy numbers', technologies: ['ruby'])
 
 puts generator.generate
-```
-
-### Next Steps
+```\n### Next Steps
 
 Now that you've created your first generator, you can:
 
