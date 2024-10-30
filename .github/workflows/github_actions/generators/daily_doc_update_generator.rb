@@ -69,14 +69,14 @@ Just the Docs is a responsive, Jekyll theme for GitHub Pages designed with simpl
 ### Front Matter
 <!-- Front matter is used for Jekyll page configuration, typically enclosed in "---". -->
 
-```yaml
+%%%yaml
 ---
 layout: default
 title: Page Title
 nav_order: 2
 has_children: true
 ---
-```
+%%%
 
 - `layout`: Defines which layout template is used. For example, `default` is the standard layout.
 - `title`: The title of the page, displayed in the browser tab and in the site's navigation.
@@ -86,11 +86,11 @@ has_children: true
 ### Markdown Content
 <!-- The core content is written in markdown, allowing for easy formatting of text, lists, tables, and more. -->
 
-```markdown
+%%%markdown
 # Main Heading
 ## Subheading
 Content goes here.
-```
+%%%
 
 ---
 
@@ -101,11 +101,11 @@ Just the Docs allows for several configuration options, such as:
 
 - **theme settings** in `_config.yml`:
 
-```yaml
+%%%yaml
 # _config.yml
 title: My Site
 description: A simple documentation theme for GitHub Pages
-```
+%%%
 
 - `title`: The site title shown in the browser and the main header.
 - `description`: A brief description of your documentation.
@@ -117,11 +117,11 @@ description: A simple documentation theme for GitHub Pages
 
 Navigation is handled automatically based on the files in the `_docs` directory. You can manually configure order using front matter, or rely on alphabetical sorting.
 
-```yaml
+%%%yaml
 # Navigation example in front matter
 nav_order: 3
 parent: Documentation Overview
-```
+%%%
 
 - `parent`: Links the current page to a parent page.
 - `nav_order`: Orders pages within the parent group.
@@ -131,14 +131,14 @@ parent: Documentation Overview
 
 Use `has_children: true` in a parent page, and each child page will automatically link back.
 
-```yaml
+%%%yaml
 ---
 layout: default
 title: Child Page
 parent: Documentation Overview
 nav_order: 1
 ---
-```
+%%%
 
 This page will now appear nested under "Documentation Overview."
 
@@ -149,10 +149,10 @@ This page will now appear nested under "Documentation Overview."
 
 Just the Docs supports full-text search across your documentation. Make sure to enable search in `_config.yml`:
 
-```yaml
+%%%yaml
 # Enable search
 search_enabled: true
-```
+%%%
 
 This will add a search bar at the top of your documentation site.
 
@@ -163,12 +163,12 @@ This will add a search bar at the top of your documentation site.
 
 You can add code snippets with syntax highlighting, using triple backticks and the language name:
 
-```ruby
+%%%ruby
 # Ruby code example
 def hello_world
   puts "Hello, world!"
 end
-```
+%%%
 
 ### Inline Code
 <!-- For inline code, wrap the text in backticks. -->
@@ -181,15 +181,15 @@ Use `backticks` for inline code formatting.
 
 To include images:
 
-```markdown
+%%%markdown
 ![Alt text](path/to/image.png)
-```
+%%%
 
 Or use HTML for more control:
 
-```html
+%%%html
 <img src="path/to/image.png" alt="Alt text" width="600">
-```
+%%%
 
 ---
 
@@ -202,11 +202,11 @@ Or use HTML for more control:
 
 Tables:
 
-```
+%%%
 | Column 1 | Column 2 |
 |----------|----------|
 | Item 1   | Item 2   |
-```
+%%%
 
 ---
 
@@ -215,11 +215,11 @@ Tables:
 
 Footer content can be customized in the `footer.html` file located in `_includes`.
 
-```html
+%%%html
 <footer>
   &copy; 2024 My Documentation Site
 </footer>
-```
+%%%
 
       Your task:
       Generate the full updated content for each file that should be changed according to the suggestion.
