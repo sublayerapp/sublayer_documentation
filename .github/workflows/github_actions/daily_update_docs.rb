@@ -72,7 +72,16 @@ with_retry do
   ).generate
 end
 
-# Now write the file updates to disk
+stamp = Time.now.strftime('%Y-%m-%d-%H-%M')
+branch_name = "daily-doc-updates-#{stamp}"
+doc_repo_full_name = 'sublayerapp/sublayer_documentation'
+
+puts "Creating branch: #{branch_name}"
+GithubCreateBranchAction.new(
+  repo: doc_repo_full_name,
+  base_branch: "main",
+  new_branch: branch_name
+).call
 
 file_updates.each do |file_update|
   file_path = file_update["file_path"]
@@ -80,14 +89,19 @@ file_updates.each do |file_update|
 
   puts "Updating file: #{file_path}"
 
-  WriteFileAction.new(file_path: "#{doc_repo_path}/#{file_path}", file_contents: file_content).call
+  GithubAddOrModifyFileAction.new(
+    repo: doc_repo_full_name,
+    branch: branch_name,
+    file_path: file_path,
+    file_content: file_content
+  ).call
 end
 
-puts "All files updated."
-
-stamp = Time.now.strftime('%Y-%m-%d-%H-%M')
-branch_name = "daily-doc-updates-#{stamp}"
-CreateBranchAction.new(repo_path: doc_repo_path, branch_name: branch_name).call
-PushChangesAction.new(repo_path: doc_repo_path, commit_message: "Daily update to docs", branch_name: branch_name).call
-
-DailyCreatePullRequestAction.new(branch_name: branch_name, suggestion: "#{best_suggestion}\n  description of file changes: #{file_changes}", title: best_suggestion_title).call
+puts "Creating PR"
+GithubCreatePullRequestAction.new(
+  repo: doc_repo_full_name,
+  base: 'main',
+  head: branch_name,
+  title: best_suggestion_title,
+  body: "Suggestion:\n#{best_suggestion}\n  description of file changes: #{file_changes}"
+).call
