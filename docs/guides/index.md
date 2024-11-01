@@ -31,3 +31,11 @@ A guide on the recommended way to set up and run LLMs locally to interface with 
 * Learn how to set up [llamafile](https://github.com/Mozilla-Ocho/llamafile)
 * Learn which models we recommend for local use
 * Learn how to point Sublayer to your locally running server
+
+### [CLI Setup]({% link docs/guides/cli_setup.md %})
+
+A comprehensive guide to setting up and using the Sublayer CLI.
+
+* Learn how to initialize a new CLI project using Sublayer
+* Explore command and action generation
+* Understand basic CLI tool execution
