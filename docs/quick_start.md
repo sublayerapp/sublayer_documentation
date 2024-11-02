@@ -10,9 +10,38 @@ You can think of a Sublayer Generator as an object that takes some string inputs
 
 In this example, we'll create a simple generator that takes a description of code and the technologies to use and generates code using an LLM like GPT-4.
 
-***
+---
 
-### Step 1 - Installation
+## Page Structure
+
+### Front Matter
+
+In the documentation, it is important to follow the structure as shown below for consistency and proper navigation.
+
+```yaml
+---
+layout: default
+title: Page Title
+nav_order: 2
+has_children: true
+---
+```
+
+- `layout`: Defines which layout template is used. For example, `default` is the standard layout.
+- `title`: The title of the page.
+- `nav_order`: Determines the order in the navigation menu.
+
+### Markdown Content
+
+```markdown
+# Main Heading
+## Subheading
+Content goes here.
+```
+
+---
+
+## Step 1 - Installation
 
 Install the Sublayer gem:
 
@@ -36,62 +65,58 @@ export OPENAI_API_KEY="your-api-key"
 
 Don't have a key? Visit [OpenAI](https://openai.com/product) to get one.
 
-### Step 3a - Create a Generator
+## Step 3 - Configuration
 
-Create a Sublayer Generator. Generators are responsible for taking input from your application and generating output using an LLM like GPT-4.
+To configure the AI provider and model, update your project to include the following configuration settings. This configuration is crucial since many code examples and CLI options rely heavily on these settings:
 
-Here's an example of a generator that takes a description of code to generate and the technologies to use and generates code with an LLM:
+### OpenAI (Default Provider)
+
+Usage:
 
 ```ruby
-# ./code_from_description_generator.rb
-
-require "sublayer"
-
-module Sublayer
-  module Generators
-    class CodeFromDescriptionGenerator < Base
-      llm_output_adapter type: :single_string,
-                         name: "generated_code",
-                         description: "The generated code in the requested language"
-
-      def initialize(description:, technologies:)
-        @description = description
-        @technologies = technologies
-      end
-
-      def generate
-        super
-      end
-
-      def prompt
-        <<-PROMPT
-          You are an expert programmer in \#{@technologies.join(", ")}.
-
-          You are tasked with writing code using the following technologies: \#{@technologies.join(", ")}.
-
-          The description of the task is \#{@description}
-
-          Take a deep breath and think step by step before you start coding.
-        PROMPT
-      end
-    end
-  end
+Sublayer.configure do |config|
+  config.ai_provider = Sublayer::Providers::OpenAI
+  config.ai_model = "gpt-4o"
 end
 ```
 
-To learn more about everything you can do with a generator, check out the [Generators]({% link docs/concepts/generators.md %}) page.
+This setup expects an `OPENAI_API_KEY` environment variable to be set.
 
-### Step 3b - Try Generating One!
+### Claude
 
-Try generating your own generator with our interactive code generator below:
+Usage:
 
-<iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-generators" width="100%" height="500px"></iframe>
+```ruby
+Sublayer.configure do |config|
+  config.ai_provider = Sublayer::Providers::Claude
+  config.ai_model = "claude-3-5-sonnet-20240620"
+end
+```
 
-### Step 4 - Use Your Generator
+This setup expects a `ANTHROPIC_API_KEY` environment variable to be set.
 
-Require the Sublayer gem and your generator and call `generate`!
+### Gemini [Unstable]
 
-Here's an example of how you might use the \`CodeFromDescriptionGenerator\` above:
+Usage:
+
+```ruby
+Sublayer.configure do |config|
+  config.ai_provider = Sublayer::Providers::Gemini
+  config.ai_model = "gemini-1.5-pro"
+end
+```
+
+This setup expects a `GEMINI_API_KEY` environment variable to be set.
+
+---
+
+Now, with the configuration in place, your Sublayer application is ready to integrate and utilize AI models from different providers efficiently.
+
+### Step 3a - Create a Generator
+
+Create a Sublayer Generator. Generators are responsible...
+
+... the example above:
 
 ```ruby
 # ./example.rb
@@ -106,8 +131,12 @@ puts generator.generate
 
 ### Next Steps
 
-Now that you've created your first generator, you can:
+Now that you've created your first generator...
 
-* Create some [Actions]({% link docs/concepts/actions.md %}) to do something with whatever you've generated.
-* Browse some [Examples]({% link docs/guides/index.md %}) to learn how to use the Sublayer gem in different types of projects.
-* [Join our Discord](https://discord.gg/TvgHDNEGWa) to chat with us, for support, and to keep up with the latest updates.
+### Troubleshooting and Common Issues
+
+In case you encounter any issues while configuring your environment or running your generator...
+
+...please refer to the [Troubleshooting Guide](/docs/troubleshooting/) for common solutions.
+
+---
