@@ -36,78 +36,52 @@ export OPENAI_API_KEY="your-api-key"
 
 Don't have a key? Visit [OpenAI](https://openai.com/product) to get one.
 
-### Step 3a - Create a Generator
+### Step 3 - Creating Your First Generator
 
-Create a Sublayer Generator. Generators are responsible for taking input from your application and generating output using an LLM like GPT-4.
-
-Here's an example of a generator that takes a description of code to generate and the technologies to use and generates code with an LLM:
+Here is how to create a basic generator:
 
 ```ruby
-# ./code_from_description_generator.rb
+# Initialize the generator
+generator = YourGenerator.new(...)
 
-require "sublayer"
-
-module Sublayer
-  module Generators
-    class CodeFromDescriptionGenerator < Base
-      llm_output_adapter type: :single_string,
-                         name: "generated_code",
-                         description: "The generated code in the requested language"
-
-      def initialize(description:, technologies:)
-        @description = description
-        @technologies = technologies
-      end
-
-      def generate
-        super
-      end
-
-      def prompt
-        <<-PROMPT
-          You are an expert programmer in \#{@technologies.join(", ")}.
-
-          You are tasked with writing code using the following technologies: \#{@technologies.join(", ")}.
-
-          The description of the task is \#{@description}
-
-          Take a deep breath and think step by step before you start coding.
-        PROMPT
-      end
-    end
-  end
-end
+# Call generate to execute
+generator.generate
 ```
 
-To learn more about everything you can do with a generator, check out the [Generators]({% link docs/concepts/generators.md %}) page.
+### Environment Setup for Different Models
 
-### Step 3b - Try Generating One!
+#### OpenAI (Default)
+To configure OpenAI API:
+1. Set your `OPENAI_API_KEY` environment variable.
+2. Install the `openai` gem if not installed.
+3. Configure Sublayer to use OpenAI in your application setup:
+   ```ruby
+   Sublayer.configuration.ai_provider = Sublayer::Providers::OpenAI
+   Sublayer.configuration.ai_model = "gpt-4o"
+   ```
 
-Try generating your own generator with our interactive code generator below:
+#### Claude
+To configure Claude API:
+1. Set your `ANTHROPIC_API_KEY` environment variable.
+2. Configure Sublayer to use Claude in your application setup:
+   ```ruby
+   Sublayer.configuration.ai_provider = Sublayer::Providers::Claude
+   Sublayer.configuration.ai_model = "claude-3-5-sonnet-20240620"
+   ```
 
-<iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-generators" width="100%" height="500px"></iframe>
-
-### Step 4 - Use Your Generator
-
-Require the Sublayer gem and your generator and call `generate`!
-
-Here's an example of how you might use the \`CodeFromDescriptionGenerator\` above:
-
-```ruby
-# ./example.rb
-
-require 'sublayer'
-require './code_from_description_generator'
-
-generator = Sublayer::Generators::CodeFromDescriptionGenerator.new(description: 'a function that returns the first 10 happy numbers', technologies: ['ruby'])
-
-puts generator.generate
-```
+#### Gemini
+To configure Gemini API:
+1. Set your `GEMINI_API_KEY` environment variable.
+2. Configure Sublayer to use Gemini in your setup:
+   ```ruby
+   Sublayer.configuration.ai_provider = Sublayer::Providers::Gemini
+   Sublayer.configuration.ai_model = "gemini-1.5-flash-latest"
+   ```
 
 ### Next Steps
 
-Now that you've created your first generator, you can:
+Now that you've set up your environment, create a [Generator]({% link docs/concepts/generators.md %}) to start building AI-powered features. 
 
-* Create some [Actions]({% link docs/concepts/actions.md %}) to do something with whatever you've generated.
-* Browse some [Examples]({% link docs/guides/index.md %}) to learn how to use the Sublayer gem in different types of projects.
-* [Join our Discord](https://discord.gg/TvgHDNEGWa) to chat with us, for support, and to keep up with the latest updates.
+For more in-depth guidance, navigate to:
+- [Advanced Configurations]({% link docs/advanced_config.md %})
+- [Troubleshooting]({% link docs/troubleshooting.md %})
