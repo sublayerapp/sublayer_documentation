@@ -39,11 +39,19 @@ class MyGenerator < Sublayer::Generators::Base
 end
 ```
 
-### Examples
+### Examples of Custom Adapters
 
-Below are links to the built-in output adapters in Sublayer and are fully tested against example generators. You can use these as a reference when building your own output adapters.
+Here are some more advanced examples of how you can extend an adapter:
 
-- [Single String](https://github.com/sublayerapp/sublayer/blob/e57d4e44117cec6e6c0f750d53b499df7bc66ca1/lib/sublayer/components/output_adapters/single_string.rb)
-- [List of Strings](https://github.com/sublayerapp/sublayer/blob/e57d4e44117cec6e6c0f750d53b499df7bc66ca1/lib/sublayer/components/output_adapters/list_of_strings.rb)
-- [String Selection from List](https://github.com/sublayerapp/sublayer/blob/e57d4e44117cec6e6c0f750d53b499df7bc66ca1/lib/sublayer/components/output_adapters/string_selection_from_list.rb)
-- [Named Strings](https://github.com/sublayerapp/sublayer/blob/e57d4e44117cec6e6c0f750d53b499df7bc66ca1/lib/sublayer/components/output_adapters/named_strings.rb)
+- **Mapping Outputs to Custom Data Structures:** Use custom logic in `materialize_result` to map complex LLM responses directly into domain-specific data structures.
+
+- **Dynamic Properties:** Implement `load_instance_data` to dynamically set up properties based on runtime data provided to the generator.
+
+## Example Output Adapter
+
+Below are links to built-in output adapters in Sublayer, all fully tested with example generators. Use these as references:
+
+- [Single String](https://github.com/sublayerapp/sublayer/blob/main/lib/sublayer/components/output_adapters/single_string.rb): Captures single string outputs.
+- [List of Strings](https://github.com/sublayerapp/sublayer/blob/main/lib/sublayer/components/output_adapters/list_of_strings.rb): Handles multiple string outputs.
+- [String Selection from List](https://github.com/sublayerapp/sublayer/blob/main/lib/sublayer/components/output_adapters/string_selection_from_list.rb): Selects from enumerated options.
+- [Named Strings](https://github.com/sublayerapp/sublayer/blob/main/lib/sublayer/components/output_adapters/named_strings.rb): Structures LLM output with named attributes.
