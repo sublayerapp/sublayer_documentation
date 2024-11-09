@@ -3,14 +3,26 @@ title: Agents
 parent: Core Concepts
 nav_order: 3
 ---
+
 # Agents
 
 Think of Sublayer Agents as your personal assistants, always ready to help with repetitive tasks or respond to changes in your environment. These agents can assist with a wide range of activities, from coding to data processing to system monitoring and beyond. You create an agent by defining four key aspects: what should wake it up (triggers), what it's trying to achieve (goal condition), how it checks its progress (check status), and what it actually does (step).
 
 Triggers could be things like file changes, incoming data, time-based events, or even manual calls while the goal might be completing a data analysis or updating a system. The agent will keep checking its status and taking steps until it reaches its goal. It's like having a tireless helper that knows exactly when to jump in and what to do, making a variety of processes more efficient and responsive to change. Whether you're automating workflows, monitoring systems, or processing data, Sublayer Agents provide a flexible, event-driven approach to tackling complex and repetitive tasks.
 
-## Writing an Agent
+## Best Practices for Developing Agents
 
+To develop effective and maintainable Agents, consider the following best practices:
+
+### Lifecycle Management
+- Define clear start and stop conditions for your agents to manage resource consumption effectively.
+- Implement monitoring and logging to capture the Agent's actions and decisions over time.
+
+### Using Triggers Effectively
+- Choose triggers that align closely with the goals of your agent for timely and relevant activation.
+- Use compound triggers for scenarios that require more than one condition for activation.
+
+## Writing an Agent
 Sublayer Agents are autonomous units of execution designed to perform specific tasks or monitor systems. They are built on top of the `Sublayer::Agents::Base` class and utilize a Domain Specific Language (DSL) for defining their behavior.
 
 The DSL consists of four primary methods:

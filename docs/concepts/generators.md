@@ -3,9 +3,22 @@ title: Generators
 parent: Core Concepts
 nav_order: 1
 ---
+
 # Generators
 
 Generators are responsible for generating specific outputs based on input data. They focus on a single generation task and do not perform any actions or complex decision-making. Generators are the building blocks of the Sublayer framework.
+
+## Best Practices for Structuring Generators
+
+To create efficient and maintainable Generators, adhere to the following best practices:
+
+### Prompt Creation
+- Craft clear and concise prompts that convey the necessary context and expected output to the AI model.
+- Avoid ambiguity in prompts to reduce misunderstandings and erroneous outputs.
+
+### Result Handling
+- Implement validations and checks on the generated output to ensure correctness and relevance.
+- Use structured formats, such as JSON or specific schema, to facilitate downstream processing.
 
 ### Try making your own generator:
 

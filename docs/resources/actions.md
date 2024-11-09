@@ -5,16 +5,27 @@ parent: Resources
 
 # Actions
 
-Actions are similar to tools in other agent frameworks. You use them to gather
-information from different sources to put into a prompt in a [Generator]({% link docs/concepts/generators.md %}), or to perform some
-action based on data received back from a [Generator]({% link docs/concepts/generators.md %}).
+Actions are similar to tools in other agent frameworks. You use them to gather information from different sources to put into a prompt in a [Generator]({% link docs/concepts/generators.md %}), or to perform some action based on data received back from a [Generator]({% link docs/concepts/generators.md %}).
 
-This is a list of Actions that have been verified by the Sublayer team and
-community. New Actions are constantly being created by the Sublayer team, the community,
-and AI agents running in GithubActions and added to this list.
+This is a list of Actions that have been verified by the Sublayer team and community. New Actions are constantly being created by the Sublayer team, the community, and AI agents running in GithubActions and added to this list.
 
-You can use any of the Actions listed here directly or repurpose them for your
-own custom use cases.
+You can use any of the Actions listed here directly or repurpose them for your own custom use cases.
+
+## Best Practices for Creating Actions
+
+When developing custom Actions, consider the following best practices to ensure your Actions are efficient, maintainable, and robust:
+
+### Code Reusability
+- Modularize your code to promote reuse and reduce duplication.
+- Identify common patterns across Actions and refactor them into utility methods or modules.
+
+### Error Handling
+- Implement comprehensive error handling to gracefully manage unexpected scenarios.
+- Use logging to capture errors and important execution details to aid in debugging and monitoring.
+
+### Testing Guidelines
+- Write unit tests for your Actions to validate their logic and functionality.
+- Use mocking and stubbing to isolate the Action's logic from external dependencies during testing.
 
 ## List of Actions
 View the entire repository of Actions on GitHub: [Sublayer Actions](https://github.com/sublayerapp/sublayer_actions)
