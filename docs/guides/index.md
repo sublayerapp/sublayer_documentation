@@ -31,3 +31,20 @@ A guide on the recommended way to set up and run LLMs locally to interface with 
 * Learn how to set up [llamafile](https://github.com/Mozilla-Ocho/llamafile)
 * Learn which models we recommend for local use
 * Learn how to point Sublayer to your locally running server
+
+### [Run Llama3.1 with Ollama]({% link docs/guides/running-local-llama31-with-ollama.md %})
+
+A guide for running the Llama3.1 model locally using Ollama.
+
+* Learn how to install and use Ollama
+* Instructions on running the Llama3.1 model
+
+### [Build a Custom Agent Trigger]({% link docs/guides/build-a-custom-trigger.md %})
+
+Learn how to build a custom time-based trigger using the Sublayer framework.
+
+### [Sublayer CLI Commands]({% link docs/guides/cli_commands.md %})
+
+A complete list and guide for using Sublayer's CLI commands.
+
+This includes sections on extending CLI functionalities with custom commands such as `generate:action` and `new_project`.
