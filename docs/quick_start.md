@@ -10,9 +10,18 @@ You can think of a Sublayer Generator as an object that takes some string inputs
 
 In this example, we'll create a simple generator that takes a description of code and the technologies to use and generates code using an LLM like GPT-4.
 
-***
+---
 
-### Step 1 - Installation
+## Table of Contents
+- [Installation](#installation)
+- [Environment Setup](#environment-setup)
+- [Create a Generator](#create-a-generator)
+- [Use Your Generator](#use-your-generator)
+- [Full CLI Project Walkthrough](#full-cli-project-walkthrough) <!-- New Section -->
+
+---
+
+## Installation
 
 Install the Sublayer gem:
 
@@ -26,7 +35,7 @@ Or add it to your Gemfile:
 gem "sublayer"
 ```
 
-### Step 2 - Environment Setup
+## Environment Setup
 
 Set your OpenAI API key as an environment variable:
 
@@ -36,7 +45,7 @@ export OPENAI_API_KEY="your-api-key"
 
 Don't have a key? Visit [OpenAI](https://openai.com/product) to get one.
 
-### Step 3a - Create a Generator
+## Create a Generator
 
 Create a Sublayer Generator. Generators are responsible for taking input from your application and generating output using an LLM like GPT-4.
 
@@ -65,11 +74,11 @@ module Sublayer
 
       def prompt
         <<-PROMPT
-          You are an expert programmer in \#{@technologies.join(", ")}.
+          You are an expert programmer in \\#{@technologies.join(", ")}.
 
-          You are tasked with writing code using the following technologies: \#{@technologies.join(", ")}.
+          You are tasked with writing code using the following technologies: \\#{@technologies.join(", ")}.
 
-          The description of the task is \#{@description}
+          The description of the task is \\#{@description}
 
           Take a deep breath and think step by step before you start coding.
         PROMPT
@@ -79,19 +88,13 @@ module Sublayer
 end
 ```
 
-To learn more about everything you can do with a generator, check out the [Generators]({% link docs/concepts/generators.md %}) page.
+To learn more about everything you can do with a generator, check out the [Generators](/docs/concepts/generators.md) page.
 
-### Step 3b - Try Generating One!
-
-Try generating your own generator with our interactive code generator below:
-
-<iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-generators" width="100%" height="500px"></iframe>
-
-### Step 4 - Use Your Generator
+## Use Your Generator
 
 Require the Sublayer gem and your generator and call `generate`!
 
-Here's an example of how you might use the \`CodeFromDescriptionGenerator\` above:
+Here's an example of how you might use the `CodeFromDescriptionGenerator` above:
 
 ```ruby
 # ./example.rb
@@ -104,10 +107,72 @@ generator = Sublayer::Generators::CodeFromDescriptionGenerator.new(description: 
 puts generator.generate
 ```
 
-### Next Steps
+## Full CLI Project Walkthrough <!-- New Section -->
+To demonstrate the full capabilities of the Sublayer framework, we'll create and deploy a complete command-line interface (CLI) project. This comprehensive walkthrough covers:
 
-Now that you've created your first generator, you can:
+1. **Project Setup:** Use the Sublayer CLI to create a new project.
+2. **Create a Generator:** Develop a simple generator for your business logic.
+3. **Define Actions:** Implement actions to handle file operations and interactions.
+4. **Develop an Agent:** Leverage agents to automate tasks based on triggers.
+5. **Deployment:** Package and deploy your CLI project.
 
-* Create some [Actions]({% link docs/concepts/actions.md %}) to do something with whatever you've generated.
-* Browse some [Examples]({% link docs/guides/index.md %}) to learn how to use the Sublayer gem in different types of projects.
-* [Join our Discord](https://discord.gg/TvgHDNEGWa) to chat with us, for support, and to keep up with the latest updates.
+### Step-by-Step Guide
+
+#### Step 1: Project Setup
+```bash
+sublayer new my_cli_project --template=cli
+cd my_cli_project
+bundle install
+```
+
+#### Step 2: Create a Generator
+Within your project, create a generator to define the core functionality. 
+Example:
+```ruby
+# lib/my_cli_project/generators/sample_generator.rb
+module MyCLIProject
+  module Generators
+    class SampleGenerator < Sublayer::Generators::Base
+      # Generator implementation
+    end
+  end
+end
+```
+
+#### Step 3: Define Actions
+Create actions that your CLI will perform.
+```ruby
+# lib/my_cli_project/actions/sample_action.rb
+module MyCLIProject
+  module Actions
+    class SampleAction < Sublayer::Actions::Base
+      def initialize(params:)
+        @params = params
+      end
+
+      def call
+        # action implementation
+      end
+    end
+  end
+end
+```
+
+#### Step 4: Develop an Agent
+Agents automate tasks by linking generators and actions.
+```ruby
+# lib/my_cli_project/agents/sample_agent.rb
+module MyCLIProject
+  module Agents
+    class SampleAgent < Sublayer::Agents::Base
+      trigger_on_files_changed { ["lib/**/*.rb"] }
+      goal_condition { @goal_reached }
+      check_status {}
+      step {}
+    end
+  end
+end
+```
+
+#### Step 5: Deployment
+Deploy your CLI by packaging it as a gem or script for distribution.
