@@ -4,15 +4,13 @@ nav_order: 2
 ---
 # Quick Start
 
-Sublayer is made up of three main concepts: Generators, Actions, and Agents. These concepts combine to create powerful AI-powered applications in a simple and easy-to-use interface.
+Sublayer is composed of three main concepts: Generators, Actions, and Agents. These are utilized to create AI-integrated applications seamlessly and efficiently.
 
-You can think of a Sublayer Generator as an object that takes some string inputs and runs them through an LLM to generate some new string output.
+## Overview
 
-In this example, we'll create a simple generator that takes a description of code and the technologies to use and generates code using an LLM like GPT-4.
+Generators in Sublayer take input in the form of strings and utilize an LLM like GPT-4 to process and generate new output strings. Below we showcase how to create a simple generator that accepts a description and the technologies to use for generating code using an LLM.
 
-***
-
-### Step 1 - Installation
+### Installation
 
 Install the Sublayer gem:
 
@@ -20,27 +18,25 @@ Install the Sublayer gem:
 $ gem install sublayer
 ```
 
-Or add it to your Gemfile:
+Or include it in your Gemfile:
 
 ```ruby
 gem "sublayer"
 ```
 
-### Step 2 - Environment Setup
+### Environment Setup
 
-Set your OpenAI API key as an environment variable:
+Make sure you set the OpenAI API key as an environment variable:
 
 ```shell
 export OPENAI_API_KEY="your-api-key"
 ```
 
-Don't have a key? Visit [OpenAI](https://openai.com/product) to get one.
+To acquire an API key, visit [OpenAI's website](https://openai.com/product).
 
 ### Step 3a - Create a Generator
 
-Create a Sublayer Generator. Generators are responsible for taking input from your application and generating output using an LLM like GPT-4.
-
-Here's an example of a generator that takes a description of code to generate and the technologies to use and generates code with an LLM:
+Construct a generator in Sublayer, which functions by taking input from your program and generating output with an LLM. Below is a concise example demonstrating a generator which accepts code descriptions and technologies, generating suitable code via an LLM:
 
 ```ruby
 # ./code_from_description_generator.rb
@@ -65,11 +61,11 @@ module Sublayer
 
       def prompt
         <<-PROMPT
-          You are an expert programmer in \#{@technologies.join(", ")}.
+          You are an expert programmer in \\#{@technologies.join(", ")}.
 
-          You are tasked with writing code using the following technologies: \#{@technologies.join(", ")}.
+          You are tasked with writing code using the following technologies: \\#{@technologies.join(", ")}.
 
-          The description of the task is \#{@description}
+          The description of the task is \\#{@description}
 
           Take a deep breath and think step by step before you start coding.
         PROMPT
@@ -79,19 +75,17 @@ module Sublayer
 end
 ```
 
-To learn more about everything you can do with a generator, check out the [Generators]({% link docs/concepts/generators.md %}) page.
+_For more options, explore our [Generators page](concepts/generators.md)._ 
 
-### Step 3b - Try Generating One!
+### Step 3b - Generate a New Generator
 
-Try generating your own generator with our interactive code generator below:
+Harness our interactive code generator below for creating dynamic generators.
 
 <iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-generators" width="100%" height="500px"></iframe>
 
-### Step 4 - Use Your Generator
+### Step 4 - Utilize Your Generator
 
-Require the Sublayer gem and your generator and call `generate`!
-
-Here's an example of how you might use the \`CodeFromDescriptionGenerator\` above:
+Incorporate and deploy your generator as follows:
 
 ```ruby
 # ./example.rb
@@ -104,10 +98,44 @@ generator = Sublayer::Generators::CodeFromDescriptionGenerator.new(description: 
 puts generator.generate
 ```
 
+## Configuring AI Models
+
+Sublayer is a model-agnostic framework and integrates smoothly with a variety of AI models. Here's how to configure different model providers:
+
+### OpenAI (Default)
+
+- **Environment Variable**: `OPENAI_API_KEY`
+- **Model Setup**:
+  ```ruby
+  Sublayer.configuration.ai_provider = Sublayer::Providers::OpenAI
+  Sublayer.configuration.ai_model = "gpt-4o"
+  ```
+
+### Claude
+
+- **Environment Variable**: `ANTHROPIC_API_KEY`
+- **Model Setup**:
+  ```ruby
+  Sublayer.configuration.ai_provider = Sublayer::Providers::Claude
+  Sublayer.configuration.ai_model = "claude-3-opus-20240229"
+  ```
+
+### Gemini
+
+- **Environment Variable**: `GEMINI_API_KEY`
+- **Model Setup**:
+  ```ruby
+  Sublayer.configuration.ai_provider = Sublayer::Providers::Gemini
+  Sublayer.configuration.ai_model = "gemini-1.5-flash-latest"
+  ```
+
+Each AI provider requires you to obtain an API key and set it as an environment variable as shown above.
+
 ### Next Steps
 
-Now that you've created your first generator, you can:
+Develop your first generator! Subsequently, you might:
 
-* Create some [Actions]({% link docs/concepts/actions.md %}) to do something with whatever you've generated.
-* Browse some [Examples]({% link docs/guides/index.md %}) to learn how to use the Sublayer gem in different types of projects.
-* [Join our Discord](https://discord.gg/TvgHDNEGWa) to chat with us, for support, and to keep up with the latest updates.
+- Develop [Actions]({% link docs/concepts/actions.md %}) to leverage what you've produced.
+- Survey [Examples]({% link docs/guides/index.md %}) showcasing Sublayer usage.
+- Connect via [our Discord](https://discord.gg/TvgHDNEGWa) for support and updates.
+
