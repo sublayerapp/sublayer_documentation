@@ -9,6 +9,10 @@ We're always looking for more ideas for guides. If you have an idea for a guide,
 
 ## List of Guides
 
+### [Complete Workflow Example]({% link docs/guides/complete_workflow_example.md %})
+
+A high-level walkthrough illustrating the setup of a Generator, usage of an Action, and completion of an Agent task.
+
 ### [Rails Voice Chat with LLM]({% link docs/guides/voice-chat.md %})
 
 A Ruby on Rails app that uses OpenAI's Speech to Text and Text to Speech APIs to enable voice chatting with an LLM.
