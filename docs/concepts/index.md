@@ -11,3 +11,6 @@ Browse the links below to go more in depth into each of these concepts:
 * [Generators]({% link docs/concepts/generators.md %})
 * [Actions]({% link docs/concepts/actions.md %})
 * [Agents]({% link docs/concepts/agents.md %})
+* [Advanced Usage: CLI Projects]({% link docs/guides/build-advanced-cli-projects.md %})
+
+These sections will give you comprehensive information on how to utilize Sublayer effectively in your applications.
