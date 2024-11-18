@@ -11,3 +11,4 @@ Browse the links below to go more in depth into each of these concepts:
 * [Generators]({% link docs/concepts/generators.md %})
 * [Actions]({% link docs/concepts/actions.md %})
 * [Agents]({% link docs/concepts/agents.md %})
+* [Troubleshooting]({% link docs/troubleshooting.md %})

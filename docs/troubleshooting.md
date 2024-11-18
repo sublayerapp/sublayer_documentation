@@ -16,7 +16,7 @@ This document provides common error scenarios and troubleshooting tips to assist
 
 ### 2. Dependency Conflicts
 **Problem:** Conflicts between gem dependencies leading to bundling failures.  
-**Solution:** Check the `Gemfile.lock` for dependency versions and resolve conflicts by updating or downgrading gems as necessary.
+**Solution:** Check the `Gemfile.lock` for dependency versions and resolve conflicts by updating or downgrading gems as necessary. Some common scenarios include version mismatches or incompatible versions of shared dependencies. It's crucial to ensure that all dependencies are resolved to compatible versions. Review any output from `bundle install` for indicators of where conflicts may lie and consider using a tool like `Bundler Doctor` to aid in diagnosing these issues.
 
 ### 3. Network Issues
 **Problem:** Network-related errors when calling external APIs.  
