@@ -1,5 +1,6 @@
 ---
 title: "Quick Start"
+layout: default
 nav_order: 2
 ---
 # Quick Start
@@ -91,7 +92,7 @@ Try generating your own generator with our interactive code generator below:
 
 Require the Sublayer gem and your generator and call `generate`!
 
-Here's an example of how you might use the \`CodeFromDescriptionGenerator\` above:
+Here's an example of how you might use the `CodeFromDescriptionGenerator` above:
 
 ```ruby
 # ./example.rb
@@ -111,3 +112,4 @@ Now that you've created your first generator, you can:
 * Create some [Actions]({% link docs/concepts/actions.md %}) to do something with whatever you've generated.
 * Browse some [Examples]({% link docs/guides/index.md %}) to learn how to use the Sublayer gem in different types of projects.
 * [Join our Discord](https://discord.gg/TvgHDNEGWa) to chat with us, for support, and to keep up with the latest updates.
+* Refer to the guide on [Custom LLM Provider Setup]({% link docs/guides/custom_llm_provider_setup.md %}) for extending Sublayer with additional models.
