@@ -1,36 +1,30 @@
 ---
-title: Agents
+title: Agents & Triggers
 parent: Core Concepts
 nav_order: 3
 ---
+
 # Agents
 
-Think of Sublayer Agents as your personal assistants, always ready to help with repetitive tasks or respond to changes in your environment. These agents can assist with a wide range of activities, from coding to data processing to system monitoring and beyond. You create an agent by defining four key aspects: what should wake it up (triggers), what it's trying to achieve (goal condition), how it checks its progress (check status), and what it actually does (step).
+Think of Sublayer Agents as your personal assistants, always ready to help with repetitive tasks or respond to changes in your environment. These agents can assist with activities from coding to data processing to system monitoring. You define an agent by setting its trigger, goal condition, progress check, and execution steps.
 
-Triggers could be things like file changes, incoming data, time-based events, or even manual calls while the goal might be completing a data analysis or updating a system. The agent will keep checking its status and taking steps until it reaches its goal. It's like having a tireless helper that knows exactly when to jump in and what to do, making a variety of processes more efficient and responsive to change. Whether you're automating workflows, monitoring systems, or processing data, Sublayer Agents provide a flexible, event-driven approach to tackling complex and repetitive tasks.
+### Core Functions
+- **Trigger**: Determines what starts the agent. It can be file changes, incoming data, etc.
+- **Goal Condition**: What the agent aims to achieve.
+- **Check Status**: How the agent evaluates its progress.
+- **Step**: The actionable tasks the agent performs toward its goal.
 
-## Writing an Agent
+### Examples of Agents
 
-Sublayer Agents are autonomous units of execution designed to perform specific tasks or monitor systems. They are built on top of the `Sublayer::Agents::Base` class and utilize a Domain Specific Language (DSL) for defining their behavior.
+- **RSpecAgent**: This agent runs whenever a test file or implementation file changes. Its goal is to make the tests pass by modifying the code using outputs from an LLM.
 
-The DSL consists of four primary methods:
+# Triggers
 
-- `trigger`: Specifies events that activate the agent (e.g., file changes, time-based events, webhooks, etc.)
-- `goal_condition`: Defines the criteria for task completion
-- `check_status`: Evaluates the current state of the task
-- `step`: Implements the actual logic to be executed
+Triggers are mechanisms that activate agents based on certain conditions or events, offering flexibility in agent operation. By defining custom triggers, you can tailor agent responses precisely.
 
-These methods work in concert to create a flexible, event-driven system for automating complex workflows and responding to changes in various environments.
+### Key Examples
 
-## Try generating your own agent:
+- **FileChange**: Activates agents when specific files are changed.
+- **TimeInterval**: Activate based on a scheduled time interval, useful for periodic tasks.
 
-<iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-agents" width="100%" height="500px"></iframe>
-
-## Examples:
-
-- [RSpecAgent](https://github.com/sublayerapp/sublayer/blob/main/spec/agents/examples/rspec_agent.rb)
-  - A Sublayer agent that is triggered any time a test file or an implementation file changes with a goal of making the tests pass. When one of the files changes, the status is checked by running the tests. If the tests are failing, the agent sends the tests and the implementation to an LLM (using a [Sublayer::Generator](/concepts/generators)) to generate a new implementation that should pass the tests.
-
-## Troubleshooting
-
-For troubleshooting common issues with Agents and more information, please visit our [Troubleshooting Guide]({% link docs/troubleshooting.md %}).
+In combination, agents and triggers allow for automated, efficient handling of complex tasks, enhancing productivity and responsiveness.
