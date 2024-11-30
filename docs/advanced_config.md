@@ -2,6 +2,7 @@
 title: Advanced Config
 nav_order: 6
 ---
+
 # Advanced Config
 
 After installing Sublayer, you can choose between any of the available LLM providers we support.
@@ -31,6 +32,8 @@ Sublayer.configuration.ai_model = "claude-3-opus-20240229"
 ```
 
 ## Google
+
+(Gemini's function calling API is in beta. Not recommended for production use.)
 
 Set your `GEMINI_API_KEY` environment variable. (Visit [Google AI Studio](https://ai.google.dev/) to get an API key.)
 
