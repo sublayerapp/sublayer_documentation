@@ -2,9 +2,12 @@
 title: Advanced Config
 nav_order: 6
 ---
+
 # Advanced Config
 
 After installing Sublayer, you can choose between any of the available LLM providers we support.
+
+For setting up API keys, refer to our [API Key Setup Guide]({% link docs/API_Key_Setup_Guide.md %}).
 
 ## OpenAI (Default)
 
