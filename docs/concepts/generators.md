@@ -3,9 +3,16 @@ title: Generators
 parent: Core Concepts
 nav_order: 1
 ---
+
 # Generators
 
 Generators are responsible for generating specific outputs based on input data. They focus on a single generation task and do not perform any actions or complex decision-making. Generators are the building blocks of the Sublayer framework.
+
+Below are the compatible AI models typically used with these generator examples:
+
+- OpenAI's `gpt-4o` model is often used for general-purpose code generation tasks.
+- Gemini models are suitable for structured data transformations.
+- Claude models are adept at language understanding tasks.
 
 ### Try making your own generator:
 

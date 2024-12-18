@@ -2,6 +2,7 @@
 title: "Quick Start"
 nav_order: 2
 ---
+
 # Quick Start
 
 Sublayer is made up of three main concepts: Generators, Actions, and Agents. These concepts combine to create powerful AI-powered applications in a simple and easy-to-use interface.
@@ -28,7 +29,7 @@ gem "sublayer"
 
 ### Step 2 - Environment Setup
 
-Set your OpenAI API key as an environment variable:
+Set your API key as an environment variable. By default, Sublayer uses OpenAI's `gpt-4o` model as the default:
 
 ```shell
 export OPENAI_API_KEY="your-api-key"
@@ -65,11 +66,14 @@ module Sublayer
 
       def prompt
         <<-PROMPT
-          You are an expert programmer in \#{@technologies.join(", ")}.
+          You are an expert programmer in \
+          #{@technologies.join(', ')}.
 
-          You are tasked with writing code using the following technologies: \#{@technologies.join(", ")}.
+          You are tasked with writing code using the following technologies: \
+          #{@technologies.join(', ')}.
 
-          The description of the task is \#{@description}
+          The description of the task is \
+          #{@description}
 
           Take a deep breath and think step by step before you start coding.
         PROMPT
@@ -91,7 +95,7 @@ Try generating your own generator with our interactive code generator below:
 
 Require the Sublayer gem and your generator and call `generate`!
 
-Here's an example of how you might use the \`CodeFromDescriptionGenerator\` above:
+Here's an example of how you might use the `CodeFromDescriptionGenerator` above:
 
 ```ruby
 # ./example.rb
