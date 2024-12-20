@@ -31,3 +31,13 @@ A guide on the recommended way to set up and run LLMs locally to interface with 
 * Learn how to set up [llamafile](https://github.com/Mozilla-Ocho/llamafile)
 * Learn which models we recommend for local use
 * Learn how to point Sublayer to your locally running server
+
+### [Run Llama3.1 with Ollama]({% link docs/guides/running-local-llama31-with-ollama.md %})
+
+* Set up and run Llama3.1 on a local machine using Ollama.
+
+Guides section is now complemented with detailed instructions on starting new projects using different templates provided by Sublayer. By choosing CLI, QuickScript, or GitHub Action, developers can rapidly initiate their workflows with the provided starter structures.
+
+- **CLI Project Setup**: Get started with command line interface applications using Sublayer. Learn how to initialize and configure default settings for a seamless experience.
+- **QuickScript Project**: Ideal for quick automation scripts that can leverage the power of AI with minimal setup.
+- **GitHub Action Integration**: Integrate AI into your CI/CD workflows directly within GitHub, leveraging Sublayer's powerful abstractions.

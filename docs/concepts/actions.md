@@ -29,6 +29,11 @@ Check it out here: [Sublayer Actions Repository](https://github.com/sublayerapp/
 - [SpeechToTextAction](https://github.com/sublayerapp/rails_llm_voice_chat_example/blob/93300f268dde359b58c92a60db4b54d128d9d965/lib/sublayer/actions/speech_to_text_action.rb): Makes an API call to OpenAI's SpeechToText endpoint with audio data and returns text.
 - [TextToSpeechAction](https://github.com/sublayerapp/rails_llm_voice_chat_example/blob/93300f268dde359b58c92a60db4b54d128d9d965/lib/sublayer/actions/text_to_speech_action.rb): Makes an API call to OpenAI's Speech Synthesis endpoint with text and returns audio data.
 
+### New Model Examples:
+
+With the new default `gpt-4o` model, actions can be integrated seamlessly.
+- For integrating speech processes, the model can enhance the efficiency of voice-driven tasks.
+
 ## Troubleshooting
 
 For common issues and tips on troubleshooting with Actions, refer to our [Troubleshooting Guide]({% link docs/troubleshooting.md %}).
