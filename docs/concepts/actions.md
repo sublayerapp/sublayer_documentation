@@ -32,3 +32,7 @@ Check it out here: [Sublayer Actions Repository](https://github.com/sublayerapp/
 ## Troubleshooting
 
 For common issues and tips on troubleshooting with Actions, refer to our [Troubleshooting Guide]({% link docs/troubleshooting.md %}).
+
+## Testing
+
+For detailed instructions on testing Actions, visit our section on [Testing Tools and Methods]({% link docs/resources/testing_tools_and_methods.md %}).
