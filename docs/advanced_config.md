@@ -40,3 +40,41 @@ Usage:
 Sublayer.configuration.ai_provider = Sublayer::Providers::Gemini
 Sublayer.configuration.ai_model = "gemini-1.5-flash-latest"
 ```
+
+## Custom AI Providers
+
+To set up a custom AI provider, you need to create a Ruby class that adheres to the Sublayer provider interface. This allows you to integrate other AI models not natively supported by Sublayer.
+
+### Example Ruby Class
+
+Below is an example of how you might implement a custom provider:
+
+```ruby
+module Sublayer
+  module Providers
+    class CustomProvider
+      def self.call(prompt:, output_adapter:)
+        # Your custom API call logic here
+        response = HTTParty.post("https://api.customai.com/generate", {
+          body: { prompt: prompt, model: output_adapter.name },
+          headers: { "Authorization" => "Bearer #{ENV['CUSTOM_API_KEY']}" }
+        })
+
+        raise "Error" unless response.success?
+
+        response_body = JSON.parse(response.body)
+        response_body["data"]
+      end
+    end
+  end
+end
+```
+
+To utilize this provider, set the configuration in your `lib/sublayer.rb`:
+
+```ruby
+Sublayer.configuration.ai_provider = Sublayer::Providers::CustomProvider
+Sublayer.configuration.ai_model = "custom-model"
+```
+
+Ensure you replace placeholders like `https://api.customai.com/generate` and parse your API's specific response format.
