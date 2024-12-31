@@ -4,110 +4,103 @@ nav_order: 2
 ---
 # Quick Start
 
-Sublayer is made up of three main concepts: Generators, Actions, and Agents. These concepts combine to create powerful AI-powered applications in a simple and easy-to-use interface.
+Sublayer allows you to create AI agents by combining Generators, Actions, and Agents.
 
-You can think of a Sublayer Generator as an object that takes some string inputs and runs them through an LLM to generate some new string output.
+In this guide, we'll go through the steps to set up the environment, install the package, and create a simple generator.
 
-In this example, we'll create a simple generator that takes a description of code and the technologies to use and generates code using an LLM like GPT-4.
+## Environment Setup
 
-***
+To get started, you'll need to set up your environment. This includes installing necessary tools and setting up environment variables.
 
-### Step 1 - Installation
+### OpenAI API Key
 
-Install the Sublayer gem:
+You'll need an OpenAI API key to use GPT-powered features in Sublayer. To get one, visit [OpenAI](https://openai.com/product) and follow the instructions to create an API key.
 
-```shell
-$ gem install sublayer
-```
-
-Or add it to your Gemfile:
-
-```ruby
-gem "sublayer"
-```
-
-### Step 2 - Environment Setup
-
-Set your OpenAI API key as an environment variable:
+Once you have your API key, set it as an environment variable:
 
 ```shell
 export OPENAI_API_KEY="your-api-key"
 ```
 
-Don't have a key? Visit [OpenAI](https://openai.com/product) to get one.
+### Ruby and Gem Dependencies
 
-### Step 3a - Create a Generator
+Make sure your system has Ruby installed. We recommend using a version management tool like `rbenv` to easily switch between Ruby versions.
 
-Create a Sublayer Generator. Generators are responsible for taking input from your application and generating output using an LLM like GPT-4.
+1. **Install Ruby**: Ensure you have at least Ruby 3.0.0 installed:
 
-Here's an example of a generator that takes a description of code to generate and the technologies to use and generates code with an LLM:
+    ```shell
+    rbenv install 3.0.0
+    rbenv global 3.0.0
+    ```
+
+2. **Install Bundler**: Install Bundler to manage your Gem dependencies:
+
+    ```shell
+    gem install bundler
+    ```
+
+3. **Install Gems**: Navigate to your project's directory and install all required gems:
+
+    ```shell
+    bundle install
+    ```
+
+## Installation
+
+To install the Sublayer gem, run:
+
+```shell
+gem install sublayer
+```
+
+Alternatively, add it to your `Gemfile`:
 
 ```ruby
-# ./code_from_description_generator.rb
+gem "sublayer"
+```
 
+Run `bundle install` to install the gem.
+
+## Create a Generator
+
+Generators are responsible for converting input into AI-driven outputs using models like GPT-4.
+
+Here's how to create a basic Generator for translating text descriptions into code snippets:
+
+```ruby
+# file: code_from_description_generator.rb
 require "sublayer"
 
-module Sublayer
-  module Generators
-    class CodeFromDescriptionGenerator < Base
-      llm_output_adapter type: :single_string,
-                         name: "generated_code",
-                         description: "The generated code in the requested language"
+class CodeFromDescriptionGenerator < Sublayer::Generators::Base
+  llm_output_adapter type: :single_string, name: "generated_code", description: "Generated code from description"
 
-      def initialize(description:, technologies:)
-        @description = description
-        @technologies = technologies
-      end
+  def initialize(description:, technologies:)
+    @description = description
+    @technologies = technologies
+  end
 
-      def generate
-        super
-      end
-
-      def prompt
-        <<-PROMPT
-          You are an expert programmer in \#{@technologies.join(", ")}.
-
-          You are tasked with writing code using the following technologies: \#{@technologies.join(", ")}.
-
-          The description of the task is \#{@description}
-
-          Take a deep breath and think step by step before you start coding.
-        PROMPT
-      end
-    end
+  def prompt
+    "Generate code using the technologies \\#{@technologies.join(', ')}: \\#{@description}"
   end
 end
 ```
 
-To learn more about everything you can do with a generator, check out the [Generators]({% link docs/concepts/generators.md %}) page.
-
-### Step 3b - Try Generating One!
-
-Try generating your own generator with our interactive code generator below:
-
-<iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-generators" width="100%" height="500px"></iframe>
-
-### Step 4 - Use Your Generator
-
-Require the Sublayer gem and your generator and call `generate`!
-
-Here's an example of how you might use the \`CodeFromDescriptionGenerator\` above:
+To generate code using your generator:
 
 ```ruby
-# ./example.rb
-
-require 'sublayer'
+# file: run_generator.rb
 require './code_from_description_generator'
 
-generator = Sublayer::Generators::CodeFromDescriptionGenerator.new(description: 'a function that returns the first 10 happy numbers', technologies: ['ruby'])
-
+generator = CodeFromDescriptionGenerator.new(description: "A chatbot in Ruby", technologies: ["Ruby"])
 puts generator.generate
 ```
 
-### Next Steps
+## Next Steps
 
-Now that you've created your first generator, you can:
+With your environment set up, you're ready to explore:
 
-* Create some [Actions]({% link docs/concepts/actions.md %}) to do something with whatever you've generated.
-* Browse some [Examples]({% link docs/guides/index.md %}) to learn how to use the Sublayer gem in different types of projects.
-* [Join our Discord](https://discord.gg/TvgHDNEGWa) to chat with us, for support, and to keep up with the latest updates.
+- Creating more [Generators]({% link docs/concepts/generators.md %})
+- Composing [Actions]({% link docs/concepts/actions.md %}) to perform tasks
+- Using [Agents]({% link docs/concepts/agents.md %}) for automation
+
+Feel free to reach out on our [Discord](https://discord.gg/TvgHDNEGWa) for questions and help!
