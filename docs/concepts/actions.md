@@ -10,11 +10,50 @@ Actions are responsible for performing specific operations to get inputs for a G
 
 You can think of actions as similar to tools in other agent frameworks. They encapsulate a single action and do not involve complex decision-making and are the executable units that bring the generated inputs and output to life.
 
+## Creating Custom Actions
+
+Custom actions allow you to define specific tasks that your application needs to perform, such as interacting with external APIs, processing data, or triggering events.
+
+### Basic Action Example
+
+Here's a simple example of a custom action:
+
+```ruby
+class SimpleAction < Sublayer::Actions::Base
+  def initialize(params)
+    @params = params
+  end
+
+  def call
+    # Perform an action
+    puts "Performing action with params: \\#{@params}"
+  end
+end
+```
+
+### Real-World Action Example
+
+Consider a scenario where you need to save data to a database or trigger a webhook. Here's how you might implement a more complex action:
+
+```ruby
+class SaveToDatabaseAction < Sublayer::Actions::Base
+  def initialize(record)
+    @record = record
+  end
+
+  def call
+    Database.save(@record)
+  end
+end
+```
+
+### Linking to Sample Codes
+
+For more complex examples and inspirations, explore our [Sublayer Actions Repository](https://github.com/sublayerapp/sublayer_actions) to find community-created actions that you can integrate or adapt.
+
 ## Action Repository
 
-Curious about what actions are already written and available to use in your
-project? We maintain a repository of community and AI-created Actions that can
-drop right into your project.
+Curious about what actions are already written and available to use in your project? We maintain a repository of community and AI-created Actions that can drop right into your project.
 
 Check it out here: [Sublayer Actions Repository](https://github.com/sublayerapp/sublayer_actions)
 
@@ -26,7 +65,7 @@ Check it out here: [Sublayer Actions Repository](https://github.com/sublayerapp/
 
 - [WriteFileAction](https://github.com/sublayerapp/tddbot/blob/43297c5da9445bd6c8882d5e3876cff5fc6b2650/lib/tddbot/sublayer/actions/write_file_action.rb): Writes text to a specified file.
 - [RunTestCommandAction](https://github.com/sublayerapp/tddbot/blob/43297c5da9445bd6c8882d5e3876cff5fc6b2650/lib/tddbot/sublayer/actions/run_test_command_action.rb): Runs a test command on the command line returning the output.
-- [SpeechToTextAction](https://github.com/sublayerapp/rails_llm_voice_chat_example/blob/93300f268dde359b58c92a60db4b54d128d9d965/lib/sublayer/actions/speech_to_text_action.rb): Makes an API call to OpenAI's SpeechToText endpoint with audio data and returns text.
+- [SpeechToTextAction](https://github.com/sublayerapp/rails_llm_voice_chat_example/blob/93300f268dde359b58c92a60db4b54d128d9d965/lib/sublayer/actions/speech_to_text_action.rb): Makes an API call to OpenAI's Speech to Text endpoint with audio data and returns text.
 - [TextToSpeechAction](https://github.com/sublayerapp/rails_llm_voice_chat_example/blob/93300f268dde359b58c92a60db4b54d128d9d965/lib/sublayer/actions/text_to_speech_action.rb): Makes an API call to OpenAI's Speech Synthesis endpoint with text and returns audio data.
 
 ## Troubleshooting

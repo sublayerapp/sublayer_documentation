@@ -9,24 +9,60 @@ Think of Sublayer Agents as your personal assistants, always ready to help with 
 
 Triggers could be things like file changes, incoming data, time-based events, or even manual calls while the goal might be completing a data analysis or updating a system. The agent will keep checking its status and taking steps until it reaches its goal. It's like having a tireless helper that knows exactly when to jump in and what to do, making a variety of processes more efficient and responsive to change. Whether you're automating workflows, monitoring systems, or processing data, Sublayer Agents provide a flexible, event-driven approach to tackling complex and repetitive tasks.
 
-## Writing an Agent
+## Creating Custom Agents
 
-Sublayer Agents are autonomous units of execution designed to perform specific tasks or monitor systems. They are built on top of the `Sublayer::Agents::Base` class and utilize a Domain Specific Language (DSL) for defining their behavior.
+Custom agents allow you to automate complex workflows by defining the rules and steps that should be followed when certain conditions are met.
 
-The DSL consists of four primary methods:
+### Basic Agent Example
 
-- `trigger`: Specifies events that activate the agent (e.g., file changes, time-based events, webhooks, etc.)
-- `goal_condition`: Defines the criteria for task completion
-- `check_status`: Evaluates the current state of the task
-- `step`: Implements the actual logic to be executed
+Let's consider an agent that is triggered periodically to monitor file changes:
 
-These methods work in concert to create a flexible, event-driven system for automating complex workflows and responding to changes in various environments.
+```ruby
+class FileMonitorAgent < Sublayer::Agents::Base
+  trigger { FileChange.new("/path/to/watch") }
 
-## Try generating your own agent:
+  goal_condition { new_file_processed? }
 
-<iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-agents" width="100%" height="500px"></iframe>
+  check_status { @new_file_path = check_for_new_files }
 
-## Examples:
+  step do
+    if @new_file_path
+      process_file(@new_file_path)
+    end
+  end
+end
+```
+
+### Detailed Real-World Agent Example
+
+A more detailed example agent might combine both Generators and Actions to perform tasks like fetching data using a Generator, processing it with an Action, and then storing the results:
+
+```ruby
+class DataProcessingAgent < Sublayer::Agents::Base
+  trigger { TimeInterval.new(300) } # Trigger every 5 minutes
+
+  goal_condition { processed_data_saved? }
+
+  check_status { fetch_data }
+
+  step do
+    processed_data = Sublayer::Generators::DataGenerator.new(data: @fetched_data).generate
+    Sublayer::Actions::SaveToDatabaseAction.new(data: processed_data).call
+  end
+
+  private
+
+  def fetch_data
+    @fetched_data = ExternalService.fetch
+  end
+
+  def processed_data_saved?
+    !@fetched_data.nil?
+  end
+end
+```
+
+### Examples:
 
 - [RSpecAgent](https://github.com/sublayerapp/sublayer/blob/main/spec/agents/examples/rspec_agent.rb)
   - A Sublayer agent that is triggered any time a test file or an implementation file changes with a goal of making the tests pass. When one of the files changes, the status is checked by running the tests. If the tests are failing, the agent sends the tests and the implementation to an LLM (using a [Sublayer::Generator](/concepts/generators)) to generate a new implementation that should pass the tests.
