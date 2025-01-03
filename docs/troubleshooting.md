@@ -22,4 +22,12 @@ This document provides common error scenarios and troubleshooting tips to assist
 **Problem:** Network-related errors when calling external APIs.  
 **Solution:** Ensure that the API service is not down, verify that your system's firewall settings allow outbound traffic on required ports, and check your internet connection.
 
+### 4. Version Mismatches
+**Problem:** Feature or method not found errors due to version mismatches.  
+**Solution:** Verify that all integrated services and dependencies are using compatible versions. Check documentation for version requirements and consider upgrading or downgrading to match.
+
+### 5. Provider-specific Errors
+**Problem:** Errors that occur only with specific AI providers, such as rate limits or request/response formats.  
+**Solution:** Refer to the provider's documentation for specific error messages and their meanings. Implement error-handling strategies such as retries or fallbacks.
+
 [Join our community Discord channel](https://discord.gg/TvgHDNEGWa).
