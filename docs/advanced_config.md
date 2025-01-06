@@ -2,41 +2,49 @@
 title: Advanced Config
 nav_order: 6
 ---
+
 # Advanced Config
 
 After installing Sublayer, you can choose between any of the available LLM providers we support.
 
-## OpenAI (Default)
+## AI Provider Configuration
 
-Set your `OPENAI_API_KEY` environment variable. (Visit [OpenAI](https://openai.com/product) to get an API key.)
+### OpenAI
 
-Usage:
+To configure OpenAI as your AI provider, set your `OPENAI_API_KEY` environment variable. You can visit [OpenAI](https://openai.com/product) to get an API key.
+
+#### Usage
 
 ```ruby
 Sublayer.configuration.ai_provider = Sublayer::Providers::OpenAI
 Sublayer.configuration.ai_model = "gpt-4o"
 ```
 
-## Anthropic
+### Anthropic
 
 Supported Models: Claude 3+ Opus, Claude 3+ Haiku, Claude 3+ Sonnet
 
-Set your `ANTHROPIC_API_KEY` environment variable. (Visit [Anthropic](https://anthropic.com/) to get an API key.)
+To use Anthropic, set your `ANTHROPIC_API_KEY` environment variable. Visit [Anthropic](https://anthropic.com/) to get an API key.
 
-Usage:
+#### Usage
 
 ```ruby
 Sublayer.configuration.ai_provider = Sublayer::Providers::Claude
-Sublayer.configuration.ai_model = "claude-3-opus-20240229"
+Sublayer.configuration.ai_model = "claude-3-5-sonnet-20240620"
 ```
 
-## Google
+### Gemini [UNSTABLE]
 
-Set your `GEMINI_API_KEY` environment variable. (Visit [Google AI Studio](https://ai.google.dev/) to get an API key.)
+(Gemini's function calling API is in beta and not recommended for production use.)
 
-Usage:
+To set up Gemini, use the `GEMINI_API_KEY` environment variable. Visit [Google AI Studio](https://ai.google.dev/) to obtain an API key.
+
+#### Usage
 
 ```ruby
 Sublayer.configuration.ai_provider = Sublayer::Providers::Gemini
-Sublayer.configuration.ai_model = "gemini-1.5-flash-latest"
+Sublayer.configuration.ai_model = "gemini-1.5-pro"
 ```
+
+Be cautious when using Gemini as its API is currently experimental.
+
