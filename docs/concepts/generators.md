@@ -2,21 +2,23 @@
 title: Generators
 parent: Core Concepts
 nav_order: 1
+has_toc: true
 ---
+
 # Generators
+Generators are crucial to the Sublayer framework, focusing on producing precise outputs from given inputs without complicated decision paths.
 
-Generators are responsible for generating specific outputs based on input data. They focus on a single generation task and do not perform any actions or complex decision-making. Generators are the building blocks of the Sublayer framework.
+## Overview
+A Generator is a fundamental component tasked with data-driven output creation, serving as building blocks for more extensive AI workflows.
 
-### Try making your own generator:
+### Create a Custom Generator
+Our interactive code generator can help you build personalized generators tailored to your project needs.
+- [Interactive Code Generator](https://blueprints.sublayer.com/interactive-code-generator/sublayer-generators)
 
-<iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-generators?example=true" width="100%" height="500px"></iframe>
+### Examples
+- [CodeFromDescriptionGenerator](https://github.com/sublayerapp/sublayer/blob/main/examples/code_from_description_generator.rb): Crafts code from descriptive inputs and technological contexts.
+- [DescriptionFromCodeGenerator](https://github.com/sublayerapp/sublayer/blob/main/examples/description_from_code_generator.rb): Produces descriptions based on provided code.
 
-### [Examples](https://github.com/sublayerapp/sublayer/tree/main/examples):
-
-* [CodeFromDescriptionGenerator](https://github.com/sublayerapp/sublayer/blob/main/examples/code\_from\_description\_generator.rb): Generates code based on a description and the technologies used.
-* [DescriptionFromCodeGenerator](https://github.com/sublayerapp/sublayer/blob/main/examples/description\_from\_code\_generator.rb): Generates a description of the code passed in to it.
-* [CodeFromBlueprintGenerator](https://github.com/sublayerapp/sublayer/blob/main/examples/code\_from\_blueprint\_generator.rb): Generates code based on a blueprint, a blueprint description, and a description of the desired code.
-
-### Troubleshooting
-
-If you encounter issues while working with Generators, please refer to the [Troubleshooting Guide]({% link docs/troubleshooting.md %}) for common error scenarios and solutions.
+## Troubleshooting
+For assistance with common generator issues, see our troubleshooting guide.
+- [Troubleshooting Guide](/docs/troubleshooting)

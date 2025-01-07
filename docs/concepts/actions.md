@@ -2,33 +2,27 @@
 title: Actions
 parent: Core Concepts
 nav_order: 2
+has_toc: true
 ---
 
 # Actions
+Actions execute specific operations to obtain inputs for Generators or to utilize Generator outputs. They encapsulate tasks akin to tools found in many AI frameworks.
 
-Actions are responsible for performing specific operations to get inputs for a Generator or based on the generated output from a Generator.
-
-You can think of actions as similar to tools in other agent frameworks. They encapsulate a single action and do not involve complex decision-making and are the executable units that bring the generated inputs and output to life.
+## Overview
+Actions are modular and reusable components designed to simplify and streamline interactions with external systems, such as making API calls or manipulating files.
 
 ## Action Repository
+Find existing Actions in our community and AI-generated repository.
+- [Visit Sublayer Actions Repository](https://github.com/sublayerapp/sublayer_actions)
 
-Curious about what actions are already written and available to use in your
-project? We maintain a repository of community and AI-created Actions that can
-drop right into your project.
+## Create Your Own Action
+Utilize tools like our interactive code generator to design custom actions that meet your specific requirements.
+- [Interactive Action Code Generator](https://blueprints.sublayer.com/interactive-code-generator/sublayer-actions)
 
-Check it out here: [Sublayer Actions Repository](https://github.com/sublayerapp/sublayer_actions)
-
-## Try making your own Action:
-
-<iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-actions" width="100%" height="500px"></iframe>
-
-## Examples:
-
-- [WriteFileAction](https://github.com/sublayerapp/tddbot/blob/43297c5da9445bd6c8882d5e3876cff5fc6b2650/lib/tddbot/sublayer/actions/write_file_action.rb): Writes text to a specified file.
-- [RunTestCommandAction](https://github.com/sublayerapp/tddbot/blob/43297c5da9445bd6c8882d5e3876cff5fc6b2650/lib/tddbot/sublayer/actions/run_test_command_action.rb): Runs a test command on the command line returning the output.
-- [SpeechToTextAction](https://github.com/sublayerapp/rails_llm_voice_chat_example/blob/93300f268dde359b58c92a60db4b54d128d9d965/lib/sublayer/actions/speech_to_text_action.rb): Makes an API call to OpenAI's SpeechToText endpoint with audio data and returns text.
-- [TextToSpeechAction](https://github.com/sublayerapp/rails_llm_voice_chat_example/blob/93300f268dde359b58c92a60db4b54d128d9d965/lib/sublayer/actions/text_to_speech_action.rb): Makes an API call to OpenAI's Speech Synthesis endpoint with text and returns audio data.
+## Examples & Use Cases
+- [WriteFileAction](https://github.com/sublayerapp/tddbot/blob/main/lib/tddbot/sublayer/actions/write_file_action.rb) writes content to a file.
+- [RunTestCommandAction](https://github.com/sublayerapp/tddbot/blob/main/lib/tddbot/sublayer/actions/run_test_command_action.rb) executes command-line tests and captures results.
 
 ## Troubleshooting
-
-For common issues and tips on troubleshooting with Actions, refer to our [Troubleshooting Guide]({% link docs/troubleshooting.md %}).
+For common issues, refer to our Troubleshooting Guide.
+- [Troubleshooting Guide](/docs/troubleshooting)
