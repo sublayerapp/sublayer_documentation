@@ -2,21 +2,33 @@
 title: Generators
 parent: Core Concepts
 nav_order: 1
+has_children: false
+has_toc: true
 ---
+
 # Generators
 
-Generators are responsible for generating specific outputs based on input data. They focus on a single generation task and do not perform any actions or complex decision-making. Generators are the building blocks of the Sublayer framework.
+Generators are responsible for producing specific types of output based on input data. They focus on a single task and leverage AI models to perform their operations. This section explores the concept of Generators in the Sublayer framework, providing examples and guidance on extending their capabilities.
 
-### Try making your own generator:
+## How Generators Work
+
+Generators receive inputs, process them using AI models, and return structured outputs. They form the basis of the content production process in Sublayer.
+
+### Try making your own Generator:
 
 <iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-generators?example=true" width="100%" height="500px"></iframe>
 
-### [Examples](https://github.com/sublayerapp/sublayer/tree/main/examples):
+## Examples of Generators
 
-* [CodeFromDescriptionGenerator](https://github.com/sublayerapp/sublayer/blob/main/examples/code\_from\_description\_generator.rb): Generates code based on a description and the technologies used.
-* [DescriptionFromCodeGenerator](https://github.com/sublayerapp/sublayer/blob/main/examples/description\_from\_code\_generator.rb): Generates a description of the code passed in to it.
-* [CodeFromBlueprintGenerator](https://github.com/sublayerapp/sublayer/blob/main/examples/code\_from\_blueprint\_generator.rb): Generates code based on a blueprint, a blueprint description, and a description of the desired code.
+Explore these examples to understand how Generators can be used to interact with AI models:
 
-### Troubleshooting
+- **CodeFromDescriptionGenerator:** Generates code based on a textual description and specified technologies.
+- **DescriptionFromCodeGenerator:** Converts code into a descriptive format, explaining its purpose and functionality.
+- **CodeFromBlueprintGenerator:** Uses a predefined blueprint to generate code fitting a specific set of requirements.
 
-If you encounter issues while working with Generators, please refer to the [Troubleshooting Guide]({% link docs/troubleshooting.md %}) for common error scenarios and solutions.
+## Extending Generators
+
+You can customize Generators to handle different AI models and extend their functionalities:
+
+- **Integrate with Various Models:** Adapt Generators to work with models like GPT-4 or Claude by setting up respective configurations.
+- **Custom Outputs:** Design Generators to produce outputs tailored to your application's needs by defining your own output adapters.

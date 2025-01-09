@@ -2,33 +2,31 @@
 title: Actions
 parent: Core Concepts
 nav_order: 2
+has_children: false
+has_toc: true
 ---
 
 # Actions
 
-Actions are responsible for performing specific operations to get inputs for a Generator or based on the generated output from a Generator.
+Actions serve as the executable units in Sublayer, performing specific tasks either to prepare inputs for Generators or to process Generator outputs. They can effectively transfer data between different stages of a workflow and initiate external processes.
 
-You can think of actions as similar to tools in other agent frameworks. They encapsulate a single action and do not involve complex decision-making and are the executable units that bring the generated inputs and output to life.
+## Writing and Using Actions
 
-## Action Repository
+Actions are designed to be single-purpose and devoid of complex decision-making. They adapt easily to different scenarios, allowing for diverse applications.
 
-Curious about what actions are already written and available to use in your
-project? We maintain a repository of community and AI-created Actions that can
-drop right into your project.
+## Examples of Actions
 
-Check it out here: [Sublayer Actions Repository](https://github.com/sublayerapp/sublayer_actions)
+Explore how Actions can be utilized in various scenarios:
 
-## Try making your own Action:
+- **WriteFileAction:** A straightforward action that saves text to a specified file location.
+- **RunTestCommandAction:** Executes a command-line test suite, capturing output for further analysis.
+- **SpeechToTextAction:** Converts audio data into text using speech recognition services from AI providers.
+- **TextToSpeechAction:** Transforms text data into audio, empowering applications with voice synthesis capabilities.
 
-<iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-actions" width="100%" height="500px"></iframe>
+## Creating Your Own Action
 
-## Examples:
+1. **Define the Task:** Identify a specific task that can be broken down into a reusable action.
+2. **Implement Action Logic:** Write the code to execute your task with external systems or data transformations.
+3. **Integration:** Seamlessly integrate your Actions within the Sublayer ecosystem, leveraging existing infrastructure.
 
-- [WriteFileAction](https://github.com/sublayerapp/tddbot/blob/43297c5da9445bd6c8882d5e3876cff5fc6b2650/lib/tddbot/sublayer/actions/write_file_action.rb): Writes text to a specified file.
-- [RunTestCommandAction](https://github.com/sublayerapp/tddbot/blob/43297c5da9445bd6c8882d5e3876cff5fc6b2650/lib/tddbot/sublayer/actions/run_test_command_action.rb): Runs a test command on the command line returning the output.
-- [SpeechToTextAction](https://github.com/sublayerapp/rails_llm_voice_chat_example/blob/93300f268dde359b58c92a60db4b54d128d9d965/lib/sublayer/actions/speech_to_text_action.rb): Makes an API call to OpenAI's SpeechToText endpoint with audio data and returns text.
-- [TextToSpeechAction](https://github.com/sublayerapp/rails_llm_voice_chat_example/blob/93300f268dde359b58c92a60db4b54d128d9d965/lib/sublayer/actions/text_to_speech_action.rb): Makes an API call to OpenAI's Speech Synthesis endpoint with text and returns audio data.
-
-## Troubleshooting
-
-For common issues and tips on troubleshooting with Actions, refer to our [Troubleshooting Guide]({% link docs/troubleshooting.md %}).
+By following these principles, you can efficiently deploy Actions to automate and streamline workflows, making your projects more responsive and capable.
