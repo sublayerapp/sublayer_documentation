@@ -2,6 +2,7 @@
 title: "Quick Start"
 nav_order: 2
 ---
+
 # Quick Start
 
 Sublayer is made up of three main concepts: Generators, Actions, and Agents. These concepts combine to create powerful AI-powered applications in a simple and easy-to-use interface.
@@ -79,7 +80,50 @@ module Sublayer
 end
 ```
 
-To learn more about everything you can do with a generator, check out the [Generators]({% link docs/concepts/generators.md %}) page.
+#### `llm_output_adapter` Types and Examples
+
+**Single String Adapter**: Outputs a single string.
+
+```ruby
+llm_output_adapter type: :single_string,
+  name: "generated_text",
+  description: "The generated text output"
+```
+
+**List of Strings Adapter**: Outputs an array of strings.
+
+```ruby
+llm_output_adapter type: :list_of_strings,
+  name: "list_of_codes",
+  description: "A list of generated codes"
+```
+
+**Named Strings Adapter**: Outputs a structured hash where each key is a descriptor of the string.
+
+```ruby
+llm_output_adapter type: :named_strings,
+  name: "detailed_code_info",
+  description: "Information about the codes",
+  attributes: [
+    { name: "language", description: "Programming language used" },
+    { name: "complexity", description: "Estimated complexity of the code" }
+  ]
+```
+
+**List of Named Strings Adapter**: Outputs an array of structured hashes.
+
+```ruby
+llm_output_adapter type: :list_of_named_strings,
+  name: "project_files_info",
+  description: "Information about each project file",
+  item_name: "file_info",
+  attributes: [
+    { name: "file_name", description: "Name of the file" },
+    { name: "lines_of_code", description: "Number of LOC in the file" }
+  ]
+```
+
+These examples will aid in structuring outputs effectively based on different generator requirements.
 
 ### Step 3b - Try Generating One!
 
@@ -91,7 +135,7 @@ Try generating your own generator with our interactive code generator below:
 
 Require the Sublayer gem and your generator and call `generate`!
 
-Here's an example of how you might use the \`CodeFromDescriptionGenerator\` above:
+Here's an example of how you might use the `CodeFromDescriptionGenerator` above:
 
 ```ruby
 # ./example.rb
