@@ -17,9 +17,9 @@ Sublayer.configuration.ai_provider = Sublayer::Providers::OpenAI
 Sublayer.configuration.ai_model = "gpt-4o"
 ```
 
-## Anthropic
+## Anthropic (Claude)
 
-Supported Models: Claude 3+ Opus, Claude 3+ Haiku, Claude 3+ Sonnet
+Supported Models: Claude 3.5 Sonnet, Claude 3+ Opus, Claude 3+ Haiku
 
 Set your `ANTHROPIC_API_KEY` environment variable. (Visit [Anthropic](https://anthropic.com/) to get an API key.)
 
@@ -27,10 +27,10 @@ Usage:
 
 ```ruby
 Sublayer.configuration.ai_provider = Sublayer::Providers::Claude
-Sublayer.configuration.ai_model = "claude-3-opus-20240229"
+Sublayer.configuration.ai_model = "claude-3-5-sonnet-20240620"
 ```
 
-## Google
+## Google (Gemini)
 
 Set your `GEMINI_API_KEY` environment variable. (Visit [Google AI Studio](https://ai.google.dev/) to get an API key.)
 
@@ -38,5 +38,7 @@ Usage:
 
 ```ruby
 Sublayer.configuration.ai_provider = Sublayer::Providers::Gemini
-Sublayer.configuration.ai_model = "gemini-1.5-flash-latest"
+Sublayer.configuration.ai_model = "gemini-1.5-pro"
 ```
+
+> **Note**: The Gemini provider utilizes the beta API function calling features, which are experimental and unstable. It is not recommended for production use.

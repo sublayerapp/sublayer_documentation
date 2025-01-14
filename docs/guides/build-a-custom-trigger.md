@@ -35,6 +35,7 @@ bundle install
 <iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-triggers?example=false" width="100%" height="500px"></iframe>
 
 * Paste the result from above into `time_interval.rb` (rename and adjust arguments if needed)
+
 * Write the following code in `hello_world_agent.rb`:
 
   ```ruby
@@ -67,78 +68,56 @@ bundle install
 
 ## Additional Examples of Custom Triggers
 
-### File Change Trigger Example
-Create a custom trigger that activates when a specific file is changed.
-
+### Example with Gemini Provider
 ```ruby
-class FileChangeTrigger < Sublayer::Triggers::Base
-  def initialize(file_path)
-    @file_path = file_path
+# Custom Gemini Trigger Example
+require 'sublayer'
+
+class GeminiTrigger < Sublayer::Triggers::Base
+  def initialize(param)
+    # Configuration for Gemini
   end
 
   def setup(agent)
-    Listen.to(File.dirname(@file_path)) do |modified, added, removed|
-      if modified.include?(@file_path)
-        activate(agent)
-      end
-    end.start
+    agent.run_gemini_task
   end
 end
 
-class MyFileChangeAgent < Sublayer::Agents::Base
-  trigger FileChangeTrigger.new("/path/to/watched_file.txt")
+class MyGeminiAgent < Sublayer::Agents::Base
+  trigger GeminiTrigger.new(some_param)
 
-  goal_condition { false }
-
+  goal_condition {}
   check_status {}
 
   step do
-    puts "File changed!"
+    puts "Running task with Gemini."
   end
 end
 ```
 
-### HTTP Endpoint Trigger Example
-Create a trigger that starts an agent based on an HTTP request.
-
+### Example with Claude Provider
 ```ruby
-require 'sinatra'
-class HTTPEndpointTrigger < Sublayer::Triggers::Base
-  def initialize(endpoint:, port:)
-    @endpoint = endpoint
-    @port = port
+# Custom Claude Trigger Example
+require 'sublayer'
+
+class ClaudeTrigger < Sublayer::Triggers::Base
+  def initialize(param)
+    # Configuration for Claude
   end
 
   def setup(agent)
-    Sinatra::Base.set :port, @port
-    Sinatra::Base.set :bind, '0.0.0.0'
-
-    Sinatra::Base.post(@endpoint) do
-      activate(agent)
-      status 204 # No content
-    end
-
-    Thread.new do
-      begin
-        Sinatra::Base.run!
-      rescue StandardError => e
-        puts "Error starting HTTP endpoint: #{e.message}"
-      end
-    end
+    agent.run_claude_task
   end
 end
 
-class MyHTTPAgent < Sublayer::Agents::Base
-  trigger HTTPEndpointTrigger.new(endpoint: "/trigger", port: 4567)
+class MyClaudeAgent < Sublayer::Agents::Base
+  trigger ClaudeTrigger.new(some_param)
 
-  goal_condition { false }
-
+  goal_condition {}
   check_status {}
 
   step do
-    puts "HTTP endpoint triggered!"
+    puts "Running task with Claude."
   end
 end
 ```
-
-Run this agent and send a GET request to `http://localhost:4567/trigger` to activate it.
