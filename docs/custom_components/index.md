@@ -8,3 +8,14 @@ The Sublayer framework is designed to be extensible and customizable. Beyond jus
 
 * [Output Adapters]({% link docs/custom_components/output-adapters.md %})
 * [Triggers]({% link docs/custom_components/triggers.md %})
+
+## Using Quick Script as a Custom Component
+
+The `quick_script` feature in Sublayer can be integrated as a custom component to rapidly implement automation tasks. It offers a straightforward setup process, enabling users to quickly test ideas or perform specific tasks without developing a complete generator or action.
+
+### Advantages of Quick Script
+- **Ease of Setup**: Launch your automations with minimal configuration.
+- **Flexibility**: Ideal for both prototyping new functionalities and establishing simple, repeatable processes without needing a full custom setup.
+- **Convenience**: Enhance productivity by scripting tasks that don't require extensive logic or data processing, ensuring quick testing and execution.
+
+Explore further in the [Quick Start Guide]({% link docs/quick_start.md %}) to understand how to leverage quick scripts effectively.

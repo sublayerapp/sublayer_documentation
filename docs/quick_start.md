@@ -10,7 +10,7 @@ You can think of a Sublayer Generator as an object that takes some string inputs
 
 In this example, we'll create a simple generator that takes a description of code and the technologies to use and generates code using an LLM like GPT-4.
 
-***
+---
 
 ### Step 1 - Installation
 
@@ -35,6 +35,8 @@ export OPENAI_API_KEY="your-api-key"
 ```
 
 Don't have a key? Visit [OpenAI](https://openai.com/product) to get one.
+
+---
 
 ### Step 3a - Create a Generator
 
@@ -65,11 +67,11 @@ module Sublayer
 
       def prompt
         <<-PROMPT
-          You are an expert programmer in \#{@technologies.join(", ")}.
+          You are an expert programmer in \\#{@technologies.join(", ")}.
 
-          You are tasked with writing code using the following technologies: \#{@technologies.join(", ")}.
+          You are tasked with writing code using the following technologies: \\#{@technologies.join(", ")}.
 
-          The description of the task is \#{@description}
+          The description of the task is \\#{@description}
 
           Take a deep breath and think step by step before you start coding.
         PROMPT
@@ -81,17 +83,20 @@ end
 
 To learn more about everything you can do with a generator, check out the [Generators]({% link docs/concepts/generators.md %}) page.
 
-### Step 3b - Try Generating One!
+---
 
+### Step 3b - Try Generating One!
 Try generating your own generator with our interactive code generator below:
 
 <iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-generators" width="100%" height="500px"></iframe>
+
+---
 
 ### Step 4 - Use Your Generator
 
 Require the Sublayer gem and your generator and call `generate`!
 
-Here's an example of how you might use the \`CodeFromDescriptionGenerator\` above:
+Here's an example of how you might use the `CodeFromDescriptionGenerator` above:
 
 ```ruby
 # ./example.rb
@@ -103,6 +108,37 @@ generator = Sublayer::Generators::CodeFromDescriptionGenerator.new(description: 
 
 puts generator.generate
 ```
+
+---
+
+### Using Quick Script for Simple Automations
+
+After Step 4, you may want to expedite simple automation processes without setting up a full-fledged generator. The 'quick_script' feature provides this capability by allowing users to define, configure, and execute straightforward scripts within the framework.
+
+#### When to Use Quick Script
+
+Quick scripts are ideal for:
+- Automating routine tasks rapidly without the need for complete environment setup.
+- Performing initial tests or prototyping ideas quickly.
+- Situations where you require a lightweight approach instead of a full automation solution.
+
+#### Example of a Quick Script
+
+Let's consider a quick script that prints 'Hello World' using the Sublayer framework:
+
+```ruby
+# hello_world_script.rb
+
+require 'sublayer'
+
+def print_hello_world
+  puts "Hello World"
+end
+
+print_hello_world
+```
+
+This script demonstrates how you can use Sublayer to manage simple automation tasks efficiently. Locate this feature under the [Guides]({% link docs/guides/index.md %}) for more examples and exploration.
 
 ### Next Steps
 
