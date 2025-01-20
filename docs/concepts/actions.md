@@ -10,24 +10,45 @@ Actions are responsible for performing specific operations to get inputs for a G
 
 You can think of actions as similar to tools in other agent frameworks. They encapsulate a single action and do not involve complex decision-making and are the executable units that bring the generated inputs and output to life.
 
-## Action Repository
-
-Curious about what actions are already written and available to use in your
-project? We maintain a repository of community and AI-created Actions that can
-drop right into your project.
-
-Check it out here: [Sublayer Actions Repository](https://github.com/sublayerapp/sublayer_actions)
-
 ## Try making your own Action:
 
 <iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-actions" width="100%" height="500px"></iframe>
 
 ## Examples:
 
-- [WriteFileAction](https://github.com/sublayerapp/tddbot/blob/43297c5da9445bd6c8882d5e3876cff5fc6b2650/lib/tddbot/sublayer/actions/write_file_action.rb): Writes text to a specified file.
-- [RunTestCommandAction](https://github.com/sublayerapp/tddbot/blob/43297c5da9445bd6c8882d5e3876cff5fc6b2650/lib/tddbot/sublayer/actions/run_test_command_action.rb): Runs a test command on the command line returning the output.
-- [SpeechToTextAction](https://github.com/sublayerapp/rails_llm_voice_chat_example/blob/93300f268dde359b58c92a60db4b54d128d9d965/lib/sublayer/actions/speech_to_text_action.rb): Makes an API call to OpenAI's SpeechToText endpoint with audio data and returns text.
-- [TextToSpeechAction](https://github.com/sublayerapp/rails_llm_voice_chat_example/blob/93300f268dde359b58c92a60db4b54d128d9d965/lib/sublayer/actions/text_to_speech_action.rb): Makes an API call to OpenAI's Speech Synthesis endpoint with text and returns audio data.
+* **WriteFileAction**: Writes text to a specified file.
+  
+  ```ruby
+  class WriteFileAction < Sublayer::Actions::Base
+    def initialize(file_contents:, file_path:)
+      @file_contents = file_contents
+      @file_path = file_path
+    end
+
+    def call
+      File.open(@file_path, 'wb') do |file|
+        file.write(@file_contents)
+      end
+    end
+  end
+  ```
+
+* **RunTestCommandAction**: Runs a test command on the command line returning the output.
+  
+  ```ruby
+  class RunTestCommandAction < Sublayer::Actions::Base
+    def initialize(test_command:)
+      @test_command = test_command
+    end
+
+    def call
+      stdout, stderr, status = Open3.capture3(@test_command)
+      [stdout, stderr, status]
+    end
+  end
+  ```
+
+These examples help users understand the practical application of Actions in the Sublayer framework.
 
 ## Troubleshooting
 
