@@ -40,3 +40,24 @@ Usage:
 Sublayer.configuration.ai_provider = Sublayer::Providers::Gemini
 Sublayer.configuration.ai_model = "gemini-1.5-flash-latest"
 ```
+
+## Ruby Version Compatibility
+
+Sublayer is compatible with the following Ruby versions based on the `sublayer.gemspec` specifications:
+
+- Ruby 2.6
+- Ruby 2.7
+- Ruby 3.0
+- Ruby 3.1
+
+### Additional Dependencies and Settings
+
+When using certain Ruby versions, additional gems may be necessary. For example:
+
+- For Ruby versions greater than 3.0, ensure that the `webrick` gem is included when using Jekyll <= 4.2.2. This is indicated in the Gemfile comments as requirements for different Ruby versions.
+
+```ruby
+gem "webrick", "~> 1.7"
+```
+
+Make sure to check the Gemfile and your specific Ruby version requirements to maintain compatibility.
