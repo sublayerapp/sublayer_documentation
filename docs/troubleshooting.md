@@ -22,4 +22,9 @@ This document provides common error scenarios and troubleshooting tips to assist
 **Problem:** Network-related errors when calling external APIs.  
 **Solution:** Ensure that the API service is not down, verify that your system's firewall settings allow outbound traffic on required ports, and check your internet connection.
 
-[Join our community Discord channel](https://discord.gg/TvgHDNEGWa).
+
+### 4. Integration Issues 
+**Problem:** Errors may occur when integrating third-party services or APIs, often due to incorrect configuration or incompatible versions.  
+**Solution:** Double-check your configuration settings, consult the integration documentation, and ensure that your dependencies are compatible and updated.
+
+For further assistance, [Join our community Discord channel](https://discord.gg/TvgHDNEGWa).
