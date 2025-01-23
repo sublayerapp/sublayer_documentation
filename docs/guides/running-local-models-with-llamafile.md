@@ -1,7 +1,9 @@
 ---
 title: Run LLM Models Locally with Llamafile
 parent: Guides
+nav_order: 5
 ---
+
 # Run LLM Models Locally with Llamafile
 
 1. [Install Llamfile](#install-llamafile)
@@ -111,3 +113,29 @@ bundle install
   ```bash
   ruby historical_event_finder.rb
   ```
+
+---
+
+## Migrating Projects
+
+To migrate existing projects to the new version of the library, ensure all dependencies are aligned with the new sublayer version. Here are the detailed steps:
+
+1. **Backup Project**: Start by creating a backup of your existing project directory to prevent any loss of data during migration.
+
+2. **Review Breaking Changes**: Examine the release notes for any breaking changes that might affect your project. These could include modifications in APIs or configuration settings.
+
+3. **Update Gemfile**: Modify the `Gemfile` to point to the new version of the sublayer library. For example:
+    ```ruby
+    gem 'sublayer', '~> 0.2'
+    ```
+4. **Run Bundle Install**: Execute `bundle install` to update your project's dependencies.
+
+5. **Test Locally**: Thoroughly test your application locally to ensure that it runs smoothly without any issues. Look for deprecation warnings or errors that could indicate incompatibilities.
+
+6. **Adjust Code for Compatibility**: If your project uses any deprecated or updated methods, refactor them following the updated documentation and guidelines.
+
+7. **Inspect Specific Model Implementations**: Certain LLM models might have specific compatibility concerns or enhancements. Verify that settings and configurations align with the latest documentation.
+
+8. **Deployment**: Once all tests pass, deploy the updated project to your production environment.
+
+By following these steps, you can ensure a smooth transition to the latest version of the sublayer framework.
