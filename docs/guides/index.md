@@ -9,6 +9,9 @@ We're always looking for more ideas for guides. If you have an idea for a guide,
 
 ## List of Guides
 
+### [Integrating AI Providers with Sublayer]({% link docs/guides/integrating_ai_providers.md %})
+Learn how to set up different AI providers with the Sublayer framework and the specific configurations needed for OpenAI, Claude, and Gemini.
+
 ### [Rails Voice Chat with LLM]({% link docs/guides/voice-chat.md %})
 
 A Ruby on Rails app that uses OpenAI's Speech to Text and Text to Speech APIs to enable voice chatting with an LLM.
