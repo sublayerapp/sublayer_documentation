@@ -9,6 +9,18 @@ We're always looking for more ideas for guides. If you have an idea for a guide,
 
 ## List of Guides
 
+### [Creating a Custom Action]({% link docs/guides/create_custom_action.md %})
+
+Step-by-step instructions on how to develop a custom action in Sublayer.
+
+### [Logging and Debugging]({% link docs/guides/logging_debugging.md %})
+
+A guide to effectively logging and debugging within the Sublayer environment.
+
+### [Writing an Agent from Scratch]({% link docs/guides/write_agent_from_scratch.md %})
+
+A complete tutorial for writing a new agent from the ground up.
+
 ### [Rails Voice Chat with LLM]({% link docs/guides/voice-chat.md %})
 
 A Ruby on Rails app that uses OpenAI's Speech to Text and Text to Speech APIs to enable voice chatting with an LLM.
