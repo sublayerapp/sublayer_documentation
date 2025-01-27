@@ -10,7 +10,9 @@ You can think of a Sublayer Generator as an object that takes some string inputs
 
 In this example, we'll create a simple generator that takes a description of code and the technologies to use and generates code using an LLM like GPT-4.
 
-***
+---
+
+## Installation Steps
 
 ### Step 1 - Installation
 
@@ -26,7 +28,23 @@ Or add it to your Gemfile:
 gem "sublayer"
 ```
 
-### Step 2 - Environment Setup
+### Step 2 - Environment and Dependency Setup
+
+Sublayer requires Ruby version **2.6.0** or newer. We recommend using a version manager like **rbenv** or **rvm** to manage Ruby versions efficiently.
+
+Additionally, Sublayer depends on few system libraries. Ensure these are installed:
+
+- **OpenSSL:** For secure connections
+- **libssl-dev:** Essential for OpenSSL support
+
+To handle dependencies, it's recommended to use **Bundler**:
+
+```shell
+$ gem install bundler
+$ bundle install
+```
+
+### Step 3 - Environment Variable Configuration
 
 Set your OpenAI API key as an environment variable:
 
@@ -34,7 +52,21 @@ Set your OpenAI API key as an environment variable:
 export OPENAI_API_KEY="your-api-key"
 ```
 
-Don't have a key? Visit [OpenAI](https://openai.com/product) to get one.
+Visit [OpenAI](https://openai.com/product) to get an API key.
+
+---
+
+### Troubleshooting
+
+#### Common Issues
+
+- **Gem Version Conflicts:** Ensure all dependencies are installed with compatible versions.
+- **Environment Mismatch:** Double-check the Ruby version and installed libraries.
+- **Network Errors:** Verify API connectivity and firewall settings.
+
+See the full troubleshooting guide [here]({% link docs/troubleshooting.md %}).
+
+---
 
 ### Step 3a - Create a Generator
 
@@ -65,11 +97,11 @@ module Sublayer
 
       def prompt
         <<-PROMPT
-          You are an expert programmer in \#{@technologies.join(", ")}.
+          You are an expert programmer in \\#{@technologies.join(", ")}.
 
-          You are tasked with writing code using the following technologies: \#{@technologies.join(", ")}.
+          You are tasked with writing code using the following technologies: \\#{@technologies.join(", ")}.
 
-          The description of the task is \#{@description}
+          The description of the task is \\#{@description}
 
           Take a deep breath and think step by step before you start coding.
         PROMPT
@@ -91,7 +123,7 @@ Try generating your own generator with our interactive code generator below:
 
 Require the Sublayer gem and your generator and call `generate`!
 
-Here's an example of how you might use the \`CodeFromDescriptionGenerator\` above:
+Here's an example of how you might use the `CodeFromDescriptionGenerator` above:
 
 ```ruby
 # ./example.rb
@@ -109,5 +141,5 @@ puts generator.generate
 Now that you've created your first generator, you can:
 
 * Create some [Actions]({% link docs/concepts/actions.md %}) to do something with whatever you've generated.
-* Browse some [Examples]({% link docs/guides/index.md %}) to learn how to use the Sublayer gem in different types of projects.
+* Browse some [Examples]({% link docs/guides/index.md %}) to learn how you can use the Sublayer gem in different types of projects.
 * [Join our Discord](https://discord.gg/TvgHDNEGWa) to chat with us, for support, and to keep up with the latest updates.
