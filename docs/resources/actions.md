@@ -17,6 +17,7 @@ You can use any of the Actions listed here directly or repurpose them for your
 own custom use cases.
 
 ## List of Actions
+
 View the entire repository of Actions on GitHub: [Sublayer Actions](https://github.com/sublayerapp/sublayer_actions)
 
 ### AI Utilities
@@ -52,3 +53,29 @@ View the entire repository of Actions on GitHub: [Sublayer Actions](https://gith
 [NotionCreateRowAction](https://github.com/sublayerapp/sublayer_actions/blob/bf60fd87242ae7ab13ad544bc2e22a10c4ee2750/Notion/notion_create_row_action.rb): Create a row in a Notion database
 
 [NotionQueryDatabaseAction](https://github.com/sublayerapp/sublayer_actions/blob/bf60fd87242ae7ab13ad544bc2e22a10c4ee2750/Notion/notion_query_database_action.rb): Query a Notion database
+
+---
+
+## Testing Your Actions and Generators
+
+Testing is a crucial part of development, ensuring that your custom Actions and Generators operate reliably and efficiently. This section outlines the steps to write effective tests and shares best practices for testing within the Sublayer framework.
+
+### Setting Up Tests
+
+1. **Choose a Testing Framework:** We recommend using RSpec to write tests for your custom code within the Sublayer framework due to its readability and widespread use in the Ruby community.
+
+2. **Create Test Files:** Organize your tests in a `spec` directory at the root of your project. Match the directory structure of your `lib` folder to make it easier to navigate between your implementation and its tests.
+
+3. **Writing Test Cases:** Ensure each method you implement has an accompanying test. For Generators, focus on the transformation of input data to expected output, while Actions should be tested for the successful execution of their intended effects (e.g., file creation, API calls).
+
+### Best Practices
+
+- **Test Isolation:** Write independent tests to avoid cascades of failures from a single issue.
+
+- **Mocks and Stubs:** Use these to simulate and control the behavior of complex objects or external systems such as API calls.
+
+- **Continuous Integration:** Integrate your tests into a CI pipeline to automatically run them on each commit. This keeps your codebase healthy.
+
+- **Documentation:** Document your tests clearly to improve readability and maintainability.
+
+By following these guidelines, you'll ensure that your Sublayer components are maintainable and reliable.
