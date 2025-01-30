@@ -40,3 +40,26 @@ Usage:
 Sublayer.configuration.ai_provider = Sublayer::Providers::Gemini
 Sublayer.configuration.ai_model = "gemini-1.5-flash-latest"
 ```
+
+### New LL Models: Claude & Gemini
+
+We have introduced new support for Claude and Gemini models that require additional configurations:
+
+#### Claude
+- **Requirements:** Ensure your environment has the correct `ANTHROPIC_API_KEY`.
+- **Recommended Models:** Claude 3+ Opus, Claude 3+ Haiku, Claude 3+ Sonnet.
+- **Configuration:** 
+  ```ruby
+  Sublayer.configuration.ai_provider = Sublayer::Providers::Claude
+  Sublayer.configuration.ai_model = "claude-3-opus-20240229"
+  ```
+
+#### Gemini
+- **Requirements:** This model is currently labeled as experimental and is potentially unstable, use it with caution.
+- **API Key:** You must have a valid `GEMINI_API_KEY`.
+- **Recommended Model:** Gemini 1.5 Pro.
+- **Configuration:** 
+  ```ruby
+  Sublayer.configuration.ai_provider = Sublayer::Providers::Gemini
+  Sublayer.configuration.ai_model = "gemini-1.5-pro"
+  ```
