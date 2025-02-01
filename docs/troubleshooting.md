@@ -22,4 +22,8 @@ This document provides common error scenarios and troubleshooting tips to assist
 **Problem:** Network-related errors when calling external APIs.  
 **Solution:** Ensure that the API service is not down, verify that your system's firewall settings allow outbound traffic on required ports, and check your internet connection.
 
+### 4. AI Model Configuration Issues
+**Problem:** Unexpected behavior or errors when configuring AI models.  
+**Solution:** Double-check the specified model name in the configuration code. Refer to the documentation for each provider to ensure compatibility and current support. Ensure that the API key used matches the provider of the configured model.
+
 [Join our community Discord channel](https://discord.gg/TvgHDNEGWa).
