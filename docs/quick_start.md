@@ -2,6 +2,7 @@
 title: "Quick Start"
 nav_order: 2
 ---
+
 # Quick Start
 
 Sublayer is made up of three main concepts: Generators, Actions, and Agents. These concepts combine to create powerful AI-powered applications in a simple and easy-to-use interface.
@@ -10,7 +11,7 @@ You can think of a Sublayer Generator as an object that takes some string inputs
 
 In this example, we'll create a simple generator that takes a description of code and the technologies to use and generates code using an LLM like GPT-4.
 
-***
+---
 
 ### Step 1 - Installation
 
@@ -23,7 +24,7 @@ $ gem install sublayer
 Or add it to your Gemfile:
 
 ```ruby
-gem "sublayer"
+gem "sublayer", "~> 0.2"
 ```
 
 ### Step 2 - Environment Setup
@@ -65,11 +66,11 @@ module Sublayer
 
       def prompt
         <<-PROMPT
-          You are an expert programmer in \#{@technologies.join(", ")}.
+          You are an expert programmer in \\#{@technologies.join(", ")}.
 
-          You are tasked with writing code using the following technologies: \#{@technologies.join(", ")}.
+          You are tasked with writing code using the following technologies: \\#{@technologies.join(", ")}.
 
-          The description of the task is \#{@description}
+          The description of the task is \\#{@description}
 
           Take a deep breath and think step by step before you start coding.
         PROMPT
@@ -91,7 +92,7 @@ Try generating your own generator with our interactive code generator below:
 
 Require the Sublayer gem and your generator and call `generate`!
 
-Here's an example of how you might use the \`CodeFromDescriptionGenerator\` above:
+Here's an example of how you might use the `CodeFromDescriptionGenerator` above:
 
 ```ruby
 # ./example.rb
