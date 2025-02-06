@@ -4,7 +4,7 @@ nav_order: 6
 ---
 # Advanced Config
 
-After installing Sublayer, you can choose between any of the available LLM providers we support.
+After installing Sublayer, you can choose from any of the available LLM providers we support.
 
 ## OpenAI (Default)
 
@@ -27,7 +27,7 @@ Usage:
 
 ```ruby
 Sublayer.configuration.ai_provider = Sublayer::Providers::Claude
-Sublayer.configuration.ai_model = "claude-3-opus-20240229"
+Sublayer.configuration.ai_model = "claude-3-haiku"
 ```
 
 ## Google
@@ -38,5 +38,5 @@ Usage:
 
 ```ruby
 Sublayer.configuration.ai_provider = Sublayer::Providers::Gemini
-Sublayer.configuration.ai_model = "gemini-1.5-flash-latest"
+Sublayer.configuration.ai_model = "gemini-1.5-flash"
 ```
