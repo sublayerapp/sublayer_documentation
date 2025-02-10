@@ -31,3 +31,7 @@ A guide on the recommended way to set up and run LLMs locally to interface with 
 * Learn how to set up [llamafile](https://github.com/Mozilla-Ocho/llamafile)
 * Learn which models we recommend for local use
 * Learn how to point Sublayer to your locally running server
+
+### [Practical Examples Using Sublayer]({% link docs/guides/practical-examples.md %})
+
+Discover practical use-cases demonstrating end-to-end processes with Sublayer, including examples like building an AI answering machine, integrating with APIs, and more.
