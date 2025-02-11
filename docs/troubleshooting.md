@@ -6,7 +6,7 @@ nav_order: 7
 
 # Troubleshooting
 
-This document provides common error scenarios and troubleshooting tips to assist developers in resolving issues and understanding potential pitfalls with solutions.
+This document provides common error scenarios and troubleshooting tips to assist developers in resolving issues and understanding potential pitfalls with solutions. For more detailed guidance, see the comprehensive [Troubleshooting Guide]({% link docs/guides/troubleshooting-guide.md %}).
 
 ## Common Error Scenarios
 
@@ -22,4 +22,10 @@ This document provides common error scenarios and troubleshooting tips to assist
 **Problem:** Network-related errors when calling external APIs.  
 **Solution:** Ensure that the API service is not down, verify that your system's firewall settings allow outbound traffic on required ports, and check your internet connection.
 
-[Join our community Discord channel](https://discord.gg/TvgHDNEGWa).
+### 4. Test Failures
+**Problem:** Repeated test failures during development or setup.  
+**Solution:** Diagnose issues by using the tests directory as a guide to identify what sections of the codebase fail and start debugging based on logs and specifications.
+
+### 5. Setup Issues
+**Problem:** Initial setup fails or behaves unexpectedly.  
+**Solution:** Review setup guides for common issues and ensure your environment aligns with the documented requirements.

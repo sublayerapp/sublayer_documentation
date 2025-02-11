@@ -31,3 +31,7 @@ A guide on the recommended way to set up and run LLMs locally to interface with 
 * Learn how to set up [llamafile](https://github.com/Mozilla-Ocho/llamafile)
 * Learn which models we recommend for local use
 * Learn how to point Sublayer to your locally running server
+
+### [Troubleshooting Guide]({% link docs/guides/troubleshooting-guide.md %})
+
+A detailed guide offering solutions and tips for common setup issues, API connection troubles, and configuration errors.
