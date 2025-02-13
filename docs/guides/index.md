@@ -31,3 +31,11 @@ A guide on the recommended way to set up and run LLMs locally to interface with 
 * Learn how to set up [llamafile](https://github.com/Mozilla-Ocho/llamafile)
 * Learn which models we recommend for local use
 * Learn how to point Sublayer to your locally running server
+
+### Advanced Use of Agents and Actions
+
+Explore more advanced use-cases for Agents and Actions within the Sublayer framework. Understand how these components can automate complex tasks across different domains.
+
+* **In-depth Agent Lifecycles:** Explore complex scenarios showcasing how Agents can manage and monitor long-term tasks.
+* **Automation Across Platforms:** Learn how to integrate Sublayer Agents with external platforms and tools to automate workflows efficiently.
+* **Action Enhancements:** Discover how to create advanced Actions that interact with various APIs and services, enhancing their capabilities.
