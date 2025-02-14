@@ -10,6 +10,9 @@ You can think of a Sublayer Generator as an object that takes some string inputs
 
 In this example, we'll create a simple generator that takes a description of code and the technologies to use and generates code using an LLM like GPT-4.
 
+## CLI Tool Overview
+The Sublayer CLI tool is a powerful utility designed to simplify the initialization and management of Sublayer components, such as actions, agents, and projects. With just a few commands, the CLI tool can help you scaffold new projects, generate component templates, and manage your AI-driven workflows seamlessly. This quick-start guide emphasizes the efficiency of using the CLI tool in setting up your development environment quickly and effectively.
+
 ***
 
 ### Step 1 - Installation
