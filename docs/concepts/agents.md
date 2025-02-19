@@ -22,6 +22,57 @@ The DSL consists of four primary methods:
 
 These methods work in concert to create a flexible, event-driven system for automating complex workflows and responding to changes in various environments.
 
+## Creating and Managing Agents
+
+### Creating an Agent
+
+To create an agent, you start by defining its primary components:
+
+1. **Define the Trigger**: Determine what events will initiate the agent's processes. For example, you might want an agent to activate when a specific file is edited or when a certain time of day is reached.
+
+   Example:
+
+   ```ruby
+   trigger_on_files_changed { ['lib/my_class.rb', 'spec/my_class_spec.rb'] }
+   ```
+
+2. **Set the Goal Condition**: Establish the condition that signifies the agent's task is complete. This could be as simple as verifying all tests pass.
+
+   Example:
+
+   ```ruby
+   goal_condition { @tests_passing }
+   ```
+
+3. **Check Status**: Implement a method to check the current status or progress towards the goal. This might involve running a series of tests or queries.
+
+   Example:
+
+   ```ruby
+   check_status do
+     stdout, stderr, status = Open3.capture3("rspec")
+     @tests_passing = (status.exitstatus == 0)
+   end
+   ```
+
+4. **Define the Step Logic**: Create the steps the agent will take to progress towards its goal, such as modifying code or performing calculations.
+
+   Example:
+
+   ```ruby
+   step do
+     # Logic to modify code to address test failures
+   end
+   ```
+
+### Managing Agents
+
+Managing agents involves monitoring their activity and making adjustments as necessary to ensure they continue to function effectively.
+
+- **Logging and Monitoring**: Ensure agents have adequate logging to trace their activities and diagnose issues.
+- **Scaling**: Consider how agents can be scaled depending on the workload, such as distributing across multiple systems.
+- **Configuration**: Make sure agents are configurable to suit various environments and conditions without code changes.
+
 ## Try generating your own agent:
 
 <iframe src="https://blueprints.sublayer.com/interactive-code-generator/sublayer-agents" width="100%" height="500px"></iframe>
