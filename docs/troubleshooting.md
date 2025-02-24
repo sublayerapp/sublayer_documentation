@@ -22,4 +22,18 @@ This document provides common error scenarios and troubleshooting tips to assist
 **Problem:** Network-related errors when calling external APIs.  
 **Solution:** Ensure that the API service is not down, verify that your system's firewall settings allow outbound traffic on required ports, and check your internet connection.
 
+## Provider-specific Issues
+
+### OpenAI
+**Problem:** Exceeding token limits or malformed API responses.  
+**Solution:** Ensure your requests adhere to the token limits specified by OpenAI. If malformed responses are encountered, consider rephrasing prompts or breaking down requests into smaller tasks.
+
+### Gemini
+**Problem:** Handling experimental or unstable API features leading to unexpected errors.
+**Solution:** Keep up-to-date with Gemini's API changes. Handle exceptions specifically for known API quirks, and consider using more stable features.
+
+### Anthropic (Claude)
+**Problem:** Token limit excess or function calling issues.  
+**Solution:** Use smaller data chunks or more concise prompts to avoid breaching token limits. For function-call-related errors, ensure your request format strictly adheres to API specifications.
+
 [Join our community Discord channel](https://discord.gg/TvgHDNEGWa).
