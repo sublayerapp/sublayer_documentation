@@ -6,37 +6,47 @@ nav_order: 6
 
 After installing Sublayer, you can choose between any of the available LLM providers we support.
 
-## OpenAI (Default)
+## AI Provider Configuration
 
-Set your `OPENAI_API_KEY` environment variable. (Visit [OpenAI](https://openai.com/product) to get an API key.)
+You can configure the AI provider using different providers and models such as Claude, Gemini, or OpenAI. It involves setting the model and API key as environment variables.
 
-Usage:
+### OpenAI (Default)
 
-```ruby
-Sublayer.configuration.ai_provider = Sublayer::Providers::OpenAI
-Sublayer.configuration.ai_model = "gpt-4o"
-```
+1. Set your `OPENAI_API_KEY` environment variable. (Visit [OpenAI](https://openai.com/product) to get an API key.)
+    ```bash
+    export OPENAI_API_KEY="your-openai-api-key"
+    ```
 
-## Anthropic
+2. Usage:
+    ```ruby
+    Sublayer.configuration.ai_provider = Sublayer::Providers::OpenAI
+    Sublayer.configuration.ai_model = "gpt-4o"
+    ```
 
-Supported Models: Claude 3+ Opus, Claude 3+ Haiku, Claude 3+ Sonnet
+### Anthropic
 
-Set your `ANTHROPIC_API_KEY` environment variable. (Visit [Anthropic](https://anthropic.com/) to get an API key.)
+1. Set your `ANTHROPIC_API_KEY` environment variable. (Visit [Anthropic](https://anthropic.com/) to get an API key.)
+    ```bash
+    export ANTHROPIC_API_KEY="your-anthropic-api-key"
+    ```
 
-Usage:
+2. Usage:
+    ```ruby
+    Sublayer.configuration.ai_provider = Sublayer::Providers::Claude
+    Sublayer.configuration.ai_model = "claude-3-opus-20240229"
+    ```
 
-```ruby
-Sublayer.configuration.ai_provider = Sublayer::Providers::Claude
-Sublayer.configuration.ai_model = "claude-3-opus-20240229"
-```
+### Google
 
-## Google
+1. Set your `GEMINI_API_KEY` environment variable. (Visit [Google AI Studio](https://ai.google.dev/) to get an API key.)
+    ```bash
+    export GEMINI_API_KEY="your-gemini-api-key"
+    ```
 
-Set your `GEMINI_API_KEY` environment variable. (Visit [Google AI Studio](https://ai.google.dev/) to get an API key.)
+2. Usage:
+    ```ruby
+    Sublayer.configuration.ai_provider = Sublayer::Providers::Gemini
+    Sublayer.configuration.ai_model = "gemini-1.5-flash-latest"
+    ```
 
-Usage:
-
-```ruby
-Sublayer.configuration.ai_provider = Sublayer::Providers::Gemini
-Sublayer.configuration.ai_model = "gemini-1.5-flash-latest"
-```
+By following the above steps, you can seamlessly switch between different AI providers and models as needed.
