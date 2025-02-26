@@ -29,6 +29,38 @@ Check it out here: [Sublayer Actions Repository](https://github.com/sublayerapp/
 - [SpeechToTextAction](https://github.com/sublayerapp/rails_llm_voice_chat_example/blob/93300f268dde359b58c92a60db4b54d128d9d965/lib/sublayer/actions/speech_to_text_action.rb): Makes an API call to OpenAI's SpeechToText endpoint with audio data and returns text.
 - [TextToSpeechAction](https://github.com/sublayerapp/rails_llm_voice_chat_example/blob/93300f268dde359b58c92a60db4b54d128d9d965/lib/sublayer/actions/text_to_speech_action.rb): Makes an API call to OpenAI's Speech Synthesis endpoint with text and returns audio data.
 
+### Detailed Code Example
+
+To illustrate how to implement and use an Action, let's take a closer look at the `TextToSpeechAction`. This action is responsible for transforming text data into speech audio using OpenAI's API.
+
+```ruby
+class TextToSpeechAction < Sublayer::Actions::Base
+  def initialize(text)
+    @text = text
+  end
+
+  def call
+    speech = HTTParty.post(
+      "https://api.openai.com/v1/audio/speech",
+      headers: {
+        "Authorization" => "Bearer \\#{ENV["OPENAI_API_KEY"]}",
+        "Content-Type" => "application/json",
+      },
+      body: {
+        "model": "tts-1",
+        "input": @text,
+        "voice": "nova",
+        "response_format": "wav"
+      }.to_json
+    )
+
+    speech
+  end
+end
+```
+
+In this example, the `TextToSpeechAction` is initialized with a text input. The `call` method makes a POST request to OpenAI's API to transform the text into speech. This Action encapsulates all necessary steps to complete this operation seamlessly.
+
 ## Troubleshooting
 
 For common issues and tips on troubleshooting with Actions, refer to our [Troubleshooting Guide]({% link docs/troubleshooting.md %}).
