@@ -33,6 +33,10 @@ View the entire repository of Actions on GitHub: [Sublayer Actions](https://gith
 
 [AsanaGetTaskNameAction](https://github.com/sublayerapp/sublayer_actions/blob/bf60fd87242ae7ab13ad544bc2e22a10c4ee2750/Asana/asana_get_task_name_action.rb): Get the name of a particular Asana task
 
+### AzureDevops
+
+[AzureDevopsCreateEpicAction](https://github.com/sublayerapp/sublayer_actions/blob/main/AzureDevops/azure_devops_create_epic_action.rb): A sublayer action to create an epic in azure devops using their REST api and HTTParty
+
 ### FileSystem
 
 [WriteFileAction](https://github.com/sublayerapp/sublayer_actions/blob/main/FileSystem/write_file_action.rb): A sublayer action to write file_contents to a specific file_path
