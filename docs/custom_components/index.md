@@ -8,3 +8,6 @@ The Sublayer framework is designed to be extensible and customizable. Beyond jus
 
 * [Output Adapters]({% link docs/custom_components/output-adapters.md %})
 * [Triggers]({% link docs/custom_components/triggers.md %})
+* [Custom Provider]({% link docs/custom_components/custom_provider.md %})
+* [Custom Output Adapter]({% link docs/custom_components/custom_output_adapter.md %})
+* [Custom Trigger]({% link docs/custom_components/custom_trigger.md %})
