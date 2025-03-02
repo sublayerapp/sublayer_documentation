@@ -30,6 +30,10 @@ These methods work in concert to create a flexible, event-driven system for auto
 
 - [RSpecAgent](https://github.com/sublayerapp/sublayer/blob/main/spec/agents/examples/rspec_agent.rb)
   - A Sublayer agent that is triggered any time a test file or an implementation file changes with a goal of making the tests pass. When one of the files changes, the status is checked by running the tests. If the tests are failing, the agent sends the tests and the implementation to an LLM (using a [Sublayer::Generator](/concepts/generators)) to generate a new implementation that should pass the tests.
+- **DataProcessingAgent**
+  - A custom agent for processing data sets when a new file is added to a specific directory. It triggers when a file is uploaded, processes the data to identify anomalies, and updates a database with the results. This agent is invaluable for real-time data analysis tasks.
+- **SystemMonitoringAgent**
+  - Designed to monitor system health metrics in real-time. It triggers based on system alerts and executes a series of diagnostic steps. Its goal is to identify issues like high CPU usage or memory leaks and resolve them automatically or escalate to human operators if needed.
 
 ## Troubleshooting
 
