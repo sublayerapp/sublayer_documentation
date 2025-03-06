@@ -2,6 +2,7 @@
 title: "Quick Start"
 nav_order: 2
 ---
+
 # Quick Start
 
 Sublayer is made up of three main concepts: Generators, Actions, and Agents. These concepts combine to create powerful AI-powered applications in a simple and easy-to-use interface.
@@ -35,6 +36,18 @@ export OPENAI_API_KEY="your-api-key"
 ```
 
 Don't have a key? Visit [OpenAI](https://openai.com/product) to get one.
+
+#### Common Pitfalls and Solutions
+
+- **API Key Issues:**
+  - Ensure your `OPENAI_API_KEY` is correctly set in the environment.
+  - Double-check for any leading or trailing spaces in the environment variable.
+
+- **Dependency Management:**
+  - Run `bundle install` to ensure all dependencies are properly installed.
+  - If you encounter a bundler error, try running `bundle update` to refresh and resolve any dependency conflicts.
+
+Refer to the ['Advanced Config']({% link docs/advanced_config.md %}) for additional configuration tips.
 
 ### Step 3a - Create a Generator
 
