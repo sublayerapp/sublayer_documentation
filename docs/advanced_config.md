@@ -17,6 +17,8 @@ Sublayer.configuration.ai_provider = Sublayer::Providers::OpenAI
 Sublayer.configuration.ai_model = "gpt-4o"
 ```
 
+The default AI model used is `gpt-4o`. Ensure you have correctly set the `OPENAI_API_KEY` within your environment variables to allow the application to authenticate and make requests to OpenAI's services. You can configure the AI model by setting the `Sublayer.configuration.ai_model` to another model supported by OpenAI, should you choose to.
+
 ## Anthropic
 
 Supported Models: Claude 3+ Opus, Claude 3+ Haiku, Claude 3+ Sonnet
