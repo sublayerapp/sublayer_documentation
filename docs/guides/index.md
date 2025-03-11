@@ -1,6 +1,7 @@
 ---
 title: Guides
 nav_order: 5
+has_children: true
 ---
 
 # Guides
@@ -8,6 +9,9 @@ nav_order: 5
 We're always looking for more ideas for guides. If you have an idea for a guide, let us know by sending us a message in [our Discord](https://discord.gg/pWZ689GW7U).
 
 ## List of Guides
+
+### [CLI Reference]({% link docs/guides/cli_reference.md %})
+An exhaustive reference for Sublayer's CLI commands, including their descriptions, usage examples, and expected outputs.
 
 ### [Rails Voice Chat with LLM]({% link docs/guides/voice-chat.md %})
 
