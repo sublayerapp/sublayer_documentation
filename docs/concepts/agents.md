@@ -3,6 +3,7 @@ title: Agents
 parent: Core Concepts
 nav_order: 3
 ---
+
 # Agents
 
 Think of Sublayer Agents as your personal assistants, always ready to help with repetitive tasks or respond to changes in your environment. These agents can assist with a wide range of activities, from coding to data processing to system monitoring and beyond. You create an agent by defining four key aspects: what should wake it up (triggers), what it's trying to achieve (goal condition), how it checks its progress (check status), and what it actually does (step).
@@ -21,6 +22,28 @@ The DSL consists of four primary methods:
 - `step`: Implements the actual logic to be executed
 
 These methods work in concert to create a flexible, event-driven system for automating complex workflows and responding to changes in various environments.
+
+## Best Practices
+
+Here are some best practices to consider when working with Sublayer Agents:
+
+- **Modularization**: Break down your agents into smaller, reusable components, making them easier to maintain and understand.
+- **Error Handling**: Implement comprehensive error handling to manage potential issues gracefully.
+- **Logging**: Use logging to track the behavior and performance of your agents, aiding in debugging and analysis.
+
+## Common Pitfalls
+
+Be aware of these common pitfalls when developing agents:
+
+- **Overcomplicating Logic**: Keep the logic simple and focused on specific tasks to enhance readability and maintainability.
+- **Inefficient Triggers**: Ensure triggers are designed efficiently to prevent unnecessary execution and resource consumption.
+
+## Advanced Agent Features
+
+Explore these advanced features to enhance your agent capabilities:
+
+- **Custom Triggers**: Create custom triggers to extend the functionality and adaptability of your agents.
+- **Integration with External API**: Utilize external APIs to expand the operational scope and utility of your agents.
 
 ## Try generating your own agent:
 
