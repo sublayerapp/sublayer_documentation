@@ -9,6 +9,9 @@ We're always looking for more ideas for guides. If you have an idea for a guide,
 
 ## List of Guides
 
+### [Configuration Management]({% link docs/guides/configuration_management.md %})
+Learn about handling configurations in different environments, setting defaults, and runtime changes.
+
 ### [Rails Voice Chat with LLM]({% link docs/guides/voice-chat.md %})
 
 A Ruby on Rails app that uses OpenAI's Speech to Text and Text to Speech APIs to enable voice chatting with an LLM.
