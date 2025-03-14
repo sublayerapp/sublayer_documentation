@@ -28,13 +28,31 @@ gem "sublayer"
 
 ### Step 2 - Environment Setup
 
-Set your OpenAI API key as an environment variable:
+Ensure you have the proper API keys set up as environment variables for full functionality:
 
-```shell
-export OPENAI_API_KEY="your-api-key"
-```
+- **OpenAI**: Set your API key as an environment variable:
 
-Don't have a key? Visit [OpenAI](https://openai.com/product) to get one.
+  ```shell
+  export OPENAI_API_KEY="your-openai-api-key"
+  ```
+
+  Visit [OpenAI](https://openai.com/product) to obtain an API key.
+
+- **Gemini**: Set your API key for Gemini:
+
+  ```shell
+  export GEMINI_API_KEY="your-gemini-api-key"
+  ```
+
+  Visit [Google AI Studio](https://ai.google.dev/) to get an API key.
+
+- **Claude**: Set your API key for Claude:
+
+  ```shell
+  export ANTHROPIC_API_KEY="your-claude-api-key"
+  ```
+
+  Visit [Anthropic](https://anthropic.com/) to get an API key.
 
 ### Step 3a - Create a Generator
 
@@ -65,11 +83,11 @@ module Sublayer
 
       def prompt
         <<-PROMPT
-          You are an expert programmer in \#{@technologies.join(", ")}.
+          You are an expert programmer in \\#{@technologies.join(", ")}.
 
-          You are tasked with writing code using the following technologies: \#{@technologies.join(", ")}.
+          You are tasked with writing code using the following technologies: \\#{@technologies.join(", ")}.
 
-          The description of the task is \#{@description}
+          The description of the task is \\#{@description}
 
           Take a deep breath and think step by step before you start coding.
         PROMPT
