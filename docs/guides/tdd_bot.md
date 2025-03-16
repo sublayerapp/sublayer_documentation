@@ -2,6 +2,7 @@
 title: Build an LLM TDD Bot with Sublayer
 parent: Guides
 ---
+
 # Build an LLM TDD Bot with Sublayer
 
 ## Introduction
@@ -38,23 +39,6 @@ module Tddbot
     end
   end
 end
-```
-
-We've also included the folders and libraries needed in [/lib/tddbot.rb](https://github.com/sublayerapp/tddbot/blob/43297c5da9445bd6c8882d5e3876cff5fc6b2650/lib/tddbot.rb)
-
-Most importantly in lines 3 and 4:
-```ruby
-require 'sublayer'
-require 'open3'
-```
-
-and lines 16-20:
-```ruby
- ['generators', 'tasks', 'actions'].each do |subfolder|
-    Dir[File.join(ROOT, 'lib', 'tddbot', 'sublayer', subfolder, '*.rb')].each do |file|
-      require file
-    end
-  end
 ```
 
 ## Step 1 - MakeRspecTestsPassTask
@@ -197,7 +181,51 @@ module Sublayer
 end
 ```
 
-## Step 4 - Run the bot!
+## Step 4 - Practical Examples for MakeRspecTestsPassTask
+
+### Example 1: Handling Multiple File Paths
+
+In real-world scenarios, you might find that a single task needs to handle multiple implementation files at once, especially in projects with complex structures. For instance:
+
+```ruby
+Sublayer::Tasks::MakeRspecTestsPassTask.new(
+  implementation_file_paths: ['lib/my_class.rb', 'lib/my_helper.rb'],
+  test_command: 'rspec spec/my_class_spec.rb'
+).run
+```
+
+In this case, the task is initialized with an array of file paths instead of a single path.
+
+### Example 2: Managing Complex Test Setups
+
+Sometimes tests require certain setup steps such as loading environment variables or initializing external resources. Make sure that your `test_command` can handle these setups:
+
+```shell
+SOME_VAR=true OTHER_VAR=123 rspec spec/my_class_spec.rb
+```
+
+This ensures that every time the command runs within the task, it has all the necessary context and configurations to execute all the parts properly.
+
+### Example 3: Continuous Integration Context
+
+Imagine integrating this task within a CI/CD pipeline:
+
+```yaml
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run MakeTestsPass
+        run: |
+          bundle install
+          ruby -I lib -e "require 'tddbot/commands/make_tests_pass'; Tddbot::Commands::MakeTestsPass.new.call(['lib/my_class.rb', 'rspec spec/my_class_spec.rb'], nil)"
+
+```
+
+Integrating the task into a CI/CD pipeline like this automates the process, ensuring that the code under test is continuously adjusted until the tests pass. This integration can be a game-changer for development teams working with Test-Driven Development (TDD). 
+
+## Step 5 - Run the bot!
 
 After all this you should be where we are in the video when we run the bot.
 
