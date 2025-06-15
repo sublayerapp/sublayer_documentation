@@ -65,11 +65,11 @@ module Sublayer
 
       def prompt
         <<-PROMPT
-          You are an expert programmer in \#{@technologies.join(", ")}.
+          You are an expert programmer in #{@technologies.join(", ")}.
 
-          You are tasked with writing code using the following technologies: \#{@technologies.join(", ")}.
+          You are tasked with writing code using the following technologies: #{@technologies.join(", ")}.
 
-          The description of the task is \#{@description}
+          The description of the task is #{@description}
 
           Take a deep breath and think step by step before you start coding.
         PROMPT
