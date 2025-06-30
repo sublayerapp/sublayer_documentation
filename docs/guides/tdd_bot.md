@@ -32,8 +32,8 @@ module Tddbot
 
       def self.help
         "Have an LLM continually modify the implementation file until the test command passes successfully.\n
-        Usage: {{command:#{Tddbot::TOOL_NAME} make_tests_pass <implementation_file_path> "<test_command>"}}\n
-        Example: {{command:#{Tddbot::TOOL_NAME} make_tests_pass lib/my_class.rb "rspec spec/my_class_spec.rb"}}"
+        Usage: {% raw %}{{command:#{Tddbot::TOOL_NAME} make_tests_pass <implementation_file_path> "<test_command>"}}{% endraw %}\n
+        Example: {% raw %}{{command:#{Tddbot::TOOL_NAME} make_tests_pass lib/my_class.rb "rspec spec/my_class_spec.rb"}}{% endraw %}"
       end
     end
   end
